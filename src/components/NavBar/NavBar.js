@@ -7,6 +7,7 @@ const NavBar = () => {
     <nav>
       <img src={logo} alt="Crown of instruments"/>
       <h1>Troubadour</h1>
+      <p>| | |</p>
     </nav>
   )
 }
