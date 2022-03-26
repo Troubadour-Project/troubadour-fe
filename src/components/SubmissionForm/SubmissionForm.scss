@@ -7,7 +7,7 @@ form {
 }
 
 .form-container {
-  margin-top: 8vh;
+  margin-top: 5vh;
 }
 
 form {
@@ -72,4 +72,8 @@ input[type=file]::file-selector-button {
   &:hover {
     cursor: pointer;
   }
+}
+
+.profile-picture-preview {
+  max-width: 150px;
 }

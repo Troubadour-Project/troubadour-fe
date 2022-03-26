@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import profilePicLogo from '../../assets/profile-pic-logo.png'
 import './SubmissionForm.scss'
 
 const SubmissionForm = () => {
@@ -25,14 +26,17 @@ const SubmissionForm = () => {
     setVideo(event.target.value)
   }
   const handleProfileImage = event => {
-    setProfileImage(event.target.value)
+    console.log(URL.createObjectURL(event.target.files[0]))
+    setProfileImage(URL.createObjectURL(event.target.files[0]))
   }
-
+  const profilePicturePreview = profileImage ? <img src={profileImage} alt="Profile picture logo" className="profile-picture-preview"/> 
+                                              : <img src={profilePicLogo} alt="Profile picture logo" className="profile-picture-preview"/>
   return (
     <section className="form-container">
       <form>
         <h2>Musician Information</h2>
         <br />
+        {profilePicturePreview}
         <label htmlFor="name">Name:</label>
         <input
           id="name"
@@ -78,7 +82,7 @@ const SubmissionForm = () => {
           id="video"
           type="file"
           name="video"
-          value={video}
+          // value={video}
           accept="video/*"
           onChange={event => handleVideo(event)}
           required
@@ -89,7 +93,7 @@ const SubmissionForm = () => {
           id="profile-image"
           type="file"
           name="profile-image"
-          value={profileImage}
+          // value={profileImage}
           accept="image/*"
           onChange={event => handleProfileImage(event)}
           required
