@@ -4,10 +4,12 @@
 }
 
 .submission-details {
-  background-color: blue;
+  display: flex;
+  justify-content: center;
   width: 40vw;
   height: 60vh;
   margin-top: 80px;
+  border: 1px solid black;
 }
 
 .submission-video {
@@ -18,6 +20,17 @@
 }
 
 .details-picture {
-  width:140px;
-  height:140px;
+  width:160px;
+  height:160px;
+  margin-top: 15px;
+}
+
+.details-card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.submission-detail {
+  padding: 30px;
+  margin-left: 50px;
 }

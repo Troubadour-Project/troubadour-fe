@@ -14,10 +14,14 @@ const MusicianCard = ({submissionDetails}) => {
 
   return(
   <div className="submission-details">
-    <img className="details-picture" src={submissionDetails.profile} />
-    <p>{submissionDetails.name}</p>
-    <p>{submissionDetails.genre}</p>
-    <p>{submissionDetails.song_title}</p>
+    <div className="details-picture-container">
+      <img className="details-picture" src={submissionDetails.profile} />
+    </div>
+    <div className="details-card-container">
+      <p className="submission-detail">{submissionDetails.name}</p>
+      <p className="submission-detail">{submissionDetails.genre}</p>
+      <p className="submission-detail">{submissionDetails.song_title}</p>
+    </div>
   </div>
   )
 }
