@@ -3,9 +3,15 @@
 .admin-page {
   height: 100%;
   width: 100%;
-  @include flex(column, center, flex-start);
+  @include flex(column, flex-start, center);
 }
 
-.admin-title {
+.profile-img {
+  width: 100px;
+  height: auto;
+}
 
+.card-container {
+  display: grid;
+  
 }

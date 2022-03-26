@@ -9,8 +9,11 @@ const AdminPage = () => {
 
   const musicianCards = sampleUsers.map(musician => {
     return(
-      <div>
-        <img src={`${musician.profile}`}/>
+      <div className='card'>
+        <img
+          src={`${musician.profile}`}
+          className='profile-img'
+        />
         <p>{musician.name}</p>
         <p>{musician.song_title}</p>
       </div>
@@ -18,7 +21,7 @@ const AdminPage = () => {
   })
 
   return(
-    <div classname='admin-page'>
+    <div className='admin-page'>
       <h2 className='admin-title'>Musician Submissions</h2>
       <div className='card-container'>
         { musicianCards }
