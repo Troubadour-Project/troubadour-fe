@@ -9,7 +9,7 @@ const AdminPage = () => {
 
   const musicianCards = sampleUsers.map(musician => {
     return(
-      <div className='card'>
+      <div className='card' key={musician.id}>
         <img
           src={`${musician.profile}`}
           className='profile-img'
