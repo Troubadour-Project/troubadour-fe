@@ -83,7 +83,6 @@ const SubmissionForm = () => {
           id="video"
           type="file"
           name="video"
-          // value={video}
           ref={videoInput}
           accept="video/*"
           onChange={event => handleVideo(event)}
