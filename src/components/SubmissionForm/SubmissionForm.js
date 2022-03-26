@@ -39,14 +39,16 @@ const SubmissionForm = () => {
           name="name"
           value={name}
           onChange={event => handleName(event)}
+          required
         />
         <label htmlFor="email">Email:</label>
         <input
           id="email"
-          type="text"
+          type="email"
           name="email"
           value={email}
           onChange={event => handleEmail(event)}
+          required
         />
         <label htmlFor="genre">Genre:</label>
         <input
@@ -55,6 +57,7 @@ const SubmissionForm = () => {
           name="genre"
           value={genre}
           onChange={event => handleGenre(event)}
+          required
         />
         <label htmlFor="song-title">Song Title:</label>
         <input
@@ -63,6 +66,7 @@ const SubmissionForm = () => {
           name="song-title"
           value={songTitle}
           onChange={event => handleSongTitle(event)}
+          required
         />
         <label htmlFor="video">Video:</label>
         <input
@@ -70,7 +74,9 @@ const SubmissionForm = () => {
           type="file"
           name="video"
           value={video}
+          accept="video/*"
           onChange={event => handleVideo(event)}
+          required
         />
         <label htmlFor="profile-image">Profile Image:</label>
         <input
@@ -78,7 +84,9 @@ const SubmissionForm = () => {
           type="file"
           name="profile-image"
           value={profileImage}
+          accept="image/*"
           onChange={event => handleProfileImage(event)}
+          required
         />
         <button>Submit</button>
       </form>
