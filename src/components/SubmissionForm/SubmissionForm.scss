@@ -7,7 +7,7 @@ form {
 }
 
 .form-container {
-  margin-top: 5vh;
+  margin-top: 3vh;
 }
 
 form {
@@ -75,7 +75,7 @@ input[type=file]::file-selector-button {
 }
 
 .profile-picture-preview {
-  max-width: 150px;
+  width: 20%;
   box-shadow: 10px 5px 5px rgb(46, 70, 70);
   margin-bottom: .5vh;
 }
