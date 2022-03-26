@@ -30,8 +30,8 @@ const SubmissionForm = () => {
 
   return (
     <section className="form-container">
-      <h2>Musician Information</h2>
       <form>
+        <h2>Musician Information</h2>
         <label htmlFor="name">Name:</label>
         <input
           id="name"

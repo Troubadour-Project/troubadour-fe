@@ -6,16 +6,25 @@ form {
   margin-top: 1vh;
 }
 
+.form-container {
+  margin-top: 8vh;
+}
+
 form {
   width: 30%;
   align-self: center;
+  background-color: teal;
+  padding: 30px;
 }
 
 label {
+  color: #FFF;
   margin-top: 1vh;
 }
 
 h2 {
+  font-size: 3vh;
+  color: #FFF;
   text-align: center;
 }
 
