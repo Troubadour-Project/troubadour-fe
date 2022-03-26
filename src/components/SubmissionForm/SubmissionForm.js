@@ -3,6 +3,8 @@ import profilePicLogo from '../../assets/profile-pic-logo.png'
 import './SubmissionForm.scss'
 
 const SubmissionForm = () => {
+  const videoInput = React.createRef()
+  const imageInput = React.createRef()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [genre, setGenre] = useState('')
@@ -31,6 +33,7 @@ const SubmissionForm = () => {
   }
   const profilePicturePreview = profileImage ? <img src={profileImage} alt="Profile picture logo" className="profile-picture-preview"/> 
                                               : <img src={profilePicLogo} alt="Profile picture logo" className="profile-picture-preview"/>
+  console.log(videoInput)
   return (
     <section className="form-container">
       <form>
@@ -83,6 +86,7 @@ const SubmissionForm = () => {
           type="file"
           name="video"
           // value={video}
+          ref={videoInput}
           accept="video/*"
           onChange={event => handleVideo(event)}
           required
@@ -94,6 +98,7 @@ const SubmissionForm = () => {
           type="file"
           name="profile-image"
           // value={profileImage}
+          ref={imageInput}
           accept="image/*"
           onChange={event => handleProfileImage(event)}
           required
