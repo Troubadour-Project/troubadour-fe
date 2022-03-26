@@ -1,18 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const client = new ApolloClient({
-  uri: "https://api.spacex.land/graphql/",
+  headers: {
+    Authorization: process.env.REACT_APP_API_KEY
+  },
+  uri: "https://troubadour-be.herokuapp.com/",
   cache: new InMemoryCache()
 });
 
 ReactDOM.render(
   <ApolloProvider client={ client }>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </ApolloProvider>,
   document.getElementById('root')
 );

@@ -1,0 +1,81 @@
+@import '../../styles/mixins';
+
+.form-container,
+form {
+  @include flex(column, center, normal);
+  margin-top: 1vh;
+}
+
+.form-container {
+  margin-top: 3vh;
+}
+
+form {
+  width: 30%;
+  align-self: center;
+  background-color: teal;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px rgb(46, 70, 70);
+}
+
+label {
+  color: #FFF;
+  margin-top: 1vh;
+  margin-bottom: .5vh;
+}
+
+h2 {
+  font-size: 3vh;
+  color: #FFF;
+  text-align: center;
+}
+
+.submit-button {
+  color: #FFF;
+  font-size: 2vh;
+  margin-top: 1vh;
+  width: 50%;
+  align-self: center;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(4, 97, 97);
+  padding: 8px;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+input[type=text],
+input[type=email] {
+  border: none;
+  height: 3vh;
+  border-radius: 10px;
+}
+
+input[type=file] {
+  width: 44%;
+  color: #FFF;
+  border: none;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+input[type=file]::file-selector-button {
+  width: 8vw;
+  color: #FFF;
+  background-color: rgb(4, 97, 97);
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.profile-picture-preview {
+  width: 30%;
+  box-shadow: 10px 5px 5px rgb(46, 70, 70);
+  margin-bottom: .5vh;
+}
