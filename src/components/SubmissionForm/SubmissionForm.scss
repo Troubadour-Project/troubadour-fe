@@ -22,6 +22,7 @@ form {
 label {
   color: #FFF;
   margin-top: 1vh;
+  margin-bottom: .5vh;
 }
 
 h2 {
@@ -32,4 +33,11 @@ h2 {
 
 button {
   margin-top: 1vh;
+}
+
+input[type=text],
+input[type=email] {
+  border: none;
+  height: 3vh;
+  border-radius: 10px;
 }
