@@ -6,7 +6,7 @@ const SubmissionForm = () => {
   const [email, setEmail] = useState('')
   const [genre, setGenre] = useState('')
   const [songTitle, setSongTitle] = useState('')
-  const [songVideo, setSongVideo] = useState('')
+  const [video, setVideo] = useState('')
   const [profileImage, setProfileImage] = useState('')
 
   const handleName = event => {
@@ -21,8 +21,8 @@ const SubmissionForm = () => {
   const handleSongTitle = event => {
     setSongTitle(event.target.value)
   }
-  const handleSongVideo = event => {
-    setSongVideo(event.target.value)
+  const handleVideo = event => {
+    setVideo(event.target.value)
   }
   const handleProfileImage = event => {
     setProfileImage(event.target.value)
@@ -64,6 +64,23 @@ const SubmissionForm = () => {
           value={songTitle}
           onChange={event => handleSongTitle(event)}
         />
+        <label htmlFor="video">Video:</label>
+        <input
+          id="video"
+          type="file"
+          name="video"
+          value={video}
+          onChange={event => handleVideo(event)}
+        />
+        <label htmlFor="profile-image">Profile Image:</label>
+        <input
+          id="profile-image"
+          type="file"
+          name="profile-image"
+          value={profileImage}
+          onChange={event => handleProfileImage(event)}
+        />
+        <button>Submit</button>
       </form>
     </section>
   )

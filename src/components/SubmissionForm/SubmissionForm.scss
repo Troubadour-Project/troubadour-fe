@@ -1,7 +1,24 @@
-// .form-container {
-//   margin-top: 1vh;
-// }
+@import '../../styles/mixins';
+
+.form-container,
+form {
+  @include flex(column, center, normal);
+  margin-top: 1vh;
+}
+
+form {
+  width: 30%;
+  align-self: center;
+}
+
+label {
+  margin-top: 1vh;
+}
 
 h2 {
   text-align: center;
+}
+
+button {
+  margin-top: 1vh;
 }
