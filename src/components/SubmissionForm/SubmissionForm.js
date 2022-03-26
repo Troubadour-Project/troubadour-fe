@@ -28,12 +28,10 @@ const SubmissionForm = () => {
     setVideo(event.target.value)
   }
   const handleProfileImage = event => {
-    console.log(URL.createObjectURL(event.target.files[0]))
     setProfileImage(URL.createObjectURL(event.target.files[0]))
   }
   const profilePicturePreview = profileImage ? <img src={profileImage} alt="Profile picture logo" className="profile-picture-preview"/> 
-                                              : <img src={profilePicLogo} alt="Profile picture logo" className="profile-picture-preview"/>
-  console.log(videoInput)
+                                             : <img src={profilePicLogo} alt="Profile picture logo" className="profile-picture-preview"/>
   return (
     <section className="form-container">
       <form>
