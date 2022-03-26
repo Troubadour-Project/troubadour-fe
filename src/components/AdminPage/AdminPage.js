@@ -14,15 +14,17 @@ const AdminPage = () => {
           src={`${musician.profile}`}
           className='profile-img'
         />
-        <p>{musician.name}</p>
-        <p>{musician.song_title}</p>
+        <p className='card-name'>{musician.name}</p>
+        <p className='card-song-title'>{musician.song_title}</p>
       </div>
     );
   })
 
   return(
     <div className='admin-page'>
-      <h2 className='admin-title'>Musician Submissions</h2>
+      <div className='admin-title-container'>
+        <h2 className='admin-title'>Musician Submissions</h2>
+      </div>
       <div className='card-container'>
         { musicianCards }
       </div>
