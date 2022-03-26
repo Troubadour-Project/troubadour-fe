@@ -1,3 +1,4 @@
+import "./MusicianCard.scss"
 
 const MusicianCard = ({submissionDetails}) => {
   submissionDetails = {
