@@ -7,7 +7,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const client = new ApolloClient({
-  uri: "https://api.spacex.land/graphql/",
+  headers: {
+    Authorization: process.env.REACT_APP_API_KEY
+  },
+  uri: "https://troubadour-be.herokuapp.com/",
   cache: new InMemoryCache()
 });
 
