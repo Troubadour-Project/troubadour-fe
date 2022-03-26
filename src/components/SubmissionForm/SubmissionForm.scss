@@ -41,6 +41,9 @@ button {
   border: none;
   background-color: rgb(4, 97, 97);
   padding: 8px;
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 input[type=text],
@@ -48,4 +51,16 @@ input[type=email] {
   border: none;
   height: 3vh;
   border-radius: 10px;
+}
+
+input[type=file] {
+  color: #FFF;
+  border: none;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+input[type=file] > button {
+  
 }
