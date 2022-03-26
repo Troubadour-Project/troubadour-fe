@@ -12,7 +12,7 @@ const ADD_NEW_USER = gql`
     $name: String!
     $email: String!
     $genre: String!
-    $song_title: String!
+    $songTitle: String!
     $profile: Sting!
     $video: String!
   ) {
@@ -20,16 +20,15 @@ const ADD_NEW_USER = gql`
       name: $name,
       email: $email,
       genre: $genre,
-      song_title: $song_title,
+      songTitle: $songTitle,
       profile: $profile,
       video: $video
     ) {
       id
-      createdAt
       name
       email
       genre
-      song_title
+      songTitle
       profile
       video
     }

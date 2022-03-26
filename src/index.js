@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 
 const client = new ApolloClient({
   headers: {
-    Authorization: `${apiKey}`
+    Authorization: process.env.REACT_APP_API_KEY
   },
   uri: "https://troubadour-be.herokuapp.com/",
   cache: new InMemoryCache()
