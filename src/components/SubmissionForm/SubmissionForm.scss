@@ -32,7 +32,15 @@ h2 {
 }
 
 button {
+  color: #FFF;
+  font-size: 2vh;
   margin-top: 1vh;
+  width: 50%;
+  align-self: center;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(4, 97, 97);
+  padding: 8px;
 }
 
 input[type=text],
