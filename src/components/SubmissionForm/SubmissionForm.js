@@ -95,7 +95,7 @@ const SubmissionForm = () => {
           required
         />
         <br />
-        <button>Submit</button>
+        <button className="submit-button">Submit</button>
       </form>
     </section>
   )
