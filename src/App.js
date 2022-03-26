@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <AdminPage />
       <main>
+      <AdminPage />
         {/* routes will go here */}
       </main>
     </div>
