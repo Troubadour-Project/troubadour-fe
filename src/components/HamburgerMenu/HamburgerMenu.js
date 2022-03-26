@@ -18,11 +18,7 @@ export default HamburgerMenu;
   User View:
     1. <Home/> - LandingPage ?
     2. <SubmissionPage/>
-
-  Admin View:
-    1. Submission view 
-    2. Home/> - LandingPage ?
-
+    3. <admin page>
  */
 
     // Factors to think about displaying this hambuger menu 
@@ -45,5 +41,7 @@ export default HamburgerMenu;
             ( Not necessary just for styling purposes )
             - IF so:
               https://hamburger-react.netlify.app/
+
+              Should I install Router ? And build out the 
       
      */
