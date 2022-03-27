@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import profilePicLogo from '../../assets/profile-pic-logo.png'
 import './SubmissionForm.scss'
+import { useMutation } from '@apollo/client';
+import { CREATE_USER } from '../../queries';
 
 const SubmissionForm = () => {
   const videoInput = React.createRef()
@@ -25,14 +27,41 @@ const SubmissionForm = () => {
     setSongTitle(event.target.value)
   }
   const handleVideo = event => {
-    setVideo(event.target.value)
+    setVideo(URL.createObjectURL(event.target.files[0]))
   }
   const handleProfileImage = event => {
     setProfileImage(URL.createObjectURL(event.target.files[0]))
   }
-  const profilePicturePreview = profileImage ? <img src={profileImage} alt="Profile picture logo" className="profile-picture-preview"/> 
-                                             : <img src={profilePicLogo} alt="Profile picture logo" className="profile-picture-preview"/>
-  return (
+
+  const clearInputs = () =>  {
+    setName('');
+    setEmail('');
+    setGenre('');
+    setSongTitle('');
+    setVideo('');
+    setProfileImage('');
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    createUser({ variables: {
+      name: name,
+      email: email,
+      genre: genre,
+      songTitle: songTitle,
+      video: video,
+      profile: profileImage
+    }});
+    clearInputs();
+  }
+
+  const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
+
+  const profilePicturePreview = profileImage ?
+    <img src={profileImage} alt="Profile picture logo" className="profile-picture-preview"/> :
+    <img src={profilePicLogo} alt="Profile picture logo" className="profile-picture-preview"/>
+  
+    return (
     <section className="form-container">
       <form>
         <h2>Musician Information</h2>
@@ -94,14 +123,18 @@ const SubmissionForm = () => {
           id="profile-image"
           type="file"
           name="profile-image"
-          // value={profileImage}
           ref={imageInput}
           accept="image/*"
           onChange={event => handleProfileImage(event)}
           required
         />
         <br />
-        <button className="submit-button">Submit</button>
+        <button
+          className="submit-button"
+          onSubmit={e => {handleSubmit(e)}}
+        >
+          Submit
+        </button>
       </form>
     </section>
   )
