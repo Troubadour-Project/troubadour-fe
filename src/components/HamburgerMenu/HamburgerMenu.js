@@ -1,17 +1,26 @@
-import React, {useState} from 'react'
-import { Twirl as Hamburger } from 'hamburger-react'
+import React from 'react'
+import { Link } from 'react-router-dom';
 
-const HamburgerMenu = () => {
-  const [isOpen, setOpen] = useState(false)
+const HamburgerMenu = ({toggle}) => {
 
   return (
-    
-    <Hamburger toggled={isOpen} toggle={setOpen} />
+    <div>
+    <Link to="/">
+      <button onClick={toggle}>Home</button>
+    </Link>
+    <Link to="/Admin">
+      <button onClick={toggle}>Admin Page</button>
+    </Link>
+    <Link to="/Submission">
+      <button onClick={toggle}>Submission form</button>
+    </Link>
+    </div>
   )
 }
 
 export default HamburgerMenu;
 
+// <Hamburger toggled={isOpen} toggle={setOpen} />
 // https://bluegrass.com/ - Inspo site
 
 // What will this component need ?
