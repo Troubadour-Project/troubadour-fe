@@ -1,20 +1,30 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import logo from '../../assets/Logo-Capstone.png'
-import { Twirl as Hamburger } from 'hamburger-react'
+import { Link } from 'react-router-dom'
 import './NavBar.scss'
-import HamburgerMenu from '../HamburgerMenu/HamburgerMenu'
+import classNames from 'classnames'
 
 const NavBar = () => {
-  const [isOpen, setOpen] = useState(false)
+  const [mobileNavOpen, setMobileNavOpen] = useState(false)
+
+  const active = classNames('mobile-menu', {
+    open: mobileNavOpen,
+  });
 
   return (
-    <nav>
-      <img src={logo} alt="Crown of instruments"/>
-      <h1>Troubadour</h1>
-      <Hamburger toggled={isOpen} toggle={setOpen} />
-      {isOpen && <HamburgerMenu />}
+    <>
+    <nav className="navigation-wrapper">
+      <div className="navigation-header">
+        <div className="navigation-names">
+          <Link className="link" to="/">
+            <img src={logo} alt="Crown of instruments"/> 
+          </Link>
+        </div>
+      </div>
     </nav>
+    </>
   )
 }
 
 export default NavBar
+{/* <h1>Troubadour</h1> */}
