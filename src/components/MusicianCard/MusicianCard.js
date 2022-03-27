@@ -8,7 +8,7 @@ const MusicianCard = ({ user }) => {
         className='profile-img'
       />
       <p className='card-name'>{user.name}</p>
-      <p className='card-song-title'>{user.song_title}</p>
+      <p className='card-song-title'>{user.songTitle}</p>
     </div>
   );
 }
