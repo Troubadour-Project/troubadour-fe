@@ -39,7 +39,6 @@ const SubmissionForm = () => {
     }
   }
   const handleProfileImage = event => {
-    console.log(event.target.files[0])    
     if (!event.target.files[0]) {
       setProfileImage('')
       return 
