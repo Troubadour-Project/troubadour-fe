@@ -4,15 +4,15 @@ import { gql } from '@apollo/client';
 
 // get all users
 const GET_ALL_USERS = gql`
-  query fetchUsers {
-    users {
+  {
+    fetchUsers {
       id
       name
       profile
-      genre
+      songTitle
     }
   }
-`
+`;
 
 // get user by id (id, name, email, genre, song_title, profile, video, selected)
 
