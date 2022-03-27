@@ -1,23 +1,13 @@
 import { useState, useEffect } from 'react';
 import './AdminPage.scss';
 import sampleUsers from '../../sampleUserData';
+import MusicianCard from '../MusicianProfile/MusicianProfile';
 
 const AdminPage = () => {
   const [musicians, setMusicians] = useState([]);
 
-  console.log(sampleUsers);
-
-  const musicianCards = sampleUsers.map(musician => {
-    return(
-      <div className='card' key={musician.id}>
-        <img
-          src={`${musician.profile}`}
-          className='profile-img'
-        />
-        <p className='card-name'>{musician.name}</p>
-        <p className='card-song-title'>{musician.song_title}</p>
-      </div>
-    );
+  const musicianCards = sampleUsers.map(user => {
+    return <MusicianCard user={user} />
   })
 
   return(
