@@ -1,14 +1,24 @@
-import { gql, useMutation } from '@apollo/client';
+import { gql } from '@apollo/client';
 
 // get all selected=true users (id, name, profile, genre)
 
-// get all users (id, name, profile, song_title)
+// get all users
+const GET_ALL_USERS = gql`
+  query fetchUsers {
+    users {
+      id
+      name
+      profile
+      genre
+    }
+  }
+`
 
 // get user by id (id, name, email, genre, song_title, profile, video, selected)
 
 // create mutation: add new user (name, email, genre, song_title, profile, video)
-const ADD_NEW_USER = gql`
-  mutation AddNewUser(
+const CREATE_USER = gql`
+  mutation CreateUser(
     $name: String!
     $email: String!
     $genre: String!
@@ -16,7 +26,7 @@ const ADD_NEW_USER = gql`
     $profile: Sting!
     $video: String!
   ) {
-    addNewUser(
+    createUser(
       name: $name,
       email: $email,
       genre: $genre,
@@ -36,3 +46,5 @@ const ADD_NEW_USER = gql`
 `;
 
 // update mutation: change selected status (id, selected)
+
+export { CREATE_USER, GET_ALL_USERS };
