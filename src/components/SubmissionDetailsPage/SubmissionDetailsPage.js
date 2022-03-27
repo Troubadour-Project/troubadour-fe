@@ -1,6 +1,6 @@
 import "./SubmissionDetailsPage.scss";
-import "../MusicianCard/MusicianCard";
-import MusicianCard from "../MusicianCard/MusicianCard";
+import "../MusicianProfile/MusicianProfile";
+import MusicianCard from "../MusicianProfile/MusicianProfile";
 
 
 const SubmissionDetailsPage = () => {
