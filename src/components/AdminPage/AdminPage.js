@@ -12,13 +12,13 @@ const AdminPage = () => {
 
   const renderCards = (data) => {
     console.log(data);
-    data.users.map(user => {
-      return <MusicianCard user={user} />
+    return data.fetchUsers.map(user => {
+      return <MusicianCard key={user.id} user={user} />
     });
   } 
 
   if (loading) return 'Loading...';
-  if (error) return <p>{error.message}</p>;
+  if (error) return <p>error: {error.message}</p>;
   if (data) return(
     <div className='admin-page'>
       <div className='admin-title-container'>
