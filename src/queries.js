@@ -10,9 +10,6 @@ const GET_ALL_USERS = gql`
       name
       profile
       songTitle
-      genre
-      email
-      video
     }
   }
 `;
