@@ -23,7 +23,7 @@ const CREATE_USER = gql`
     $email: String!
     $genre: String!
     $songTitle: String!
-    $profile: Sting!
+    $profile: String!
     $video: String!
   ) {
     createUser(
