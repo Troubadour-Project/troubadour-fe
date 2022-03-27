@@ -1,12 +1,12 @@
 .mobile-nav-wrapper {
   z-index: 1;
-  width: 97.6%;
+  width: 98%;
   display: flex;
   flex-direction: column;
   background-color: #617D8A;
   align-items: center;
   justify-content: center;
-  position: fixed;
+  position: absolute;
   // animate nav opening details start
   opacity: 0;
   visibility: hidden;
@@ -19,8 +19,9 @@
   // animate nav opening details end
   opacity: 1;
   visibility: visible;
-  height: 100vh;
+  height: 98%;
   background: #617D8A;
+  overflow-x:hidden;
 }
 
 .mobile-link {

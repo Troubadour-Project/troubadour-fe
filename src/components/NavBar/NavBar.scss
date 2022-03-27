@@ -75,10 +75,17 @@
     }
   }
 
-// h1 {
-//   color: #FFF;
-//   // width: 8vw;
-// }
+h1 {
+  color: #FFF;
+  text-align: center;
+  // border: solid 2px red;
+}
+
+
+img {
+  width: 80px;
+}
+
 
 // nav {
 //   @include flex(row, space-between, center);
@@ -86,6 +93,3 @@
 //   height: 10vh;
 //   background-color: teal;
 // }
-img {
-  width: 80px;
-}

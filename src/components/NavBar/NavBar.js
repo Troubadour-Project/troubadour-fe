@@ -15,6 +15,7 @@ const NavBar = () => {
   return (
     <>
     <nav className="navigation-wrapper">
+      <h1>Troubadour</h1>
       <div className="navigation-header">
         <div className="navigation-names">
           <Link className="link" to="/">
@@ -28,7 +29,7 @@ const NavBar = () => {
             onClick={() => {
               setMobileNavOpen((mobileNavOpen) => !mobileNavOpen)
             }}
-          >
+            >
             <div className="bar-one" />
             <div className="bar-two" />
             <div className="bar-three" />
@@ -42,4 +43,3 @@ const NavBar = () => {
 }
 
 export default NavBar
-{/* <h1>Troubadour</h1> */}
