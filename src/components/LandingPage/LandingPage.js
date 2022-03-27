@@ -1,5 +1,5 @@
 import React from 'react'
-import heroImage from '../../assets/hero-image.jpeg'
+import { Link } from 'react-router-dom'
 import "./LandingPage.scss"
 
 const LandingPage = () => {
@@ -10,6 +10,7 @@ const LandingPage = () => {
       <p className="submission-dates-header">Important submission dates:</p>
       <p className="submission-dates-april">April 22nd, 2023: All submissions must be postmarked on or before.</p>
       <p className="submission-dates-may">May 4th, 2023: We will notify all finalists and alternates by this date. Watch for the public posting of Troubadour finalists around this time.</p>
+      <Link to="/submission" className="hero-button">Become a Rockstar</Link>
     </div>
   )
 }
