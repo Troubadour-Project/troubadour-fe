@@ -1,31 +1,28 @@
-.submission-details {
-  display: flex;
-  justify-content: center;
-  width: 40vw;
-  height: 60vh;
-  margin-top: 80px;
-  border: 1px solid black;
+@import '../../styles/mixins';
+
+.card {
+  justify-self: center;
+  @include flex(column, center, center);
+  border-radius: 5px;
+  height: 250px;
+  width: 250px;
+  margin: 20px;
+  background-color: lightgray;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(189, 189, 189);
+  }
 }
 
-.submission-video {
-  background-color: pink;
-  width: 50vw;
-  height: 60vh;
-  margin-top: 80px;
+.profile-img {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+  margin: 20px;
 }
 
-.details-picture {
-  width:160px;
-  height:160px;
-  margin-top: 15px;
-}
-
-.details-card-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.submission-detail {
-  padding: 30px;
-  margin-left: 50px;
+.card-name,
+.card-song-title {
+  padding: 10px;
 }
