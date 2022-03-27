@@ -1,11 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { Twirl as Hamburger } from 'hamburger-react'
 
 const HamburgerMenu = () => {
+  const [isOpen, setOpen] = useState(false)
 
   return (
-    <div>
-      
-    </div>
+    
+    <Hamburger toggled={isOpen} toggle={setOpen} />
   )
 }
 

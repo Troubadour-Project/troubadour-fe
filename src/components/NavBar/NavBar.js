@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../../assets/Logo-Capstone.png'
+import HamburgerMenu from '../HamburgerMenu/HamburgerMenu'
 import './NavBar.scss'
 
 const NavBar = () => {
@@ -7,7 +8,8 @@ const NavBar = () => {
     <nav>
       <img src={logo} alt="Crown of instruments"/>
       <h1>Troubadour</h1>
-      <p>| | |</p>
+      <HamburgerMenu/>
+      {/* <p>| | |</p> */}
     </nav>
   )
 }
