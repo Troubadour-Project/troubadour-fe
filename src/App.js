@@ -6,6 +6,7 @@ import SubmissionForm from './components/SubmissionForm/SubmissionForm';
 import AdminPage from './components/AdminPage/AdminPage';
 import LandingPage from './components/LandingPage/LandingPage';
 import './App.scss';
+import SubmissionDetailsPage from './components/SubmissionDetailsPage/SubmissionDetailsPage';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
           <Route exact path='/' element={<LandingPage />} />
           <Route path='/Admin' element={<AdminPage />} />
           <Route path='/Submission' element={<SubmissionForm />} />
+          <Route path='/SubmissionDetails' element={<SubmissionDetailsPage />}
+          />
           {/* <Route path='/*' element={<Error />} /> */}
         </Routes>
       </main>
