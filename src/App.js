@@ -6,6 +6,7 @@ import SubmissionForm from './components/SubmissionForm/SubmissionForm';
 import AdminPage from './components/AdminPage/AdminPage';
 import LandingPage from './components/LandingPage/LandingPage';
 import './App.scss';
+import SubmissionDetailsPage from './components/SubmissionDetailsPage/SubmissionDetailsPage';
 
 function App() {
   return (
@@ -14,8 +15,10 @@ function App() {
       <main>
         <Routes>
           <Route exact path='/' element={<LandingPage />} />
-          <Route path='/Admin' element={<AdminPage />} />
-          <Route path='/Submission' element={<SubmissionForm />} />
+          <Route path='/admin' element={<AdminPage />} />
+          <Route path='/submission' element={<SubmissionForm />} />
+          <Route path='/submissiondetails' element={<SubmissionDetailsPage />}
+          />
           {/* <Route path='/*' element={<Error />} /> */}
         </Routes>
       </main>

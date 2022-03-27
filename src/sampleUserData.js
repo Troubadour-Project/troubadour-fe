@@ -77,7 +77,7 @@ export default [
     "video": "video.url"
   },
   {
-    "id": 1,
+    "id": 8,
     "name": "Ryan",
     "email": "ryan@gmail.com",
     "genre": "singer/songwriter",
@@ -88,7 +88,7 @@ export default [
     "video": "video.url"
   },
   {
-    "id": 2,
+    "id": 9,
     "name": "Tim",
     "email": "tim@gmail.com",
     "genre": "folk",
@@ -99,7 +99,7 @@ export default [
     "video": "video.url"
   },
   {
-    "id": 3,
+    "id": 10,
     "name": "Ali",
     "email": "ali@gmail.com",
     "genre": "folk",
@@ -110,7 +110,7 @@ export default [
     "video": "video.url"
   },
   {
-    "id": 4,
+    "id": 11,
     "name": "Oscar",
     "email": "oscar@gmail.com",
     "genre": "folk",
@@ -121,7 +121,7 @@ export default [
     "video": "video.url"
   },
   {
-    "id": 5,
+    "id": 12,
     "name": "Sierra",
     "email": "sierra@gmail.com",
     "genre": "folk",
@@ -132,7 +132,7 @@ export default [
     "video": "video.url"
   },
   {
-    "id": 6,
+    "id": 13,
     "name": "Emma",
     "email": "emma@gmail.com",
     "genre": "folk",
@@ -143,7 +143,7 @@ export default [
     "video": "video.url"
   },
   {
-    "id": 7,
+    "id": 14,
     "name": "Arnaldo",
     "email": "arnaldo@gmail.com",
     "genre": "folk",

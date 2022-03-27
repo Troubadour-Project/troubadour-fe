@@ -1,0 +1,28 @@
+@import '../../styles/mixins';
+
+.card {
+  justify-self: center;
+  @include flex(column, center, center);
+  border-radius: 5px;
+  height: 250px;
+  width: 250px;
+  margin: 20px;
+  background-color: lightgray;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(189, 189, 189);
+  }
+}
+
+.profile-img {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+  margin: 20px;
+}
+
+.card-name,
+.card-song-title {
+  padding: 10px;
+}

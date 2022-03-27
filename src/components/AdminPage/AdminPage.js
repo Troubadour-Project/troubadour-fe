@@ -1,32 +1,31 @@
 import { useState, useEffect } from 'react';
 import './AdminPage.scss';
 import sampleUsers from '../../sampleUserData';
+import MusicianCard from '../MusicianCard/MusicianCard';
+import { useQuery } from '@apollo/client';
+import { GET_ALL_USERS } from '../../queries';
 
 const AdminPage = () => {
   const [musicians, setMusicians] = useState([]);
 
-  console.log(sampleUsers);
+  const { loading, error, data } = useQuery(GET_ALL_USERS);
 
-  const musicianCards = sampleUsers.map(musician => {
-    return(
-      <div className='card' key={musician.id}>
-        <img
-          src={`${musician.profile}`}
-          className='profile-img'
-        />
-        <p className='card-name'>{musician.name}</p>
-        <p className='card-song-title'>{musician.song_title}</p>
-      </div>
-    );
-  })
+  const renderCards = (data) => {
+    console.log(data);
+    return data.fetchUsers.map(user => {
+      return <MusicianCard key={user.id} user={user} />
+    });
+  } 
 
-  return(
+  if (loading) return 'Loading...';
+  if (error) return <p>error: {error.message}</p>;
+  if (data) return(
     <div className='admin-page'>
       <div className='admin-title-container'>
-        <h2 className='admin-title'>Musician Submissions</h2>
+        <h2 className='admin-title'>Submissions</h2>
       </div>
       <div className='card-container'>
-        { musicianCards }
+        { renderCards(data) }
       </div>
     </div>
   );
