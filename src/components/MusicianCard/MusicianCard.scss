@@ -1,3 +1,5 @@
+@import '../../styles/mixins';
+
 .card {
   justify-self: center;
   @include flex(column, center, center);
