@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu'
 import './NavBar.scss'
 
+
+
 const NavBar = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
@@ -36,7 +38,7 @@ const NavBar = () => {
           </button>
         </div>
       </div>
-      <HamburgerMenu open={mobileNavOpen} />
+      <HamburgerMenu open={mobileNavOpen} setMobileNavOpen={setMobileNavOpen}/>
     </nav>
     </>
   )
