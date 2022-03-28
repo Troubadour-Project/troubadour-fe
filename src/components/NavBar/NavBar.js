@@ -15,13 +15,13 @@ const NavBar = () => {
   return (
     <>
     <nav className="navigation-wrapper">
-      <h1>Troubadour</h1>
       <div className="navigation-header">
         <div className="navigation-names">
           <Link className="link" to="/">
             <img className="logo" src={logo} alt="Crown of instruments"/> 
           </Link>
         </div>
+        <h1>Troubadour</h1>
         <div className="navigation-links">
           <button
             aria-label="Toggle Mobile Menu Button"
