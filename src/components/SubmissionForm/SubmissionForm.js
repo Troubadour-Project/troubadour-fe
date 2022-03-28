@@ -13,6 +13,7 @@ const SubmissionForm = () => {
   const [songTitle, setSongTitle] = useState('')
   const [video, setVideo] = useState('')
   const [profileImage, setProfileImage] = useState('')
+  const [isLargeFile, setIsLargeFile] = useState(false)
 
   const handleName = event => {
     setName(event.target.value)
@@ -27,10 +28,26 @@ const SubmissionForm = () => {
     setSongTitle(event.target.value)
   }
   const handleVideo = event => {
-    setVideo(URL.createObjectURL(event.target.files[0]))
+    if (!event.target.files[0]) {
+      setVideo('')
+      return 
+    } else if (event.target.files[0].size >= 500000000) {
+      setIsLargeFile(true)
+    } else {
+      setIsLargeFile(false)
+      setVideo(URL.createObjectURL(event.target.files[0]))
+    }
   }
   const handleProfileImage = event => {
-    setProfileImage(URL.createObjectURL(event.target.files[0]))
+    if (!event.target.files[0]) {
+      setProfileImage('')
+      return 
+    } else if (event.target.files[0].size >= 500000000) {
+      setIsLargeFile(true)
+    } else {
+      setIsLargeFile(false)
+      setProfileImage(URL.createObjectURL(event.target.files[0]))
+    }
   }
 
   const clearInputs = () =>  {
@@ -63,7 +80,7 @@ const SubmissionForm = () => {
   
     return (
     <section className="form-container">
-      <form>
+      <form onSubmit={event => handleSubmit(event)}>
         <h2>Musician Information</h2>
         <br />
         {profilePicturePreview}
@@ -129,12 +146,9 @@ const SubmissionForm = () => {
           required
         />
         <br />
-        <button
-          className="submit-button"
-          onSubmit={e => {handleSubmit(e)}}
-        >
-          Submit
-        </button>
+        {/* <button className="submit-button" onSubmit={e => {handleSubmit(e)}}>Submit</button> */}
+        {/* {isLargeFile ? <p className="file-size-message">Please select a smaller file size</p> : <button className="submit-button" onClick={event => handleSubmit(event)}>Submit</button>} */}
+        {isLargeFile ? <p className="file-size-message">Please select a smaller file size</p> : <button className="submit-button">Submit</button>}
       </form>
     </section>
   )
