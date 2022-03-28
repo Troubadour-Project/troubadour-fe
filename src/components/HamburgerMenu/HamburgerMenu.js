@@ -13,7 +13,7 @@ const displayMobileNavLinks = classNames('mobile-nav-wrapper', {
     <div className={displayMobileNavLinks}>
       <Link to="/" className="mobile-link" onClick={() => setMobileNavOpen(!open)}>Home</Link>
       <Link to="/submission" className="mobile-link" onClick={() => setMobileNavOpen(!open)}>Submission Form</Link>
-      <Link to="/admin" className="mobile-link" onClick={() => setMobileNavOpen(!open)}>Admin</Link>
+      <Link to="/allsubmissions" className="mobile-link" onClick={() => setMobileNavOpen(!open)}>All Submissions</Link>
     </div>
   )
 }
