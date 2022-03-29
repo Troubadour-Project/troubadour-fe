@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import profilePicLogo from '../../assets/profile-pic-logo.png'
+import movieUpload from '../../assets/login-view-mov.mov'
 import './SubmissionForm.scss'
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../../queries';
@@ -35,7 +36,7 @@ const SubmissionForm = () => {
       setIsLargeFile(true)
     } else {
       setIsLargeFile(false)
-      setVideo(URL.createObjectURL(event.target.files[0]))
+      setVideo(event.target.files[0])
     }
   }
   const handleProfileImage = event => {
@@ -46,7 +47,7 @@ const SubmissionForm = () => {
       setIsLargeFile(true)
     } else {
       setIsLargeFile(false)
-      setProfileImage(URL.createObjectURL(event.target.files[0]))
+      setProfileImage(event.target.files[0])
     }
   }
 
@@ -61,21 +62,43 @@ const SubmissionForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    createUser({ variables: {
-      name: name,
-      email: email,
-      genre: genre,
-      songTitle: songTitle,
-      video: video,
-      profile: profileImage
-    }});
-    clearInputs();
+    console.log(event)
+    const formData = new FormData()
+
+    formData.append('name', name)
+    formData.append('email', email)
+    formData.append('genre', genre)
+    formData.append('song_title', songTitle)
+    formData.append('profile', video)
+    formData.append('video', profileImage)
+
+    for (var value of formData.entries()) {
+      console.log(`${value[0]} ${value[1]}`)
+    }
+
+    return fetch('https://troubadour-be.herokuapp.com/users', {
+      method: 'POST',
+      accept: 'application/json',
+      // body: {
+      //   name: 'some guy',
+      //   email: 'yaddah@blah.something',
+      //   genre: 'yes',
+      //   song_title: 'good stuff',
+      //   // profile: profilePicLogo,
+      //   profile: profileImage,
+      //   // video: movieUpload
+      //   video: video
+      // }
+      body: formData
+    })
+    .then(response => console.log(response))
+    // clearInputs();
   }
 
-  const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
+  // const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
 
   const profilePicturePreview = profileImage ?
-    <img src={profileImage} alt="Profile picture logo" className="profile-picture-preview"/> :
+    <img src={URL.createObjectURL(profileImage)} alt="Profile picture logo" className="profile-picture-preview"/> :
     <img src={profilePicLogo} alt="Profile picture logo" className="profile-picture-preview"/>
   
     return (
