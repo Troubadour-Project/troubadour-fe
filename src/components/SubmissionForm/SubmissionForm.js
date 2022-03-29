@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import profilePicLogo from '../../assets/profile-pic-logo.png'
-import movieUpload from '../../assets/login-view-mov.mov'
 import './SubmissionForm.scss'
-import { useMutation } from '@apollo/client';
-import { CREATE_USER } from '../../queries';
 
 const SubmissionForm = () => {
   const videoInput = React.createRef()
