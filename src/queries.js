@@ -1,50 +1,81 @@
 import { gql } from '@apollo/client';
 
-// get all selected=true users (id, name, profile, genre)
+// get admin user
+// const GET_ADMIN_USER = gql`
+//   {
+//     admin {
+//       id
+//       name
+//       votes (I'm thinking maybe an array of admin_submission objects)
+//     }
+//   }
+// `
 
-// get all users
-const GET_ALL_USERS = gql`
+
+
+// get all selected=true submissions (id, name, profile, genre)
+// const GET_WINNERS = gql`
+//   {
+//     submission(selected: true) {
+//       id
+//       profile
+//       name
+//       genre
+//     }
+//   }
+// `
+
+
+
+// get all submissions
+const GET_ALL_SUBMISSIONS = gql`
   {
     fetchUsers {
       id
       name
       profile
-      songTitle
     }
   }
 `;
+  // {
+  //   submission {
+  //     id
+  //     name
+  //     profile
+  //     songTitle
+  //   }
+  // }
 
-// get user by id (id, name, email, genre, song_title, profile, video, selected)
 
-// create mutation: add new user (name, email, genre, song_title, profile, video)
-const CREATE_USER = gql`
-  mutation CreateUser(
-    $name: String!
-    $email: String!
-    $genre: String!
-    $songTitle: String!
-    $profile: String!
-    $video: String!
-  ) {
-    createUser(
-      name: $name,
-      email: $email,
-      genre: $genre,
-      songTitle: $songTitle,
-      profile: $profile,
-      video: $video
-    ) {
-      id
-      name
-      email
-      genre
-      songTitle
-      profile
-      video
+
+
+// get submission by id (id, name, email, genre, song_title, profile, video, selected)
+  const GET_SINGLE_SUBMISSION = gql`
+    {
+      submission(id: $id) {
+        id
+        name
+        genre
+        songTitle
+        profile
+        video
+        selected
+      }
     }
-  }
-`;
+  `
+
+
+
+
 
 // update mutation: change selected status (id, selected)
 
-export { CREATE_USER, GET_ALL_USERS };
+
+
+// post request: add new submission (name, email, genre, sonTitle, profile, video)
+// const postSubmission = (submissionData) => {
+//   return fetch('')
+// }
+
+
+export { GET_ALL_SUBMISSIONS };
