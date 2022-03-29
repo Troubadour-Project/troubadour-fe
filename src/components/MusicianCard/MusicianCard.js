@@ -1,15 +1,18 @@
 import './MusicianCard.scss';
+import { Link } from 'react-router-dom';
 
-const MusicianCard = ({ user }) => {
+const MusicianCard = ({ submission }) => {
   return (
-    <div className='card' key={user.id}>
-      <img
-        src={`${user.profile}`}
-        className='profile-img'
-      />
-      <p className='card-name'>{user.name}</p>
-      <p className='card-song-title'>{user.songTitle}</p>
-    </div>
+    <Link to={`submissiondetails/${submission.id}`} key={submission.id}>
+      <div className='card' >
+        <img
+          src={`${submission.profile}`}
+          className='profile-img'
+        />
+        <p className='card-name'>{submission.name}</p>
+        <p className='card-song-title'>{submission.songTitle}</p>
+      </div>
+    </Link>
   );
 }
  
