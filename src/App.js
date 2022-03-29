@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import NavBar from './components/NavBar/NavBar'
@@ -12,15 +12,19 @@ import SubmissionDetailsPage from './components/SubmissionDetailsPage/Submission
 function App() {
   const [user, setUser] = useState(null);  
 
+  useEffect(() => {
+    //setUser with gql query
+  }, [])
+
   return (
     <div className="App">
       <NavBar setUser={setUser}/>
       <main>
         <Routes>
           <Route exact path='/' element={<LandingPage />} />
-          <Route path='/allsubmissions' element={<AdminPage />} />
+          <Route path='/allsubmissions' element={<AdminPage user={user}/>} />
           <Route path='/submission' element={<SubmissionForm />} />
-          <Route path='/submissiondetails' element={<SubmissionDetailsPage />}
+          <Route path='/submissiondetails/:id' element={<SubmissionDetailsPage user={user}/>}
           />
           {/* <Route path='/*' element={<Error />} /> */}
         </Routes>
