@@ -12,6 +12,7 @@ const SubmissionForm = () => {
   const [video, setVideo] = useState('')
   const [profileImage, setProfileImage] = useState('')
   const [isLargeFile, setIsLargeFile] = useState(false)
+  const [videoURL, setVideoURL] = useState('')
 
   const handleName = event => {
     setName(event.target.value)
@@ -73,7 +74,7 @@ const SubmissionForm = () => {
       console.log(`${value[0]} ${value[1]}`)
     }
 
-    return fetch('https://troubadour-be.herokuapp.com/users', {
+    return fetch('https://troubadour-be.herokuapp.com/api/v1/submissions', {
       method: 'POST',
       accept: 'application/json',
       // body: {
@@ -88,7 +89,7 @@ const SubmissionForm = () => {
       // }
       body: formData
     })
-    .then(response => console.log(response))
+    .then(response => setVideoURL(response.url))
     // clearInputs();
   }
 
@@ -100,6 +101,7 @@ const SubmissionForm = () => {
   
     return (
     <section className="form-container">
+      {/* <video src={videoURL} controls/> */}
       <form onSubmit={event => handleSubmit(event)}>
         <h2>Musician Information</h2>
         <br />
