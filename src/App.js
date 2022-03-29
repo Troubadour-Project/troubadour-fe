@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import NavBar from './components/NavBar/NavBar'
@@ -10,9 +10,11 @@ import SubmissionDetailsPage from './components/SubmissionDetailsPage/Submission
 
 
 function App() {
+  const [user, setUser] = useState(null);  
+
   return (
     <div className="App">
-      <NavBar/>
+      <NavBar setUser={setUser}/>
       <main>
         <Routes>
           <Route exact path='/' element={<LandingPage />} />
