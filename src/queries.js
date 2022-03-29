@@ -50,31 +50,42 @@ const GET_ALL_SUBMISSIONS = gql`
 
 
 // get submission by id (id, name, email, genre, song_title, profile, video, selected)
-  const GET_SINGLE_SUBMISSION = gql`
-    {
-      submission(id: $id) {
-        id
-        name
-        genre
-        songTitle
-        profile
-        video
-        selected
-      }
-    }
-  `
-
-
+  // const GET_SINGLE_SUBMISSION = gql`
+  //   {
+  //     submission(id: $id) {
+  //       id
+  //       name
+  //       genre
+  //       songTitle
+  //       profile
+  //       video
+  //       selected
+  //     }
+  //   }
+  // `
 
 
 
 // update mutation: change selected status (id, selected)
+// const UPDATE_SUBMISSION = gql`
+//     mutation UpdateSubmission($id, $selected) {
+//       updateSubmission(id: $id) {
+//         selected: $selected
+//       }
+//     }
+// `
 
 
 
 // post request: add new submission (name, email, genre, sonTitle, profile, video)
 // const postSubmission = (submissionData) => {
-//   return fetch('')
+//   return fetch('https://troubadour-be.herokuapp.com/graphql', {
+//     method: "POST",
+//     headers: {
+//       'Content-Type': 'multipart/form-data'
+//     },
+//     body: 
+//   })
 // }
 
 
