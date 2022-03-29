@@ -5,12 +5,17 @@ import { Link } from 'react-router-dom'
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu'
 import './NavBar.scss'
 
-const NavBar = () => {
+const NavBar = ({ setUser }) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
   const active = classNames('mobile-menu', {
     open: mobileNavOpen,
   });
+
+  const loginUser = () => {
+    // use graphql to fetch user
+    // set state to that user object
+  }
 
   return (
     <>
@@ -22,18 +27,21 @@ const NavBar = () => {
           </Link>
         </div>
         <h1>Troubadour</h1>
-        <div className="navigation-links">
-          <button
-            aria-label="Toggle Mobile Menu Button"
-            className={active}
-            onClick={() => {
-              setMobileNavOpen((mobileNavOpen) => !mobileNavOpen)
-            }}
-            >
-            <div className="bar-one" />
-            <div className="bar-two" />
-            <div className="bar-three" />
-          </button>
+        <div className="button-menu-container">
+          <button className="login-button">Admin Login</button>
+          <div className="navigation-links">
+            <button
+              aria-label="Toggle Mobile Menu Button"
+              className={active}
+              onClick={() => {
+                setMobileNavOpen((mobileNavOpen) => !mobileNavOpen)
+              }}
+              >
+              <div className="bar-one" />
+              <div className="bar-two" />
+              <div className="bar-three" />
+            </button>
+          </div>
         </div>
       </div>
       <HamburgerMenu open={mobileNavOpen} setMobileNavOpen={setMobileNavOpen}/>

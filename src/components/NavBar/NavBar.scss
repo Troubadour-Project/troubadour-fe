@@ -86,7 +86,12 @@ img {
   width: 80px;
 }
 
-
+.button-menu-container {
+  @include flex(row, flex-end, center);
+}
+.login-button {
+  margin: 0 20px 0 0;
+}
 // nav {
 //   @include flex(row, space-between, center);
 //   width: 100%;
