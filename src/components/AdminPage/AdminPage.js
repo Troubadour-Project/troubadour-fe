@@ -3,12 +3,12 @@ import './AdminPage.scss';
 import sampleUsers from '../../sampleUserData';
 import MusicianCard from '../MusicianCard/MusicianCard';
 import { useQuery } from '@apollo/client';
-import { GET_ALL_USERS } from '../../queries';
+import { GET_ALL_SUBMISSIONS } from '../../queries';
 
 const AdminPage = () => {
   const [musicians, setMusicians] = useState([]);
 
-  const { loading, error, data } = useQuery(GET_ALL_USERS);
+  const { loading, error, data } = useQuery(GET_ALL_SUBMISSIONS);
 
   const renderCards = (data) => {
     console.log(data);
