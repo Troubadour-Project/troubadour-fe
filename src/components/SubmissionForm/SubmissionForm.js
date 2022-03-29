@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import profilePicLogo from '../../assets/profile-pic-logo.png'
 import './SubmissionForm.scss'
 import { useMutation } from '@apollo/client';
-import { CREATE_USER } from '../../queries';
 
 const SubmissionForm = () => {
   const videoInput = React.createRef()
@@ -59,20 +58,20 @@ const SubmissionForm = () => {
     setProfileImage('');
   }
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    createUser({ variables: {
-      name: name,
-      email: email,
-      genre: genre,
-      songTitle: songTitle,
-      video: video,
-      profile: profileImage
-    }});
-    clearInputs();
-  }
+  // const handleSubmit = event => {
+  //   event.preventDefault();
+  //   createUser({ variables: {
+  //     name: name,
+  //     email: email,
+  //     genre: genre,
+  //     songTitle: songTitle,
+  //     video: video,
+  //     profile: profileImage
+  //   }});
+  //   clearInputs();
+  // }
 
-  const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
+  // const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
 
   const profilePicturePreview = profileImage ?
     <img src={profileImage} alt="Profile picture logo" className="profile-picture-preview"/> :
@@ -80,7 +79,7 @@ const SubmissionForm = () => {
   
     return (
     <section className="form-container">
-      <form onSubmit={event => handleSubmit(event)}>
+      <form>
         <h2>Musician Information</h2>
         <br />
         {profilePicturePreview}
