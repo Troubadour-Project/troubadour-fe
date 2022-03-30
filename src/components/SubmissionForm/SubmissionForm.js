@@ -60,15 +60,15 @@ const SubmissionForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(event)
     const formData = new FormData()
 
-    formData.append('name', name)
-    formData.append('email', email)
-    formData.append('genre', genre)
-    formData.append('song_title', songTitle)
-    formData.append('profile', video)
-    formData.append('video', profileImage)
+    formData.append("submission[name]", name)
+    formData.append("submission[email]", email)
+    formData.append("submission[genre]", genre)
+    formData.append("submission[song_title]", songTitle)
+    formData.append("submission[profile]", profileImage)
+    formData.append("submission[video]", video)
+    formData.append("submission[winner]", null)
 
     for (var value of formData.entries()) {
       console.log(`${value[0]} ${value[1]}`)
@@ -76,20 +76,10 @@ const SubmissionForm = () => {
 
     return fetch('https://troubadour-be.herokuapp.com/api/v1/submissions', {
       method: 'POST',
-      accept: 'application/json',
-      // body: {
-      //   name: 'some guy',
-      //   email: 'yaddah@blah.something',
-      //   genre: 'yes',
-      //   song_title: 'good stuff',
-      //   // profile: profilePicLogo,
-      //   profile: profileImage,
-      //   // video: movieUpload
-      //   video: video
-      // }
       body: formData
     })
-    .then(response => setVideoURL(response.url))
+    .then(response => response.json())
+    .then(data => console.log(data))
     // clearInputs();
   }
 
@@ -101,7 +91,6 @@ const SubmissionForm = () => {
   
     return (
     <section className="form-container">
-      {/* <video src={videoURL} controls/> */}
       <form onSubmit={event => handleSubmit(event)}>
         <h2>Musician Information</h2>
         <br />
@@ -168,8 +157,6 @@ const SubmissionForm = () => {
           required
         />
         <br />
-        {/* <button className="submit-button" onSubmit={e => {handleSubmit(e)}}>Submit</button> */}
-        {/* {isLargeFile ? <p className="file-size-message">Please select a smaller file size</p> : <button className="submit-button" onClick={event => handleSubmit(event)}>Submit</button>} */}
         {isLargeFile ? <p className="file-size-message">Please select a smaller file size</p> : <button className="submit-button">Submit</button>}
       </form>
     </section>
