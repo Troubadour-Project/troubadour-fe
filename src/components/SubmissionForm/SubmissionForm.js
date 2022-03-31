@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import profilePicLogo from '../../assets/profile-pic-logo.png'
 import './SubmissionForm.scss'
 
 const SubmissionForm = () => {
-  const videoInput = React.createRef()
-  const imageInput = React.createRef()
+  let videoInput = React.createRef()
+  let imageInput = React.createRef()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [genre, setGenre] = useState('')
@@ -13,6 +13,10 @@ const SubmissionForm = () => {
   const [profileImage, setProfileImage] = useState('')
   const [isLargeFile, setIsLargeFile] = useState(false)
   const [videoURL, setVideoURL] = useState('')
+
+  // useEffect(() => {
+
+  // }, [profileImage, video])
 
   const handleName = event => {
     setName(event.target.value)
@@ -49,15 +53,6 @@ const SubmissionForm = () => {
     }
   }
 
-  const clearInputs = () =>  {
-    setName('');
-    setEmail('');
-    setGenre('');
-    setSongTitle('');
-    setVideo('');
-    setProfileImage('');
-  }
-
   const handleSubmit = event => {
     event.preventDefault();
     const formData = new FormData()
@@ -74,13 +69,24 @@ const SubmissionForm = () => {
       console.log(`${value[0]} ${value[1]}`)
     }
 
-    return fetch('https://troubadour-be.herokuapp.com/api/v1/submissions', {
+    fetch('https://troubadour-be.herokuapp.com/api/v1/submissions', {
       method: 'POST',
       body: formData
     })
     .then(response => response.json())
     .then(data => console.log(data))
-    // clearInputs();
+    clearInputs();
+  }
+
+  const clearInputs = () =>  {
+    setName('');
+    setEmail('');
+    setGenre('');
+    setSongTitle('');
+    setVideo('');
+    setProfileImage('');
+    videoInput = null
+    imageInput = null
   }
 
   // const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
