@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import profilePicLogo from '../../assets/profile-pic-logo.png'
 import './SubmissionForm.scss'
+import { postSubmission } from '../../queries';
 import { useMutation } from '@apollo/client';
 
 const SubmissionForm = () => {
@@ -27,6 +28,7 @@ const SubmissionForm = () => {
     setSongTitle(event.target.value)
   }
   const handleVideo = event => {
+    console.log(event.target.files);
     if (!event.target.files[0]) {
       setVideo('')
       return 
@@ -58,20 +60,20 @@ const SubmissionForm = () => {
     setProfileImage('');
   }
 
-  // const handleSubmit = event => {
-  //   event.preventDefault();
-  //   createUser({ variables: {
-  //     name: name,
-  //     email: email,
-  //     genre: genre,
-  //     songTitle: songTitle,
-  //     video: video,
-  //     profile: profileImage
-  //   }});
-  //   clearInputs();
-  // }
+  const handleSubmit = event => {
+    event.preventDefault();
+    createUser({ variables: {
+      name: name,
+      email: email,
+      genre: genre,
+      songTitle: songTitle,
+      video: video,
+      profile: profileImage
+    }});
+    clearInputs();
+  }
 
-  // const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
+  const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
 
   const profilePicturePreview = profileImage ?
     <img src={profileImage} alt="Profile picture logo" className="profile-picture-preview"/> :
@@ -147,7 +149,7 @@ const SubmissionForm = () => {
         <br />
         {/* <button className="submit-button" onSubmit={e => {handleSubmit(e)}}>Submit</button> */}
         {/* {isLargeFile ? <p className="file-size-message">Please select a smaller file size</p> : <button className="submit-button" onClick={event => handleSubmit(event)}>Submit</button>} */}
-        {isLargeFile ? <p className="file-size-message">Please select a smaller file size</p> : <button className="submit-button">Submit</button>}
+        {isLargeFile ? <p className="file-size-message">Please select a smaller file size</p> : <button className="submit-button" onClick={event => handleVideo(event)}>Submit</button>}
       </form>
     </section>
   )
