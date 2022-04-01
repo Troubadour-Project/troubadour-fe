@@ -92,7 +92,7 @@ const SubmissionForm = () => {
   
     return (
     <section className="form-container">
-      <form>
+      <form onSubmit={event => handleSubmit(event)}>
         <h2>Musician Information</h2>
         <br />
         {profilePicturePreview}
