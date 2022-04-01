@@ -17,8 +17,8 @@ function App() {
       <main>
         <Routes>
           <Route exact path='/' element={<LandingPage />} />
-          <Route path='/submissions' element={<AdminPage user={user}/>} />
-          <Route path='/form' element={<SubmissionForm />} />
+          <Route exact path='/submissions' element={<AdminPage user={user}/>} />
+          <Route exact path='/form' element={<SubmissionForm />} />
           <Route path='/submissions/:id' element={<SubmissionDetailsPage user={user}/>}
           />
           {/* <Route path='/*' element={<Error />} /> */}
