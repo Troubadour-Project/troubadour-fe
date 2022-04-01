@@ -9,15 +9,17 @@ const AdminPage = ({ user }) => {
 
   const { loading, error, data } = useQuery(GET_SUBMISSIONS);
 
-  const renderCards = (data) => {
-    return data.getSubmissions.map(submission => {
-      return <MusicianCard key={submission.id} submission={submission} />
-    });
-  }
-
   if (loading) return 'Loading...';
   if (error) return <p>error: {error.message}</p>;
   if (data) {
+    const renderCards = (data) => {
+      if (data.getSubmissions.length > 0) {
+        return data.getSubmissions.map(submission => {
+          return <MusicianCard key={submission.id} submission={submission} />
+        });
+      }
+    }
+
     return(
       <div className='admin-page'>
         <div className='admin-title-container'>
