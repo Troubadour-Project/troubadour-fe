@@ -27,6 +27,7 @@ const SubmissionForm = () => {
     setSongTitle(event.target.value)
   }
   const handleVideo = event => {
+    console.log(event.target.files);
     if (!event.target.files[0]) {
       setVideo('')
       return 

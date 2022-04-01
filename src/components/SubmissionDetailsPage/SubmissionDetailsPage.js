@@ -1,6 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import "./SubmissionDetailsPage.scss";
-import MusicianCard from "../MusicianProfile/MusicianProfile";
+import MusicianProfile from "../MusicianProfile/MusicianProfile";
+import { useParams } from 'react-router-dom';
 
 const GET_SUBMISSION = gql`
   query ($id: ID!){
@@ -18,21 +19,23 @@ const GET_SUBMISSION = gql`
 `
 
 const SubmissionDetailsPage = () => {
+  const param = useParams();
   const { loading, error, data } = useQuery(GET_SUBMISSION, {
-    variables: { id: 5 }
+    variables: { id: param.id }
   });
 
   if (loading) return <p>loading...</p>
   if (error) return <p>{error.message}</p>
-
-  return(
-    <div className="details-container">
-      <MusicianCard />
-      <div className="submission-video">
-        <video src={data.getSubmission.videoUrl} controls className="video-container"/>
+  if (data) {
+    return (
+      <div className="details-container">
+        <MusicianProfile submission={data.getSubmission} />
+        <div className="submission-video">
+          <video src={data.getSubmission.videoUrl} controls className="video-container" />
+        </div>
       </div>
-    </div>
-  )
+    );
+  }
 }
 
 export default SubmissionDetailsPage

@@ -22,17 +22,17 @@ const GET_ADMIN = gql`
 `
 
 const GET_SUBMISSIONS = gql`
-{
-  getSubmissions {
-    id
-    name
-    songTitle
-    winner
-    videoUrl
-    profileUrl
-    adminFavorite(adminId: 1)
+  {
+    getSubmissions {
+      id
+      name
+      songTitle
+      winner
+      videoUrl
+      profileUrl
+      adminFavorite(adminId: 1)
+    }
   }
-}
 `
 
 export { GET_ADMIN, GET_SUBMISSIONS };
