@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-// get admin user
+// get admin user:
 // const GET_ADMIN_USER = gql`
 //   {
 //     admin {
@@ -13,7 +13,7 @@ import { gql } from '@apollo/client';
 
 
 
-// get all selected=true submissions (id, name, profile, genre)
+// get all selected=true submissions (id, name, profile, genre):
 // const GET_WINNERS = gql`
 //   {
 //     submission(selected: true) {
@@ -27,7 +27,7 @@ import { gql } from '@apollo/client';
 
 
 
-// get all submissions
+// get all submissions:
 const GET_ALL_SUBMISSIONS = gql`
   {
     fetchUsers {
@@ -49,7 +49,7 @@ const GET_ALL_SUBMISSIONS = gql`
 
 
 
-// get submission by id (id, name, email, genre, song_title, profile, video, selected)
+// get submission by id (id, name, email, genre, song_title, profile, video, selected):
   // const GET_SINGLE_SUBMISSION = gql`
   //   {
   //     submission(id: $id) {
