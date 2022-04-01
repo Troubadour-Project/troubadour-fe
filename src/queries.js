@@ -28,12 +28,30 @@ const GET_SUBMISSIONS = gql`
     name
     songTitle
     winner
+    videoUrl
+    profileUrl
     adminFavorite(adminId: 1)
   }
 }
 `
 
-export { GET_ADMIN, GET_SUBMISSIONS }
+const GET_SUBMISSION = gql`
+  {
+    getSubmission(id: 11) {
+      id
+      name
+      email
+      genre
+      songTitle
+      winner
+      profileUrl
+      videoUrl
+      adminFavorite(adminId: 1)
+    }
+  }
+`
+
+export { GET_ADMIN, GET_SUBMISSIONS, GET_SUBMISSION }
 // get all selected=true users (id, name, profile, genre)
 
 // get all users

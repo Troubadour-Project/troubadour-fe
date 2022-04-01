@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './AdminPage.scss';
 import sampleUsers from '../../sampleUserData';
 import MusicianCard from '../MusicianCard/MusicianCard';
 import { useQuery } from '@apollo/client';
-import { GET_ADMIN, GET_SUBMISSIONS } from '../../queries';
+import { GET_ADMIN, GET_SUBMISSIONS, GET_SUBMISSION } from '../../queries';
 
 const AdminPage = () => {
   const [musicians, setMusicians] = useState([]);
@@ -11,20 +11,11 @@ const AdminPage = () => {
   // const { loading, error, data } = useQuery(GET_ADMIN);
   const { loading, error, data } = useQuery(GET_SUBMISSIONS);
 
-
-  console.log(data)
-  console.log(error)
-
-  // const renderCards = (data) => {
-  //   return data.getAdmin.submissions.map(user => {
-  //     return <MusicianCard key={user.id} user={user} />
-  //   });
-  // } 
-
   if (loading) return 'Loading...';
   if (error) return <p>error: {error.message}</p>;
   if (data) {
     const renderCards = (data) => {
+      console.log(data)
       return data.getSubmissions.map(user => {
         return <MusicianCard key={user.id} user={user} />
       });
