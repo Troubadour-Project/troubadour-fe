@@ -1,50 +1,38 @@
 import { gql } from '@apollo/client';
 
-// get all selected=true users (id, name, profile, genre)
-
-// get all users
-const GET_ALL_USERS = gql`
+const GET_ADMIN = gql`
   {
-    fetchUsers {
+    getAdmin(id: 1) {
       id
-      name
-      profile
-      songTitle
-    }
-  }
-`;
-
-// get user by id (id, name, email, genre, song_title, profile, video, selected)
-
-// create mutation: add new user (name, email, genre, song_title, profile, video)
-const CREATE_USER = gql`
-  mutation CreateUser(
-    $name: String!
-    $email: String!
-    $genre: String!
-    $songTitle: String!
-    $profile: String!
-    $video: String!
-  ) {
-    createUser(
-      name: $name,
-      email: $email,
-      genre: $genre,
-      songTitle: $songTitle,
-      profile: $profile,
-      video: $video
-    ) {
-      id
-      name
+      username
       email
-      genre
-      songTitle
-      profile
-      video
+      submissions {
+        id
+        name
+        email
+        genre
+        songTitle
+        winner
+        profileUrl
+        videoUrl
+        adminFavorite(adminId: 1)
+      }
     }
   }
-`;
+`
 
-// update mutation: change selected status (id, selected)
+const GET_SUBMISSIONS = gql`
+{
+  getSubmissions {
+    id
+    name
+    songTitle
+    winner
+    videoUrl
+    profileUrl
+    adminFavorite(adminId: 1)
+  }
+}
+`
 
-export { CREATE_USER, GET_ALL_USERS };
+export { GET_ADMIN, GET_SUBMISSIONS };

@@ -4,7 +4,7 @@ const MusicianCard = ({ user }) => {
   return (
     <div className='card' key={user.id}>
       <img
-        src={`${user.profile}`}
+        src={`${user.profileUrl}`}
         className='profile-img'
       />
       <p className='card-name'>{user.name}</p>

@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import profilePicLogo from '../../assets/profile-pic-logo.png'
 import './SubmissionForm.scss'
-import { useMutation } from '@apollo/client';
-import { CREATE_USER } from '../../queries';
 
 const SubmissionForm = () => {
-  const videoInput = React.createRef()
-  const imageInput = React.createRef()
+  let videoInput = React.createRef()
+  let imageInput = React.createRef()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [genre, setGenre] = useState('')
@@ -14,6 +12,7 @@ const SubmissionForm = () => {
   const [video, setVideo] = useState('')
   const [profileImage, setProfileImage] = useState('')
   const [isLargeFile, setIsLargeFile] = useState(false)
+  const [videoURL, setVideoURL] = useState('')
 
   const handleName = event => {
     setName(event.target.value)
@@ -35,7 +34,7 @@ const SubmissionForm = () => {
       setIsLargeFile(true)
     } else {
       setIsLargeFile(false)
-      setVideo(URL.createObjectURL(event.target.files[0]))
+      setVideo(event.target.files[0])
     }
   }
   const handleProfileImage = event => {
@@ -46,8 +45,33 @@ const SubmissionForm = () => {
       setIsLargeFile(true)
     } else {
       setIsLargeFile(false)
-      setProfileImage(URL.createObjectURL(event.target.files[0]))
+      setProfileImage(event.target.files[0])
     }
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    const formData = new FormData()
+
+    formData.append("submission[name]", name)
+    formData.append("submission[email]", email)
+    formData.append("submission[genre]", genre)
+    formData.append("submission[song_title]", songTitle)
+    formData.append("submission[profile]", profileImage)
+    formData.append("submission[video]", video)
+    formData.append("submission[winner]", null)
+
+    for (var value of formData.entries()) {
+      console.log(`${value[0]} ${value[1]}`)
+    }
+
+    fetch('https://troubadour-be.herokuapp.com/api/v1/submissions', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    clearInputs();
   }
 
   const clearInputs = () =>  {
@@ -57,25 +81,12 @@ const SubmissionForm = () => {
     setSongTitle('');
     setVideo('');
     setProfileImage('');
+    videoInput = null
+    imageInput = null
   }
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    createUser({ variables: {
-      name: name,
-      email: email,
-      genre: genre,
-      songTitle: songTitle,
-      video: video,
-      profile: profileImage
-    }});
-    clearInputs();
-  }
-
-  const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
 
   const profilePicturePreview = profileImage ?
-    <img src={profileImage} alt="Profile picture logo" className="profile-picture-preview"/> :
+    <img src={URL.createObjectURL(profileImage)} alt="Profile picture logo" className="profile-picture-preview"/> :
     <img src={profilePicLogo} alt="Profile picture logo" className="profile-picture-preview"/>
   
     return (
@@ -146,8 +157,6 @@ const SubmissionForm = () => {
           required
         />
         <br />
-        {/* <button className="submit-button" onSubmit={e => {handleSubmit(e)}}>Submit</button> */}
-        {/* {isLargeFile ? <p className="file-size-message">Please select a smaller file size</p> : <button className="submit-button" onClick={event => handleSubmit(event)}>Submit</button>} */}
         {isLargeFile ? <p className="file-size-message">Please select a smaller file size</p> : <button className="submit-button">Submit</button>}
       </form>
     </section>
