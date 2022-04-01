@@ -12,11 +12,6 @@ const NavBar = ({ setUser }) => {
     open: mobileNavOpen,
   });
 
-  const loginUser = () => {
-    // use graphql to fetch user
-    // set state to that user object
-  }
-
   return (
     <>
     <nav className="navigation-wrapper">
