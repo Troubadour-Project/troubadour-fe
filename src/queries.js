@@ -34,24 +34,24 @@ const GET_SUBMISSIONS = gql`
   }
 }
 `
+// const getSubmission = id => {
+//   return const GET_SUBMISSION = gql`
+//     {
+//       getSubmission(id: ${id}) {
+//         id
+//         name
+//         email
+//         genre
+//         songTitle
+//         winner
+//         profileUrl
+//         videoUrl
+//       }
+//     }
+//   `
+// }
 
-const GET_SUBMISSION = gql`
-  {
-    getSubmission(id: 11) {
-      id
-      name
-      email
-      genre
-      songTitle
-      winner
-      profileUrl
-      videoUrl
-      adminFavorite(adminId: 1)
-    }
-  }
-`
-
-export { GET_ADMIN, GET_SUBMISSIONS, GET_SUBMISSION }
+export { GET_ADMIN, GET_SUBMISSIONS }
 // get all selected=true users (id, name, profile, genre)
 
 // get all users
