@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import profilePicLogo from '../../assets/profile-pic-logo.png'
 import './SubmissionForm.scss'
 
@@ -13,10 +13,6 @@ const SubmissionForm = () => {
   const [profileImage, setProfileImage] = useState('')
   const [isLargeFile, setIsLargeFile] = useState(false)
   const [videoURL, setVideoURL] = useState('')
-
-  // useEffect(() => {
-
-  // }, [profileImage, video])
 
   const handleName = event => {
     setName(event.target.value)
@@ -88,8 +84,6 @@ const SubmissionForm = () => {
     videoInput = null
     imageInput = null
   }
-
-  // const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
 
   const profilePicturePreview = profileImage ?
     <img src={URL.createObjectURL(profileImage)} alt="Profile picture logo" className="profile-picture-preview"/> :

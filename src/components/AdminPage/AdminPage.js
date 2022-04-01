@@ -1,14 +1,11 @@
 import { useState } from 'react';
 import './AdminPage.scss';
-import sampleUsers from '../../sampleUserData';
 import MusicianCard from '../MusicianCard/MusicianCard';
 import { useQuery } from '@apollo/client';
-import { GET_ADMIN, GET_SUBMISSIONS, GET_SUBMISSION } from '../../queries';
+import { GET_SUBMISSIONS } from '../../queries';
 
 const AdminPage = () => {
   const [musicians, setMusicians] = useState([]);
-
-  // const { loading, error, data } = useQuery(GET_ADMIN);
   const { loading, error, data } = useQuery(GET_SUBMISSIONS);
 
   if (loading) return 'Loading...';
