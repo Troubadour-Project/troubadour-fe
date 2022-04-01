@@ -8,13 +8,8 @@ import LandingPage from './components/LandingPage/LandingPage';
 import './App.scss';
 import SubmissionDetailsPage from './components/SubmissionDetailsPage/SubmissionDetailsPage';
 
-
 function App() {
-  const [user, setUser] = useState(null);  
-
-  useEffect(() => {
-    //setUser with gql query
-  }, [])
+  const [user, setUser] = useState(null);
 
   return (
     <div className="App">
@@ -22,9 +17,9 @@ function App() {
       <main>
         <Routes>
           <Route exact path='/' element={<LandingPage />} />
-          <Route path='/allsubmissions' element={<AdminPage user={user}/>} />
-          <Route path='/submission' element={<SubmissionForm />} />
-          <Route path='/submissiondetails/:id' element={<SubmissionDetailsPage user={user}/>}
+          <Route path='/submissions' element={<AdminPage user={user}/>} />
+          <Route path='/form' element={<SubmissionForm />} />
+          <Route path='/submissions/:id' element={<SubmissionDetailsPage user={user}/>}
           />
           {/* <Route path='/*' element={<Error />} /> */}
         </Routes>

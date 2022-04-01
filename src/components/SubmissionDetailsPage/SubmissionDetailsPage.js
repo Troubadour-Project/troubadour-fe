@@ -1,33 +1,41 @@
+import { useQuery, gql } from "@apollo/client";
 import "./SubmissionDetailsPage.scss";
-import "../MusicianProfile/MusicianProfile";
 import MusicianProfile from "../MusicianProfile/MusicianProfile";
-import { useQuery } from '@apollo/client';
-// import { GET_SINGLE_SUBMISSION } from '../../queries';
 import { useParams } from 'react-router-dom';
 
-const SubmissionDetailsPage = ({ user }) => {
-  const { id } = useParams();
-  console.log(id)
+const GET_SUBMISSION = gql`
+  query ($id: ID!){
+    getSubmission(id: $id) {
+      id
+      name
+      email
+      genre
+      songTitle
+      winner
+      profileUrl
+      videoUrl
+    }
+  }
+`
 
-  // const { loading, error, data } = useQuery(GET_SINGLE_SUBMISSION, {
-  //   variables: { id },
-  // });
+const SubmissionDetailsPage = () => {
+  const param = useParams();
+  const { loading, error, data } = useQuery(GET_SUBMISSION, {
+    variables: { id: param.id }
+  });
 
-  // const voteButton = user && <button>Winner</button>
-
-  // if (data) return(
-  //   <div className="details-container">
-  //     <MusicianProfile data={data}/>
-  //     <div className="submission-video">
-  //       video
-  //     </div>
-  //     { voteButton }
-  //   </div>
-  // );
-
-  return (
-    <p>Submission details will go here</p>
-  )
+  if (loading) return <p>loading...</p>
+  if (error) return <p>{error.message}</p>
+  if (data) {
+    return (
+      <div className="details-container">
+        <MusicianProfile submission={data.getSubmission} />
+        <div className="submission-video">
+          <video src={data.getSubmission.videoUrl} controls className="video-container" />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default SubmissionDetailsPage
