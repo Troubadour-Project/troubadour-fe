@@ -83,4 +83,47 @@ describe('Submission Form Page User Flow', () => {
       .url().should('eq', 'http://localhost:3000/submissions')
   });
 
+  it('Shoud have a form', () => {
+    cy.get('form')
+      .should('exist')
+  });
+
+  it('Should have a default picture preview', () => {
+    cy.get('.profile-picture-preview')
+      .should('have.attr', 'src', '/static/media/profile-pic-logo.7cf3a9ef8966ce920739.png')
+  });
+
+  it('Should fill out the Name input field', () => {
+    cy.get('input[name="name"]')
+      .type('Cypress')
+      .should('have.value', 'Cypress')
+  });
+
+  it('Should fill out the Email input field', () => {
+    cy.get('input[name="email"]')
+      .type('cypress@cypress.io')
+      .should('have.value', 'cypress@cypress.io')
+  });
+
+  it('Should fill out the Genre input field', () => {
+    cy.get('input[name="genre"]')
+      .type('Testing')
+      .should('have.value', 'Testing')
+  });
+
+  it('Should fill out the Song Title input field', () => {
+    cy.get('input[name="song-title"]')
+      .type('Testing')
+      .should('have.value', 'Testing')
+  });
+
+  it('Should select a video file', () => {
+    cy.get('input[name="video"]')
+      .selectFile('cypress/fixtures/cypress-video.mov')
+  });
+
+  it('Should select an image file', () => {
+    cy.get('input[name="profile-image"]')
+      .selectFile('cypress/fixtures/cypress-image.png')
+  });
 });
