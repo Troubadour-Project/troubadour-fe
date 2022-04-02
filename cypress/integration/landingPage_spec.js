@@ -63,5 +63,29 @@ describe('Landing Page User Flow', () => {
       .should('have.text', 'All Submissions')
   });
 
+  it('Should have a background image', () => {
+    cy.get('.landing-page-container')
+      .should('have.css', 'background-image', 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("http://localhost:3000/static/media/hero-image.0917e5513296b4cecb1f.jpeg")')
+  });
 
+  it('Should display a welcome message', () => {
+    cy.get('.welcome-message-header')
+      .should('have.text', 'Welcome to the Troubadour Music Contest!')
+      .get('.welcome-message')
+      .should('have.text', 'We will accept entries for the 2023 Troubadour Music Contest beginning April 1st, 2022. Contestants may submit an original song. We will post submission details later on.')
+      .get('.submission-dates-header')
+      .should('have.text', 'Important submission dates:')
+      .get('.submission-dates-april')
+      .should('have.text', 'April 22nd, 2023: All submissions must be postmarked on or before.')
+      .get('.submission-dates-may')
+      .should('have.text', 'May 4th, 2023: We will notify all finalists and alternates by this date. Watch for the public posting of Troubadour finalists around this time.')
+  });
+
+  it('Should have a link to the submission form', () => {
+    cy.get('.hero-button')
+      .should('have.text', 'Become a Rockstar')
+      .click()
+      .wait(1000)
+      .url('eq', 'http://localhost:3000/form')
+  });
 });
