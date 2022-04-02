@@ -24,6 +24,14 @@ describe('Landing Page User Flow', () => {
       .should('have.text', 'Login')
   });
 
+  it('Should click the Login button and see the text change', () => {
+    cy.get('.login-button')
+      .wait(1000)
+      .click()
+      .get('.login-button')
+      .should('have.text', 'Logout')
+  });
+
   it('Should have a hamburger menu', () => {
     cy.get('.mobile-nav-wrapper')
       .should('exist')
@@ -31,6 +39,7 @@ describe('Landing Page User Flow', () => {
 
   it('Should open the hamburger menu', () => {
     cy.get('.mobile-menu')
+      .wait(1000)
       .click()
       .wait(1000)
       .get('.open')
@@ -53,4 +62,6 @@ describe('Landing Page User Flow', () => {
       .eq(2)
       .should('have.text', 'All Submissions')
   });
+
+
 });
