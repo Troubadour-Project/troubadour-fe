@@ -18,6 +18,12 @@ describe('Landing Page User Flow', () => {
       .should('have.text', 'Troubadour')
   });
 
+  it('Should have a login button', () => {
+    cy.get('.login-button')
+      .should('exist')
+      .should('have.text', 'Login')
+  });
+
   it('Should have a hamburger menu', () => {
     cy.get('.mobile-nav-wrapper')
       .should('exist')
@@ -26,7 +32,8 @@ describe('Landing Page User Flow', () => {
   it('Should open the hamburger menu', () => {
     cy.get('.mobile-menu')
       .click()
-      .get('.mobile-menu-open')
+      .wait(1000)
+      .get('.open')
       .should('exist')
   });
 });
