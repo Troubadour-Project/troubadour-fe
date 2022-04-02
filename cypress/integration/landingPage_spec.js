@@ -36,4 +36,21 @@ describe('Landing Page User Flow', () => {
       .get('.open')
       .should('exist')
   });
+
+  it('Should have a list of links in the expanded menu', () => {
+    cy.get('.mobile-menu')
+      .click()
+      .wait(1000)
+      .get('.mobile-link')
+      .should('have.length', 3)
+      .get('.mobile-link')
+      .first()
+      .should('have.text', 'Home')
+      .get('.mobile-link')
+      .eq(1)
+      .should('have.text', 'Submission Form')
+      .get('.mobile-link')
+      .eq(2)
+      .should('have.text', 'All Submissions')
+  });
 });
