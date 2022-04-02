@@ -18,11 +18,14 @@ const GET_SUBMISSION = gql`
   }
 `
 
-const SubmissionDetailsPage = () => {
+const SubmissionDetailsPage = ({ user }) => {
   const param = useParams();
   const { loading, error, data } = useQuery(GET_SUBMISSION, {
     variables: { id: param.id }
   });
+
+  const winnerButton = user && 
+    <button>Select As Winner</button>
 
   if (loading) return <p>loading...</p>
   if (error) return <p>{error.message}</p>
@@ -33,6 +36,7 @@ const SubmissionDetailsPage = () => {
         <div className="submission-video">
           <video src={data.getSubmission.videoUrl} controls className="video-container" />
         </div>
+        { winnerButton }
       </div>
     );
   }
