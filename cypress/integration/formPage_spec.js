@@ -126,4 +126,25 @@ describe('Submission Form Page User Flow', () => {
     cy.get('input[name="profile-image"]')
       .selectFile('cypress/fixtures/cypress-image.png')
   });
+
+  it('Should make a new submission', () => {
+    cy.intercept('POST', 'https://troubadour-be.herokuapp.com/api/v1/submissions', { fixture: 'submission-response.json' }).as('submission-response')
+    cy.get('input[name="name"]')
+      .type('cypress')
+      .get('input[name="email"]')
+      .type('cypress@cypress.io')
+      .get('input[name="genre"]')
+      .type('cypress genre')
+      .get('input[name="song-title"]')
+      .type('cypress song title')
+      .get('input[name="video"]')
+      .selectFile('cypress/fixtures/cypress-video.mov')
+      .get('input[name="profile-image"]')
+      .selectFile('cypress/fixtures/cypress-image.png')
+      .get('.submit-button')
+      .click()
+      .wait('@submission-response')
+      .get('input[name="name"]')
+      .type('Success!')
+  });
 });
