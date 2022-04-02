@@ -1,7 +1,7 @@
 # Troubadour
 
 View the backend end repo [HERE](https://github.com/Troubadour-Project/troubadour_be)
-View the deploted site [HERE]()
+View the deploted site [HERE](https://troubadour-fe.herokuapp.com/)
 
 ## Overview
 
