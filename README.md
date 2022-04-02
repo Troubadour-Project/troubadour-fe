@@ -1,6 +1,7 @@
 # Troubadour
 
 View the backend end repo [HERE](https://github.com/Troubadour-Project/troubadour_be)
+View the deploted site [HERE]()
 
 ## Overview
 
@@ -17,7 +18,7 @@ Gifs here
 - React Router
 - Cyress
 - GraphQL
-- Figma
+- Figma [Wireframe](https://www.figma.com/file/vtwB7tDxUy7saAH08nMcDM/Capstone?node-id=0%3A1)
 
 ## Installation and Setup
 
