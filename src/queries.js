@@ -35,4 +35,20 @@ const GET_SUBMISSIONS = gql`
   }
 `
 
-export { GET_ADMIN, GET_SUBMISSIONS };
+const GET_WINNER = gql`
+  {
+    getWinner {
+      id
+      name
+      email
+      genre
+      songTitle
+      winner
+      profileUrl
+      videoUrl
+      adminFavorite(adminId: 1)
+    }
+  }
+`
+
+export { GET_ADMIN, GET_SUBMISSIONS, GET_WINNER };
