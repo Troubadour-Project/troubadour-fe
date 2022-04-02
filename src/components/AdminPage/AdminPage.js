@@ -5,7 +5,7 @@ import { useQuery } from '@apollo/client';
 import { GET_SUBMISSIONS } from '../../queries';
 
 const AdminPage = ({ user }) => {
-  const [musicians, setMusicians] = useState([]);
+  const [allSubmissions, setAllSubmissions] = useState([]);
 
   const { loading, error, data } = useQuery(GET_SUBMISSIONS);
 
