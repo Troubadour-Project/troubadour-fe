@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar setUser={setUser}/>
+      <NavBar setUser={setUser} user={user}/>
       <main>
         <Routes>
           <Route exact path='/' element={<LandingPage />} />
