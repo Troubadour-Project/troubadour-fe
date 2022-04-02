@@ -63,6 +63,26 @@ describe('Landing Page User Flow', () => {
       .should('have.text', 'All Submissions')
   });
 
+  it('Should click the Submission Form link', () => {
+    cy.get('.mobile-menu')
+      .click()
+      .wait(1000)
+      .get('.mobile-link')
+      .eq(1)
+      .click()
+      .url().should('eq', 'http://localhost:3000/form')
+  });
+
+  it('Should click the All Submissions link', () => {
+    cy.get('.mobile-menu')
+      .click()
+      .wait(1000)
+      .get('.mobile-link')
+      .eq(2)
+      .click()
+      .url().should('eq', 'http://localhost:3000/submissions')
+  });
+
   it('Should have a background image', () => {
     cy.get('.landing-page-container')
       .should('have.css', 'background-image', 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("http://localhost:3000/static/media/hero-image.0917e5513296b4cecb1f.jpeg")')
@@ -86,6 +106,6 @@ describe('Landing Page User Flow', () => {
       .should('have.text', 'Become a Rockstar')
       .click()
       .wait(1000)
-      .url('eq', 'http://localhost:3000/form')
+      .url().should('eq', 'http://localhost:3000/form')
   });
 });
