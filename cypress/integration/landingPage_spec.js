@@ -22,4 +22,11 @@ describe('Landing Page User Flow', () => {
     cy.get('.mobile-nav-wrapper')
       .should('exist')
   });
+
+  it('Should open the hamburger menu', () => {
+    cy.get('.mobile-menu')
+      .click()
+      .get('.mobile-menu-open')
+      .should('exist')
+  });
 });
