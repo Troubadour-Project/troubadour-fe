@@ -1,4 +1,4 @@
-describe('Submission Form Page User Flow', () => {
+describe.skip('Submission Form Page User Flow', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/form')
   });
@@ -146,5 +146,91 @@ describe('Submission Form Page User Flow', () => {
       .wait('@submission-response')
       .get('input[name="name"]')
       .type('Success!')
+  });
+});
+
+describe('Submission Form Page User Flow - Sad Path', () => {
+  beforeEach(() => {
+    cy.visit('http://localhost:3000/form')
+  });
+
+  it('Should not submit the form if all fields are empty', () => {
+    cy.get('input:invalid')
+      .should('have.length', 6)
+  });
+
+  it('Should not submit the form if the name field is empty', () => {
+    cy.get('input[name="email"]')
+      .type('cypress@cypress.io')
+      .get('input[name="genre"]')
+      .type('cypress genre')
+      .get('input[name="song-title"]')
+      .type('cypress song title')
+      .get('input[name="video"]')
+      .selectFile('cypress/fixtures/cypress-video.mov')
+      .get('input[name="profile-image"]')
+      .selectFile('cypress/fixtures/cypress-image.png')
+      .get('input:invalid')
+      .should('have.length', 1)
+  });
+
+  it('Should not submit the form if the email field is empty', () => {
+    cy.get('input[name="name"]')
+      .type('cypress')
+      .get('input[name="genre"]')
+      .type('cypress genre')
+      .get('input[name="song-title"]')
+      .type('cypress song title')
+      .get('input[name="video"]')
+      .selectFile('cypress/fixtures/cypress-video.mov')
+      .get('input[name="profile-image"]')
+      .selectFile('cypress/fixtures/cypress-image.png')
+      .get('input:invalid')
+      .should('have.length', 1)
+  });
+
+  it('Should not submit the form if the genre field is empty', () => {
+    cy.get('input[name="name"]')
+      .type('cypress')
+      .get('input[name="email"]')
+      .type('cypress@cypress.io')
+      .get('input[name="song-title"]')
+      .type('cypress song title')
+      .get('input[name="video"]')
+      .selectFile('cypress/fixtures/cypress-video.mov')
+      .get('input[name="profile-image"]')
+      .selectFile('cypress/fixtures/cypress-image.png')
+      .get('input:invalid')
+      .should('have.length', 1)
+  });
+
+  it('Should not submit the form if the song title field is empty', () => {
+    cy.get('input[name="name"]')
+      .type('cypress')
+      .get('input[name="email"]')
+      .type('cypress@cypress.io')
+      .get('input[name="genre"]')
+      .type('cypress genre')
+      .get('input[name="video"]')
+      .selectFile('cypress/fixtures/cypress-video.mov')
+      .get('input[name="profile-image"]')
+      .selectFile('cypress/fixtures/cypress-image.png')
+      .get('input:invalid')
+      .should('have.length', 1)
+  });
+
+  it('Should not submit the form if a video is not chosen', () => {
+    cy.get('input[name="name"]')
+      .type('cypress')
+      .get('input[name="email"]')
+      .type('cypress@cypress.io')
+      .get('input[name="genre"]')
+      .type('cypress genre')
+      .get('input[name="song-title"]')
+      .type('cypress song title')
+      .get('input[name="profile-image"]')
+      .selectFile('cypress/fixtures/cypress-image.png')
+      .get('input:invalid')
+      .should('have.length', 1)
   });
 });
