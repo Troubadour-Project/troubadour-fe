@@ -233,4 +233,19 @@ describe('Submission Form Page User Flow - Sad Path', () => {
       .get('input:invalid')
       .should('have.length', 1)
   });
+
+  it('Should not submit the form if an image is not chosen', () => {
+    cy.get('input[name="name"]')
+      .type('cypress')
+      .get('input[name="email"]')
+      .type('cypress@cypress.io')
+      .get('input[name="genre"]')
+      .type('cypress genre')
+      .get('input[name="song-title"]')
+      .type('cypress song title')
+      .get('input[name="video"]')
+      .selectFile('cypress/fixtures/cypress-video.mov')
+      .get('input:invalid')
+      .should('have.length', 1)
+  });
 });
