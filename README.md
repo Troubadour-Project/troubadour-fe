@@ -25,6 +25,24 @@ Gifs here
 3. `npm install` to install dependancies
 4. Run `npm start` to open the webpage
 
+## Future Goals
+
+Future goals here
+
+## Created By:
+
+Front End
+- [Ryan McBride](https://github.com/mr-ryan12)
+- [Ali Roemhildt](https://github.com/aliroemhildt)
+- [Oscar Cortez Barrientos](https://github.com/oacortez)
+- [Emma Chory](https://github.com/Echory)
+
+Back End
+- [Sierra Tucker](https://github.com/Sierra-T-9598)
+- [Tim Roeder](https://github.com/tjroeder)
+- [Arnaldo Aparicio](https://github.com/arnaldoaparicio)
+
+
 
 
 
