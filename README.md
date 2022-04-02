@@ -4,7 +4,8 @@ View the backend end repo [HERE](https://github.com/Troubadour-Project/troubadou
 
 ## Overview
 
-Good overview here
+Troubadour was created to help music festivals manage their competition submissions. As an admin, you can log-in to view all submission, save your favorites, and vote on a winner! The winner will be displayed on the main page where everyone can come and see who won.
+TBC...
 
 ## See how it works!
 
