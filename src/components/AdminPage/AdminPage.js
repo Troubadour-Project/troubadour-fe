@@ -11,7 +11,7 @@ const AdminPage = ({ user }) => {
 
   useEffect(() => {
     refetch()
-  })
+  }, [])
 
   if (loading) return 'Loading...';
   if (error) return <p>error: {error.message}</p>;
