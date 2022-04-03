@@ -56,4 +56,31 @@ describe('Submission Details User Flow', () => {
       .eq(2)
       .should('have.text', 'All Submissions')
   });
-})
+
+  it('Should have a profile image', () => {
+    cy.get('.details-picture')
+      .should('have.attr', 'src', 'https://upload.wikimedia.org/wikipedia/commons/4/45/GuitareClassique5.png')
+  });
+
+  it('Should have a submission name', () => {
+    cy.get('.details-card-container')
+      .contains('Submission 1')
+      .should('have.text', 'Submission 1')
+  });
+
+  it('Should have a genre', () => {
+    cy.get('.details-card-container')
+      .contains('Rock')
+      .should('have.text', 'Rock')
+  });
+
+  it('Should have a song title', () => {
+    cy.get('.details-card-container')
+      .contains('Testing 1')
+  });
+
+  it('Should have a video', () => {
+    cy.get('video')
+      .should('exist')
+  });
+});
