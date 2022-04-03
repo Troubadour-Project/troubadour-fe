@@ -1,9 +1,16 @@
 import './MusicianCard.scss';
 import { Link } from 'react-router-dom';
-import starIcon from '../../assets/star-icon.png'
+import { useMutation } from '@apollo/client';
+import starIcon from '../../assets/star-icon.png';
+import { FAVORITE_SUBMISSION_ADMIN } from '../../mutations';
 
 const MusicianCard = ({ submission, user }) => {
-  const showFavoriteButton = user && <img src={starIcon} className='star-icon' />
+  const selectFavorite = () => {
+    const test= useMutation(FAVORITE_SUBMISSION_ADMIN)
+    debugger
+  }
+
+  const showFavoriteButton = user && <img onClick={selectFavorite} src={starIcon} className='star-icon' />
 
   return (
     <Link to={`/submissions/${submission.id}`} key={submission.id}>
