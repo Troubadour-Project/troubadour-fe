@@ -2,11 +2,13 @@ import './MusicianCard.scss';
 import { Link } from 'react-router-dom';
 import starIcon from '../../assets/star-icon.png'
 
-const MusicianCard = ({ submission }) => {
+const MusicianCard = ({ submission, user }) => {
+  const showFavoriteButton = user && <img src={starIcon} className='star-icon' />
+
   return (
     <Link to={`/submissions/${submission.id}`} key={submission.id}>
       <div className='card' >
-        <img src={starIcon} className='star-icon' />
+        {showFavoriteButton}
         <img
           src={`${submission.profileUrl}`}
           className='profile-img'

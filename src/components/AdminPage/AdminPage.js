@@ -15,7 +15,7 @@ const AdminPage = ({ user }) => {
     const renderCards = (data) => {
       if (data.getSubmissions.length > 0) {
         return data.getSubmissions.map(submission => {
-          return <MusicianCard key={submission.id} submission={submission} />
+          return <MusicianCard user={user} key={submission.id} submission={submission} />
         });
       }
     }
