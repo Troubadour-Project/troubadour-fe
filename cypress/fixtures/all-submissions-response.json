@@ -8,7 +8,7 @@
         "genre": "Rock",
         "songTitle": "Testing 1",
         "winner": false,
-        "profileUrl": "cypress/fixtures/cypress-image.png",
+        "profileUrl": "https://upload.wikimedia.org/wikipedia/commons/4/45/GuitareClassique5.png",
         "videoUrl": "./cypress-video.mov",
         "adminFavorite": false
       },
@@ -19,7 +19,7 @@
         "genre": "Folk",
         "songTitle": "Testing 2",
         "winner": false,
-        "profileUrl": "./cypress-image.png",
+        "profileUrl": "https://upload.wikimedia.org/wikipedia/commons/4/45/GuitareClassique5.png",
         "videoUrl": "./cypress-video.mov",
         "adminFavorite": false
       }
