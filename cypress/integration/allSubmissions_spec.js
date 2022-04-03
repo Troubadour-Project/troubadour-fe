@@ -80,7 +80,7 @@ describe('All Submissions Page User Flow', () => {
       .contains('Testing 1')
   });
 
-  it.only('Should see additional submission details', () => {
+  it('Should see additional submission details', () => {
     cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', { fixture: 'submission-details-response.json' }).as('submission-details-response')
     cy.visit('http://localhost:3000/submissions/1')
       .get('.details-picture')
