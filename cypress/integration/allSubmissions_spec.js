@@ -94,5 +94,7 @@ describe('All Submissions Page User Flow', () => {
       .get('.details-card-container')
       .contains('Rock')
       .should('have.text', 'Rock')
+      .get('video')
+      .should('have.attr', 'src', 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Ginda_Bestari_-_overdrive_on_electric_guitar_%28Lovepedal_Kalamazoo%2C_Providence_Stampede_OD%29.webm')
   });
 });
