@@ -82,6 +82,7 @@ const SubmissionForm = () => {
     .then(response => response.json())
     .then(data => console.log(data))
     clearInputs();
+    document.querySelector('form').reset()
   }
 
   const clearInputs = () =>  {
@@ -177,7 +178,6 @@ const SubmissionForm = () => {
           required
         />
         <br />
-        {/* {isLargeFile ? <p className="file-size-message">Please select a smaller file size</p> : <button className="submit-button">Submit</button>} */}
         {checkFile()}
       </form>
     </section>
