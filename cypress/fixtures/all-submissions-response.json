@@ -9,7 +9,7 @@
         "songTitle": "Testing 1",
         "winner": false,
         "profileUrl": "https://upload.wikimedia.org/wikipedia/commons/4/45/GuitareClassique5.png",
-        "videoUrl": "./cypress-video.mov",
+        "videoUrl": "https://commons.wikimedia.org/wiki/File:Changing_a_String_to_Classical_Guitar.webm",
         "adminFavorite": false
       },
       {
@@ -20,7 +20,7 @@
         "songTitle": "Testing 2",
         "winner": false,
         "profileUrl": "https://upload.wikimedia.org/wikipedia/commons/4/45/GuitareClassique5.png",
-        "videoUrl": "./cypress-video.mov",
+        "videoUrl": "https://commons.wikimedia.org/wiki/File:Changing_a_String_to_Classical_Guitar.webm",
         "adminFavorite": false
       }
     ]

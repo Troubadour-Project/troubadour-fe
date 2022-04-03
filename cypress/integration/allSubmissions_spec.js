@@ -79,4 +79,20 @@ describe('All Submissions Page User Flow', () => {
       .first()
       .contains('Testing 1')
   });
+
+  it.only('Should see additional submission details', () => {
+    cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', { fixture: 'submission-details-response.json' }).as('submission-details-response')
+    cy.visit('http://localhost:3000/submissions/1')
+      .get('.details-picture')
+      .should('have.attr', 'src', 'https://upload.wikimedia.org/wikipedia/commons/4/45/GuitareClassique5.png')
+      .get('.details-card-container')
+      .contains('Submission 1')
+      .should('have.text', 'Submission 1')
+      .get('.details-card-container')
+      .contains('Testing 1')
+      .should('have.text', 'Testing 1')
+      .get('.details-card-container')
+      .contains('Rock')
+      .should('have.text', 'Rock')
+  });
 });
