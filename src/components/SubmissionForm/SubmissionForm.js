@@ -29,7 +29,6 @@ const SubmissionForm = () => {
     setSongTitle(event.target.value)
   }
   const handleVideo = event => {
-    console.log(event.target.files[0])
     if (!event.target.files[0]) {
       setVideo('')
       return 
@@ -44,7 +43,6 @@ const SubmissionForm = () => {
     }
   }
   const handleProfileImage = event => {
-    console.log(event.target.files[0])
     if (!event.target.files[0]) {
       setProfileImage('')
       return 

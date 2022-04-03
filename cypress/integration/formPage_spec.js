@@ -265,4 +265,20 @@ describe('Submission Form Page User Flow - Sad Path', () => {
       .get('input:invalid')
       .should('have.length', 1)
   });
+
+  it('Should display a message if the incorrect image filetype is selected', () => {
+    cy.get('input[name="profile-image"]')
+      .selectFile('cypress/fixtures/cypress-video.mov')
+      .get('.wrong-image-message')
+      .should('exist')
+      .should('have.text', 'Please select an image file')
+  });
+
+  it('Should display a message if the incorrect video filetype is selected', () => {
+    cy.get('input[name="video"]')
+      .selectFile('cypress/fixtures/cypress-image.png')
+      .get('.wrong-video-message')
+      .should('exist')
+      .should('have.text', 'Please select a video file')
+  });
 });
