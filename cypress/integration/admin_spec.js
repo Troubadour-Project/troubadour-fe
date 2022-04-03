@@ -2,6 +2,7 @@ describe('Admin Flow', () => {
   beforeEach(() => {
     // cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', { fixture: 'submission-details-response.json' }).as('submission-details-response')
       cy.visit('http://localhost:3000/submissions/1')
+        .wait(2000)
       // .wait('@submission-details-response')
   });
 
@@ -51,14 +52,44 @@ describe('Admin Flow', () => {
   //     .should('have.text', 'All Submissions')
   // });
 
-  it.only('Should see a button on the submission details page to select a winner', () => {
+  it('Should have a button on the submission details page to select a winner', () => {
     cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', { fixture: 'admin-response.json' }).as('admin-response')
-    cy.get('.login-button')
+      .get('.login-button')
+      .wait(1000)
+      .click({ force: true })
+      .wait('@admin-response')
+      .get('button')
+      .contains('Select As Winner')
+      .should('have.text', 'Select As Winner')
+  });
+
+  it('Should display a confirmation modal after the winner selection button is clicked', () => {
+    cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', { fixture: 'admin-response.json' }).as('admin-response')
+      .get('.login-button')
       .wait(1000)
       .click({ force: true })
       .wait('@admin-response')
       .get('button')
       .contains('Select As Winner')
       .click()
+      .get('.modal-container')
+      .should('exist')
+  });
+
+  it('Should close the modal', () => {
+    cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', { fixture: 'admin-response.json' }).as('admin-response')
+      .get('.login-button')
+      .wait(1000)
+      .click({ force: true })
+      .wait('@admin-response')
+      .get('button')
+      .contains('Select As Winner')
+      .click()
+      .get('.modal-container')
+      .should('exist')
+      .get('.x-button')
+      .click()
+      .get('.modal-container')
+      .should('not.exist')
   });
 });
