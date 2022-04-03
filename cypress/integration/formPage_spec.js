@@ -1,4 +1,4 @@
-describe.skip('Submission Form Page User Flow', () => {
+describe('Submission Form Page User Flow', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/form')
   });
@@ -91,6 +91,32 @@ describe.skip('Submission Form Page User Flow', () => {
   it('Should have a default picture preview', () => {
     cy.get('.profile-picture-preview')
       .should('have.attr', 'src', '/static/media/profile-pic-logo.7cf3a9ef8966ce920739.png')
+  });
+
+  // it.only('Should update the preview when an image file is chosen', () => {
+  //   cy.get('.profile-picture-preview')
+  //     .should('have.attr', 'src', '/static/media/profile-pic-logo.7cf3a9ef8966ce920739.png')
+  //     .get('input[name="profile-image"]')
+  //     .selectFile('cypress/fixtures/cypress-image.png')
+  //     .get('.profile-picture-preview')
+  //     .should('have.attr', 'src', '/static/media/profile-pic-logo.7cf3a9ef8966ce920739.png')
+  // });
+
+  it('Should update the preview when an image file is chosen', () => {
+    cy.get('.profile-picture-preview')
+      .invoke('attr', 'src')
+      .then(firstSrc => {
+        const src1 = firstSrc
+
+        cy.get('input[name="profile-image"]')
+          .selectFile('cypress/fixtures/cypress-image.png')
+          .wait(1000)
+          .get('.profile-picture-preview')
+          .invoke('attr', 'src')
+          .then(secondSrc => {
+            expect(secondSrc).to.not.equal(src1)
+          });
+      });
   });
 
   it('Should fill out the Name input field', () => {
