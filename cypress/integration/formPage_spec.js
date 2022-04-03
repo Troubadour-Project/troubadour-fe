@@ -93,15 +93,6 @@ describe('Submission Form Page User Flow', () => {
       .should('have.attr', 'src', '/static/media/profile-pic-logo.7cf3a9ef8966ce920739.png')
   });
 
-  // it.only('Should update the preview when an image file is chosen', () => {
-  //   cy.get('.profile-picture-preview')
-  //     .should('have.attr', 'src', '/static/media/profile-pic-logo.7cf3a9ef8966ce920739.png')
-  //     .get('input[name="profile-image"]')
-  //     .selectFile('cypress/fixtures/cypress-image.png')
-  //     .get('.profile-picture-preview')
-  //     .should('have.attr', 'src', '/static/media/profile-pic-logo.7cf3a9ef8966ce920739.png')
-  // });
-
   it('Should update the preview when an image file is chosen', () => {
     cy.get('.profile-picture-preview')
       .invoke('attr', 'src')
