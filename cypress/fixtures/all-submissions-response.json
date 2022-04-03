@@ -1,0 +1,28 @@
+{
+  "data": {
+    "getSubmissions": [
+      {
+        "id": "1",
+        "name": "Submission 1",
+        "email": "deidre@balistreri-mclaughlin.info",
+        "genre": "Rock",
+        "songTitle": "Testing 1",
+        "winner": false,
+        "profileUrl": "cypress/fixtures/cypress-image.png",
+        "videoUrl": "./cypress-video.mov",
+        "adminFavorite": false
+      },
+      {
+        "id": "2",
+        "name": "Submission 2",
+        "email": "dulce_abshire@witting-abbott.org",
+        "genre": "Folk",
+        "songTitle": "Testing 2",
+        "winner": false,
+        "profileUrl": "./cypress-image.png",
+        "videoUrl": "./cypress-video.mov",
+        "adminFavorite": false
+      }
+    ]
+  }
+}
