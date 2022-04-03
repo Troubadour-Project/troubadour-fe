@@ -92,4 +92,21 @@ describe('Admin Flow', () => {
       .get('.modal-container')
       .should('not.exist')
   });
+
+  it('Should close the modal by clicking the cancel button', () => {
+    cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', { fixture: 'admin-response.json' }).as('admin-response')
+      .get('.login-button')
+      .wait(1000)
+      .click({ force: true })
+      .wait('@admin-response')
+      .get('button')
+      .contains('Select As Winner')
+      .click()
+      .get('.modal-container')
+      .should('exist')
+      .contains('Cancel')
+      .click()
+      .get('.modal-container')
+      .should('not.exist')
+  });
 });
