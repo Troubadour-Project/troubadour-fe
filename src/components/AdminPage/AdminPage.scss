@@ -16,10 +16,8 @@
   font-size: 40px;
 }
 
-
 .card-container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(5, 20%);
-  grid-template-rows: max-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
