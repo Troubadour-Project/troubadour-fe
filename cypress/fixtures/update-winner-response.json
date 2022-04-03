@@ -1,0 +1,14 @@
+{
+  "data": {
+    "updateWinner": {
+      "submission": {
+        "id": "1",
+        "name": "sub1",
+        "email": "silas.raynor@wisoky.name",
+        "genre": "accusantium",
+        "songTitle": "reprehenderit",
+        "winner": true
+      }
+    }
+  }
+}
