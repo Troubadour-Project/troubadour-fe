@@ -93,7 +93,6 @@ const SubmissionForm = () => {
       setIsResolved(true)
     })
     clearInputs();
-    document.querySelector('form').reset()
   }
 
   const clearInputs = () =>  {
