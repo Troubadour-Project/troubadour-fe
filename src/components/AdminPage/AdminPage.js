@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './AdminPage.scss';
 import MusicianCard from '../MusicianCard/MusicianCard';
 import { useQuery } from '@apollo/client';
@@ -7,7 +7,11 @@ import { GET_SUBMISSIONS } from '../../queries';
 const AdminPage = ({ user }) => {
   const [allSubmissions, setAllSubmissions] = useState([]);
 
-  const { loading, error, data } = useQuery(GET_SUBMISSIONS);
+  const { loading, error, data, refetch } = useQuery(GET_SUBMISSIONS);
+
+  useEffect(() => {
+    refetch()
+  }, [])
 
   if (loading) return 'Loading...';
   if (error) return <p>error: {error.message}</p>;

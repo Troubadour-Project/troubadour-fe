@@ -1,0 +1,33 @@
+{
+  "data": {
+    "getAdmin": {
+      "id": "1",
+      "username": "admin1",
+      "email": "sherman_heidenreich@kessler-lynch.org",
+      "submissions": [
+        {
+          "id": "1",
+          "name": "Submission 1",
+          "email": "deidre@balistreri-mclaughlin.info",
+          "genre": "Rock",
+          "songTitle": "Testing 1",
+          "winner": false,
+          "profileUrl": "https://upload.wikimedia.org/wikipedia/commons/4/45/GuitareClassique5.png",
+          "videoUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Ginda_Bestari_-_overdrive_on_electric_guitar_%28Lovepedal_Kalamazoo%2C_Providence_Stampede_OD%29.webm",
+          "adminFavorite": false
+        },
+        {
+          "id": "2",
+          "name": "Submission 2",
+          "email": "dulce_abshire@witting-abbott.org",
+          "genre": "Folk",
+          "songTitle": "Testing 2",
+          "winner": false,
+          "profileUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Django_Reinhardt_%28Gottlieb_07301%29.jpg/640px-Django_Reinhardt_%28Gottlieb_07301%29.jpg",
+          "videoUrl": "https://commons.wikimedia.org/wiki/File:Changing_a_String_to_Classical_Guitar.webm",
+          "adminFavorite": false
+        }
+      ]
+    }
+  }
+}
