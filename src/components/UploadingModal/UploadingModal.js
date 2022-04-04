@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import UploadingSpinner from '../UploadingSpinner/UploadingSpinner'
 import './UploadingModal.scss'
 
 const UploadingModal = props => {
   const messageForDisplay = props.isUploading ? 'Uploading your submission. This might take some time.' : 'Your submission has succesfully uploaded! Thank you for your entry!'
   const checkUploadingState = () => {
     if (props.isUploading) {
-      return <p>uploading...</p>
+      return <UploadingSpinner/>
     } else {
       return (
         <>
