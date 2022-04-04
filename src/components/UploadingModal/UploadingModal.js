@@ -3,15 +3,17 @@ import { Link } from 'react-router-dom'
 import './UploadingModal.scss'
 
 const UploadingModal = props => {
+  const messageForDisplay = props.isUploading ? 'Uploading your submission. This might take some time.' : 'Your submission has succesfully uploaded! Thank you for your entry!'
+
   return (
     <section className="uploading-modal-background">
       <section className="uploading-modal-container">
-        <section className="uploading-text-container">
-          <p className="">Uploading your Submission. This might take some time.</p>
+        <section className="uploading-modal-text-container">
+          <p className="uploading-modal-message">{messageForDisplay}</p>
         </section>
-        <section className="uploading-button-container">
-          <Link to="/">Home</Link>
-          <Link to={`/submissions/${props.id}`}>Your Submission</Link>
+        <section className="uploading-buttons-container">
+          <Link to="/" className="uploading-modal-button">Home</Link>
+          <Link to={`/submissions/${props.id}`} className="uploading-modal-button">Your Submission</Link>
         </section>
       </section>
     </section>
