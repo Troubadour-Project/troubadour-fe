@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import UploadingModal from '../UploadingModal/UploadingModal'
 import profilePicLogo from '../../assets/profile-pic-logo.png'
 import './SubmissionForm.scss'
 
@@ -15,7 +16,7 @@ const SubmissionForm = () => {
   const [isNotVideoFile, setIsNotVideoFile] = useState(false)
   const [isNotImageFile, setIsNotImageFile] = useState(false)
   const [videoURL, setVideoURL] = useState('')
-  const [isUploading, setIsUploading] = useState(false)
+  const [isUploading, setIsUploading] = useState(true)
 
   const handleName = event => {
     setName(event.target.value)
@@ -60,7 +61,7 @@ const SubmissionForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    setIsUploading(true)
+    // setIsUploading(true)
     const formData = new FormData()
 
     formData.append("submission[name]", name)
@@ -82,7 +83,7 @@ const SubmissionForm = () => {
     .then(response => response.json())
     .then(data => {
       console.log(data)
-      setIsUploading(false)
+      // setIsUploading(false)
     })
     clearInputs();
     document.querySelector('form').reset()
@@ -115,7 +116,7 @@ const SubmissionForm = () => {
   
     return (
     <>
-    {isUploading ? <p>uploading!!!!</p> : null}
+    {isUploading ? <UploadingModal/> : null}
     <section className="form-container">
       <form onSubmit={event => handleSubmit(event)}>
         <h2>Musician Information</h2>
