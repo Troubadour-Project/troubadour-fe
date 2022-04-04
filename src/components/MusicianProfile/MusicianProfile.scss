@@ -5,6 +5,8 @@
   height: 60vh;
   margin-top: 80px;
   border: 1px solid black;
+  flex-direction: column;
+  align-items: center;
 }
 
 .submission-video {
@@ -17,7 +19,6 @@
 .details-picture {
   width:160px;
   height:160px;
-  margin-top: 15px;
 }
 
 .details-card-container {
@@ -27,5 +28,9 @@
 
 .submission-detail {
   padding: 30px;
-  margin-left: 50px;
+}
+
+.details-picture-container {
+  display: flex;
+  border: solid 1px red;
 }
