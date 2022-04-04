@@ -4,15 +4,15 @@ import UploadingSpinner from '../UploadingSpinner/UploadingSpinner'
 import './UploadingModal.scss'
 
 const UploadingModal = props => {
-  const messageForDisplay = props.isUploading ? 'Uploading your submission. This might take some time.' : 'Your submission has succesfully uploaded! Thank you for your entry!'
+  const messageForDisplay = !props.isResolved ? 'Uploading your submission. This might take some time.' : 'Your submission has succesfully uploaded! Thank you for your entry!'
   const checkUploadingState = () => {
-    if (props.isUploading) {
+    if (!props.isResolved) {
       return <UploadingSpinner/>
     } else {
       return (
         <>
           <Link to="/" className="uploading-modal-button">Home</Link>
-          <Link to={`/submissions/${props.id}`} className="uploading-modal-button">Your Submission</Link>
+          <Link to={`/submissions/${props.submissionId}`} className="uploading-modal-button">Your Submission</Link>
         </>
       )
     }
