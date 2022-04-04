@@ -73,8 +73,8 @@ const SubmissionDetailsPage = ({ user }) => {
         <MusicianProfile submission={data.getSubmission} />
         <div className="submission-video">
           <video src={data.getSubmission.videoUrl} controls className="video-container" />
-        </div>
         { winnerButton }
+        </div>
       </div>
     );
   }
