@@ -25,8 +25,6 @@ const UploadingModal = props => {
           <p className="uploading-modal-message">{messageForDisplay}</p>
         </section>
         <section className="uploading-buttons-container">
-          {/* <Link to="/" className="uploading-modal-button">Home</Link>
-          <Link to={`/submissions/${props.id}`} className="uploading-modal-button">Your Submission</Link> */}
           {checkUploadingState()}
         </section>
       </section>
