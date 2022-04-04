@@ -15,6 +15,7 @@ const SubmissionForm = () => {
   const [isNotVideoFile, setIsNotVideoFile] = useState(false)
   const [isNotImageFile, setIsNotImageFile] = useState(false)
   const [videoURL, setVideoURL] = useState('')
+  const [isUploading, setIsUploading] = useState(false)
 
   const handleName = event => {
     setName(event.target.value)
@@ -34,7 +35,7 @@ const SubmissionForm = () => {
       return 
     } else if (event.target.files[0].size >= 500000000) {
       setIsLargeFile(true)
-    } else if (!event.target.file[0].type.includes('video')) {
+    } else if (!event.target.files[0].type.includes('video')) {
       setIsNotVideoFile(true)
     } else {
       setIsLargeFile(false)
@@ -48,7 +49,7 @@ const SubmissionForm = () => {
       return 
     } else if (event.target.files[0].size >= 500000000) {
       setIsLargeFile(true)
-    } else if (!event.target.filed[0].type.includes('image')) {
+    } else if (!event.target.files[0].type.includes('image')) {
       setIsNotImageFile(true)
     } else {
       setIsLargeFile(false)
@@ -59,6 +60,7 @@ const SubmissionForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    setIsUploading(true)
     const formData = new FormData()
 
     formData.append("submission[name]", name)
@@ -78,7 +80,10 @@ const SubmissionForm = () => {
       body: formData
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+      console.log(data)
+      setIsUploading(false)
+    })
     clearInputs();
     document.querySelector('form').reset()
   }
@@ -109,6 +114,8 @@ const SubmissionForm = () => {
     <img src={profilePicLogo} alt="Profile picture logo" className="profile-picture-preview"/>
   
     return (
+    <>
+    {isUploading ? <p>uploading!!!!</p> : null}
     <section className="form-container">
       <form onSubmit={event => handleSubmit(event)}>
         <h2>Musician Information</h2>
@@ -179,6 +186,7 @@ const SubmissionForm = () => {
         {checkFile()}
       </form>
     </section>
+    </>
   )
 }
 
