@@ -1,0 +1,49 @@
+@import '../../styles/mixins';
+
+.uploading-modal-background {
+  @include flex(row, center, center);
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(200, 200, 200, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left:0;
+  z-index: 1;
+}
+
+.uploading-modal-container {
+  @include flex(column, space-between, center);
+  background-color: white;
+  width: 500px;
+  height: 250px;
+  border-radius: 5px;
+  box-shadow:rgba(0, 0, 0, 0.25) 2px 5px 10px;
+}
+
+.uploading-modal-text-container {
+  height: 125px;
+  @include flex(row, center, center);
+}
+
+.uploading-modal-message {
+  font-size: 18px;
+  text-align: center;
+  margin: 20px;
+}
+
+.uploading-buttons-container {
+  height: 100px;
+}
+
+.uploading-modal-button {
+  height: 1vh;
+  width: 1vw;
+  background-color: teal;
+  margin: 10px;
+  padding: 10px;
+  color: #FFF;
+  text-decoration: none;
+  border-radius: 10px;
+}

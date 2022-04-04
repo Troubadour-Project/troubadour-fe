@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import UploadingModal from '../UploadingModal/UploadingModal'
 import profilePicLogo from '../../assets/profile-pic-logo.png'
 import './SubmissionForm.scss'
 
@@ -12,7 +13,12 @@ const SubmissionForm = () => {
   const [video, setVideo] = useState('')
   const [profileImage, setProfileImage] = useState('')
   const [isLargeFile, setIsLargeFile] = useState(false)
+  const [isNotVideoFile, setIsNotVideoFile] = useState(false)
+  const [isNotImageFile, setIsNotImageFile] = useState(false)
   const [videoURL, setVideoURL] = useState('')
+  const [isUploading, setIsUploading] = useState(false)
+  const [submissionId, setSubmissionId] = useState('')
+  const [isResolved, setIsResolved] = useState(false)
 
   const handleName = event => {
     setName(event.target.value)
@@ -27,14 +33,16 @@ const SubmissionForm = () => {
     setSongTitle(event.target.value)
   }
   const handleVideo = event => {
-    console.log(event.target.files);
     if (!event.target.files[0]) {
       setVideo('')
       return 
     } else if (event.target.files[0].size >= 500000000) {
       setIsLargeFile(true)
+    } else if (!event.target.files[0].type.includes('video')) {
+      setIsNotVideoFile(true)
     } else {
       setIsLargeFile(false)
+      setIsNotVideoFile(false)
       setVideo(event.target.files[0])
     }
   }
@@ -44,14 +52,22 @@ const SubmissionForm = () => {
       return 
     } else if (event.target.files[0].size >= 500000000) {
       setIsLargeFile(true)
+    } else if (!event.target.files[0].type.includes('image')) {
+      setIsNotImageFile(true)
     } else {
       setIsLargeFile(false)
+      setIsNotImageFile(false)
       setProfileImage(event.target.files[0])
     }
   }
 
+  useEffect(() => {
+    return () => {setIsUploading(false)}
+  }, [])
+
   const handleSubmit = event => {
     event.preventDefault();
+    setIsUploading(true)
     const formData = new FormData()
 
     formData.append("submission[name]", name)
@@ -71,8 +87,13 @@ const SubmissionForm = () => {
       body: formData
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+      console.log(data)
+      setSubmissionId(data.data.id)
+      setIsResolved(true)
+    })
     clearInputs();
+    document.querySelector('form').reset()
   }
 
   const clearInputs = () =>  {
@@ -82,8 +103,18 @@ const SubmissionForm = () => {
     setSongTitle('');
     setVideo('');
     setProfileImage('');
-    videoInput = null
-    imageInput = null
+  }
+
+  const checkFile = () => {
+    if (isLargeFile) {
+      return <p className="file-size-message">Please select a smaller file size</p>
+    } else if (isNotVideoFile) {
+      return <p className="wrong-video-message">Please select a video file</p>
+    } else if (isNotImageFile) {
+      return <p className="wrong-image-message">Please select an image file</p>
+    } else {
+      return <button className="submit-button">Submit</button>
+    }
   }
 
   const profilePicturePreview = profileImage ?
@@ -91,6 +122,8 @@ const SubmissionForm = () => {
     <img src={profilePicLogo} alt="Profile picture logo" className="profile-picture-preview"/>
   
     return (
+    <>
+    {isUploading ? <UploadingModal isResolved={isResolved} submissionId={submissionId}/> : null}
     <section className="form-container">
       <form onSubmit={event => handleSubmit(event)}>
         <h2>Musician Information</h2>
@@ -158,9 +191,10 @@ const SubmissionForm = () => {
           required
         />
         <br />
-        {isLargeFile ? <p className="file-size-message">Please select a smaller file size</p> : <button className="submit-button">Submit</button>}
+        {checkFile()}
       </form>
     </section>
+    </>
   )
 }
 
