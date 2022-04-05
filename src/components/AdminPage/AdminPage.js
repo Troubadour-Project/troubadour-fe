@@ -22,8 +22,13 @@ const AdminPage = ({ user }) => {
       }
     }
 
+
     return(
       <div className='admin-page'>
+        <label>View All</label>
+        <input type="radio" />
+        <label>View Favorites</label>
+        <input type="radio" />
         <div className='admin-title-container'>
           <h2 className='admin-title'>Submissions</h2>
         </div>
