@@ -5,13 +5,13 @@ import starIcon from '../../assets/star-icon.png';
 import goldStar from '../../assets/gold-star.png';
 import { FAVORITE_SUBMISSION_ADMIN } from '../../mutations.js';
 
-const MusicianCard = ({ submission, user }) => {
+const MusicianCard = ({ submission, user, refetch }) => {
   const [favoriteSubmission] = useMutation(FAVORITE_SUBMISSION_ADMIN);
 
-  const selectFavorite = async () => {
-    const subId = Number(submission.id)
-    const userId = Number(user.id)
-    await favoriteSubmission({ variables: { submissionId: subId, adminId:  userId} })
+  const selectFavorite = async (evt) => {
+    evt.preventDefault()
+    await favoriteSubmission({ variables: { submissionId: Number(submission.id), adminId:  Number(user.id)} })
+    refetch()
   }
 
 
