@@ -1,6 +1,5 @@
 .submission-details {
   display: flex;
-  // justify-content: center;
   width: 22vw;
   height: 55vh;
   /* margin-top: 38px; */
@@ -13,7 +12,7 @@
   max-width: 73rem;
   margin: 6rem 0 0;
   border-radius: 0.4rem;
-  padding: 5.5rem 2.5rem 1rem;
+  padding: 7.5rem 2.5rem 1rem;
 }
 
 .submission-video {
@@ -24,13 +23,12 @@
 }
 
 .details-picture {
-  width: 145px;
+  width: 150px;
+  height: 150px;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* width: 10rem; */
-  height: 7rem;
   text-align: center;
   margin: 0px auto;
   /* display: block; */
