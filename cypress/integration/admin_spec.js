@@ -135,6 +135,8 @@ describe.only('Admin Flow - Favoriting', () => {
         return req.reply({statusCode: 200, fixture:'all-submissions-response.json'})
       } else if (req.body.query.includes('getAdmin')) {
         return req.reply({statusCode: 200, fixture: 'admin-response.json'})
+      } else if (req.body.query.includes('favoriteSubmissionAdmin')) {
+        return req.reply({statusCode: 200, fixture: 'favorite-submission-response.json'})
       }
     }).as('response')
       .visit('http://localhost:3000/submissions')
@@ -143,6 +145,21 @@ describe.only('Admin Flow - Favoriting', () => {
 
   it('Should log in as an admin', () => {
     cy.get('.login-button')
+      .click()
+  });
+
+  it('Should have star icons', () => {
+    cy.get('.login-button')
+      .click()
+      .get('.star-icon')
+      .should('have.length', 2)
+  });
+
+  it('Should favorite a submission', () => {
+    cy.get('.login-button')
+      .click()
+      .get('.star-icon')
+      .first()
       .click()
   });
 });
