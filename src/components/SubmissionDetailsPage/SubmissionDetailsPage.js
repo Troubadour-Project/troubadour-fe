@@ -2,7 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import "./SubmissionDetailsPage.scss";
 import MusicianProfile from "../MusicianProfile/MusicianProfile";
 import { useParams } from 'react-router-dom';
-import Modal from '../Modal/Modal.js';
+import Modal from '../Modal/Modal';
 import { useState } from 'react';
 
 const GET_SUBMISSION = gql`
