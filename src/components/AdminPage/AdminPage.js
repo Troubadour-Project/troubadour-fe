@@ -22,11 +22,16 @@ const AdminPage = ({ user }) => {
       }
     }
 
+    const filterFavorites = (data) => {
+      data.getSubmissions = data.getSubmissions.filter(sub => sub.adminFavorite)
+      debugger
+    }
+
     const showFilter = user && <div>
       <label>View All</label>
-      <input type="radio" />
+      <input type="radio" name="filter" checked />
       <label>View Favorites</label>
-      <input type="radio" />
+      <input type="radio" name="filter" onChange={filterFavorites} />
     </div>
 
 
