@@ -1,24 +1,26 @@
-import { useQuery, gql } from "@apollo/client";
-import "./SubmissionDetailsPage.scss";
-import MusicianProfile from "../MusicianProfile/MusicianProfile";
-import { useParams } from 'react-router-dom';
-import Modal from '../Modal/Modal';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useQuery, gql } from '@apollo/client';
+import { GET_SUBMISSION } from '../../queries';
+import MusicianProfile from "../MusicianProfile/MusicianProfile";
+import Modal from '../Modal/Modal';
+import Error from '../Error/Error';
+import './SubmissionDetailsPage.scss';
 
-const GET_SUBMISSION = gql`
-  query ($id: ID!){
-    getSubmission(id: $id) {
-      id
-      name
-      email
-      genre
-      songTitle
-      winner
-      profileUrl
-      videoUrl
-    }
-  }
-`
+// const GET_SUBMISSION = gql`
+//   query ($id: ID!){
+//     getSubmission(id: $id) {
+//       id
+//       name
+//       email
+//       genre
+//       songTitle
+//       winner
+//       profileUrl
+//       videoUrl
+//     }
+//   }
+// `
 
 // const UPDATE_WINNER = gql`
 //   mutation ($id: ID!, $winner: Boolean!) {
@@ -65,7 +67,7 @@ const SubmissionDetailsPage = ({ user }) => {
     <Modal name={data.getSubmission.name} setShowModal={setShowModal} id={id}/>
   
   if (loading) return <p>loading...</p>
-  if (error) return <p>{error.message}</p>
+  if (error) return <Error message={error.message}/>
   if (data) {
     return (
       <div className="details-container">
