@@ -193,6 +193,19 @@ describe('Submission Form Page User Flow', () => {
       .contains('Your Submission')
       .click()
       .wait('@submission-details-response')
+      .get('.submission-detail')
+      .contains('Submission 1')
+      .should('exist')
+      .get('.submission-detail')
+      .contains('Rock')
+      .should('exist')
+      .get('.submission-detail')
+      .contains('Testing 1')
+      .should('exist')
+      .get('.details-picture')
+      .should('exist')
+      .get('.video-container')
+      .should('exist')
   });
 });
 
