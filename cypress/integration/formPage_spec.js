@@ -144,7 +144,7 @@ describe('Submission Form Page User Flow', () => {
       .selectFile('cypress/fixtures/cypress-image.png')
   });
 
-  it('Should make a new submission', () => {
+  it.only('Should make a new submission', () => {
     cy.intercept('POST', 'https://troubadour-be.herokuapp.com/api/v1/submissions', { fixture: 'submission-response.json' }).as('submission-response')
     cy.get('input[name="name"]')
       .type('cypress')
@@ -160,9 +160,15 @@ describe('Submission Form Page User Flow', () => {
       .selectFile('cypress/fixtures/cypress-image.png')
       .get('.submit-button')
       .click()
+      // .get('.uploading-modal-message')
+      // .should('have.text', 'Uploading your submission. This might take some time.')
+      // .get('.lds-ripple')
+      // .should('exist')
       .wait('@submission-response')
-      .get('input[name="name"]')
-      .type('Success!')
+      .get('.uploading-modal-message')
+      .should('have.text', 'Your submission has succesfully uploaded! Thank you for your entry!')
+      .get('.uploading-modal-button')
+      .should('have.length', 2)
   });
 });
 
