@@ -12,12 +12,12 @@ form {
 }
 
 form {
-  width: 30%;
+  width: 40%;
   align-self: center;
-  background-color: teal;
+  background-color: #23282d;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 10px 5px 5px rgb(46, 70, 70);
+  box-shadow: 10px 5px 5px #7e8484;
 
   label {
   color: #FFF;
@@ -78,7 +78,7 @@ input[type=file]::file-selector-button {
 .profile-picture-preview {
   width: 150px;
   height: 150px;
-  box-shadow: 10px 5px 5px rgb(46, 70, 70);
+  box-shadow: 10px 5px 5px #161919;
   margin-bottom: .5vh;
   object-fit: cover;
 }
