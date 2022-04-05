@@ -1,4 +1,4 @@
-import { useQuery, gql, useMutation } from "@apollo/client";
+import { useQuery, gql } from "@apollo/client";
 import "./SubmissionDetailsPage.scss";
 import MusicianProfile from "../MusicianProfile/MusicianProfile";
 import { useParams } from 'react-router-dom';

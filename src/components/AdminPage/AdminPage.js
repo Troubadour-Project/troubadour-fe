@@ -5,8 +5,6 @@ import { useQuery } from '@apollo/client';
 import { GET_SUBMISSIONS } from '../../queries';
 
 const AdminPage = ({ user }) => {
-  const [allSubmissions, setAllSubmissions] = useState([]);
-
   const { loading, error, data, refetch } = useQuery(GET_SUBMISSIONS);
 
   useEffect(() => {
@@ -19,7 +17,7 @@ const AdminPage = ({ user }) => {
     const renderCards = (data) => {
       if (data.getSubmissions.length > 0) {
         return data.getSubmissions.map(submission => {
-          return <MusicianCard key={submission.id} submission={submission} />
+          return <MusicianCard refetch={refetch}  user={user} key={submission.id} submission={submission} />
         });
       }
     }
