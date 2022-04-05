@@ -1,0 +1,10 @@
+@import '../../styles/mixins';
+
+.error-container {
+  width: 100%;
+  @include flex (column, center, center);
+}
+
+.error-message {
+  margin: 50px;
+}
