@@ -22,7 +22,13 @@ const LandingPage = () => {
       <p className="winner-name">{data.getWinner.name}</p>
     </div>
   
-  if (loading) return <UploadingSpinner />
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <UploadingSpinner />
+      </div>
+    );
+  }
   if (error) return <Error error={error}/>
   if (data) return(
     <div className="landing-page-container">
