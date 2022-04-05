@@ -2,14 +2,11 @@ import './MusicianCard.scss';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import starIcon from '../../assets/star-icon.png';
+import goldStar from '../../assets/gold-star.png';
 import { FAVORITE_SUBMISSION_ADMIN } from '../../mutations.js';
 
 const MusicianCard = ({ submission, user }) => {
-
-  const [favoriteSubmission, { data, loading, error }] = useMutation(FAVORITE_SUBMISSION_ADMIN);
-
-  if (loading) return 'Submitting...';
-  if (error) return `Submission error! ${error.message}`;
+  const [favoriteSubmission] = useMutation(FAVORITE_SUBMISSION_ADMIN);
 
   const selectFavorite = async () => {
     const subId = Number(submission.id)
@@ -18,7 +15,7 @@ const MusicianCard = ({ submission, user }) => {
   }
 
 
-  const showFavoriteButton = user && <img onClick={selectFavorite} src={starIcon} className='star-icon' />
+  const showFavoriteButton = user && <img onClick={selectFavorite} src={submission.adminFavorite ? goldStar : starIcon } className='star-icon' />
 
   return (
     <Link to={`/submissions/${submission.id}`} key={submission.id}>
