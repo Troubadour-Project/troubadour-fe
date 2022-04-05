@@ -160,10 +160,6 @@ describe('Submission Form Page User Flow', () => {
       .selectFile('cypress/fixtures/cypress-image.png')
       .get('.submit-button')
       .click()
-      // .get('.uploading-modal-message')
-      // .should('have.text', 'Uploading your submission. This might take some time.')
-      // .get('.lds-ripple')
-      // .should('exist')
       .wait('@submission-response')
       .get('.uploading-modal-message')
       .should('have.text', 'Your submission has succesfully uploaded! Thank you for your entry!')
@@ -171,7 +167,30 @@ describe('Submission Form Page User Flow', () => {
       .should('have.length', 2)
   });
 
-  it.only('Should view the new submission details', () => {
+  it('Should have the option to go to the home page after submission', () => {
+    cy.intercept('POST', 'https://troubadour-be.herokuapp.com/api/v1/submissions', { fixture: 'submission-response.json' }).as('submission-response')
+      .get('input[name="name"]')
+      .type('Submission 1')
+      .get('input[name="email"]')
+      .type('deidre@balistreri-mclaughlin.info')
+      .get('input[name="genre"]')
+      .type('Rock')
+      .get('input[name="song-title"]')
+      .type('Testing 1')
+      .get('input[name="video"]')
+      .selectFile('cypress/fixtures/cypress-video.mov')
+      .get('input[name="profile-image"]')
+      .selectFile('cypress/fixtures/cypress-image.png')
+      .get('.submit-button')
+      .click()
+      .wait('@submission-response')
+      .get('.uploading-modal-button')
+      .first()
+      .click()
+      .url().should('eq', 'http://localhost:3000/')
+  });
+
+  it('Should view the new submission details', () => {
     cy.intercept('POST', 'https://troubadour-be.herokuapp.com/api/v1/submissions', { fixture: 'submission-response.json' }).as('submission-response')
       .get('input[name="name"]')
       .type('Submission 1')
