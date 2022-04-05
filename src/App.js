@@ -21,7 +21,7 @@ function App() {
           <Route exact path='/submissions' element={<AdminPage user={user}/>} />
           <Route exact path='/form' element={<SubmissionForm />} />
           <Route path='/submissions/:id' element={<SubmissionDetailsPage user={user}/>} />
-          <Route path='/*' element={<Error message={'Looks like this page does not exist'}/>} />
+          <Route path='/*' element={<Error />} />
         </Routes>
       </main>
     </div>
