@@ -132,7 +132,7 @@ describe.only('Admin Flow - Favoriting', () => {
   beforeEach(() => {
     cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', (req) => {
       if (req.body.query.includes('getSubmissions')) {
-        return req.reply({statusCode: 200, fixture:'all-submissions-response.json'})
+        return req.reply({statusCode: 200, fixture:'all-submissions-false-response.json'})
       } else if (req.body.query.includes('getAdmin')) {
         return req.reply({statusCode: 200, fixture: 'admin-response.json'})
       } else if (req.body.query.includes('favoriteSubmissionAdmin')) {
@@ -158,8 +158,16 @@ describe.only('Admin Flow - Favoriting', () => {
   it('Should favorite a submission', () => {
     cy.get('.login-button')
       .click()
-      .get('.star-icon')
+      .intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', (req) => {
+        if (req.body.query.includes('getSubmissions')) {
+          return req.reply({statusCode: 200, fixture: 'all-submissions-true-response.json'})
+        } else if (req.body.query.includes('favoriteSubmissionAdmin')) {
+          return req.reply({statusCode: 200, fixture: 'favorite-submission-response.json'})
+        }
+      }).as('modified-response');
+    cy.get('.star-icon')
       .first()
       .click()
+      .wait('@modified-response')
   });
 });
