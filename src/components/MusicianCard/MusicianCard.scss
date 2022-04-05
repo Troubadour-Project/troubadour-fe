@@ -2,16 +2,17 @@
 
 .card {
   justify-self: center;
-  @include flex(column, center, center);
-  border-radius: 5px;
-  height: 350px;
-  width: 290px;
-  margin: 20px;
-  // background-color: lightgray;
-  font-family: sans-serif;
-  box-shadow: 0 0 10px rgba(0,0,0,.3);
-  transition: all .2s ease-in-out 0s;
-	// box-shadow: 1px 1px 1px 1px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    height: 410px;
+    width: 310px;
+    margin: 20px;
+    font-family: sans-serif;
+    box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+    transition: all 0.2s ease-in-out 0s;
+    justify-content: space-around;
 
   &:hover {
     cursor: pointer;
@@ -39,9 +40,16 @@
 }
 
 .star-icon {
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
   margin-left: 80%;
+  font-weight: 700;
+  font-size: 1.125em;
+  transition: all 0.15s ease-in-out 0s;
+
+  &:hover {
+    transform: scale(1.5, 1.5);
+  }
 }
 
 a {

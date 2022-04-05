@@ -24,7 +24,7 @@ const MusicianCard = ({ submission, user, refetch }) => {
         <img
           src={`${submission.profileUrl}`}
           className='profile-img'
-        />
+          />
         <p className='card-name'>{submission.name}</p>
         <p className='card-song-title'>{submission.songTitle}</p>
       </div>
