@@ -9,10 +9,7 @@ const LandingPage = () => {
 
   useEffect(() => {
     refetch()
-      .then(response => {
-        console.log(response.data.getWinner)
-        setWinner(response.data.getWinner)
-      })
+      .then(response => setWinner(response.data.getWinner))
   }, [])
 
   const { loading, error, data, refetch } = useQuery(GET_WINNER)
