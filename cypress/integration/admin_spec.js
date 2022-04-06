@@ -180,7 +180,8 @@ describe('Admin Flow - Favoriting', () => {
       .click()
       .get('.radio-button')
   })
-  it.only('Should be able to view favorites when favorites radio button is selected', () => {
+
+  it.only('Should be able to view favorites when favorites radio button is selected and all submissions when view all is selected', () => {
     cy.get('.login-button')
     .wait(2000)
     .click()
@@ -197,6 +198,7 @@ describe('Admin Flow - Favoriting', () => {
     .wait('@modified-response')
     cy.get('.fav-radio')
     .click()
-    // check there is only one card 
+    .should('have.length', 1)
+    
   })
 });
