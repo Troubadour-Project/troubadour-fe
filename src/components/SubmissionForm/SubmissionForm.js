@@ -19,6 +19,7 @@ const SubmissionForm = () => {
   const [isUploading, setIsUploading] = useState(false)
   const [submissionId, setSubmissionId] = useState('')
   const [isResolved, setIsResolved] = useState(false)
+  const [error, setError] = useState(null);
 
   const handleName = event => {
     setName(event.target.value)
@@ -91,9 +92,9 @@ const SubmissionForm = () => {
       console.log(data)
       setSubmissionId(data.data.id)
       setIsResolved(true)
+      clearInputs();
     })
-    clearInputs();
-    document.querySelector('form').reset()
+    .catch(error => setError(error.message))
   }
 
   const clearInputs = () =>  {
@@ -103,6 +104,7 @@ const SubmissionForm = () => {
     setSongTitle('');
     setVideo('');
     setProfileImage('');
+    document.querySelector('form').reset()
   }
 
   const checkFile = () => {
@@ -117,13 +119,20 @@ const SubmissionForm = () => {
     }
   }
 
+  const handleError = () => {
+    clearInputs();
+    setIsUploading(false);
+    setIsResolved(false);
+    setError(null);
+  }
+
   const profilePicturePreview = profileImage ?
     <img src={URL.createObjectURL(profileImage)} alt="Profile picture logo" className="profile-picture-preview"/> :
     <img src={profilePicLogo} alt="Profile picture logo" className="profile-picture-preview"/>
   
-    return (
+  return (
     <>
-    {isUploading ? <UploadingModal isResolved={isResolved} submissionId={submissionId}/> : null}
+    {isUploading ? <UploadingModal isResolved={isResolved} submissionId={submissionId} error={error} handleError={handleError}/> : null}
     <section className="form-container">
       <form onSubmit={event => handleSubmit(event)}>
         <h2>Musician Information</h2>

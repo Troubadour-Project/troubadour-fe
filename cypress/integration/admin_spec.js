@@ -1,7 +1,18 @@
-describe('Admin Flow', () => {
+describe('Admin Flow - Winner Selection', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/submissions/1')
-      .wait(2000)
+    cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', (req) => {
+      if (req.body.query.includes('getSubmission')) {
+        return req.reply({statusCode: 200, fixture:'submission-details-response.json'})
+      } else if (req.body.query.includes('getAdmin')) {
+        return req.reply({statusCode: 200, fixture: 'admin-response.json'})
+      } else if (req.body.query.includes('updateWinner')) {
+        return req.reply({statusCode: 200, fixture: 'update-winner-response.json'})
+      } else if (req.body.query.includes('getWinner')) {
+        return req.reply({statusCode: 200, fixture: 'get-winner-response.json'})
+      }
+    }).as('response')
+      .visit('http://localhost:3000/submissions/1')
+      .wait('@response')
   });
 
   it('Should have a navigation bar', () => {
@@ -50,23 +61,19 @@ describe('Admin Flow', () => {
       .should('have.text', 'All Submissions')
   });
 
-  it('Should have a button on the submission details page to select a winner', () => {
-    cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', { fixture: 'admin-response.json' }).as('admin-response')
-      .get('.login-button')
+  it('Should have a button on the submission details page to select a winner if logged in', () => {
+    cy.get('.login-button')
       .wait(1000)
       .click({ force: true })
-      .wait('@admin-response')
       .get('button')
       .contains('Select As Winner')
       .should('have.text', 'Select As Winner')
   });
 
   it('Should display a confirmation modal after the winner selection button is clicked', () => {
-    cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', { fixture: 'admin-response.json' }).as('admin-response')
-      .get('.login-button')
+    cy.get('.login-button')
       .wait(1000)
       .click({ force: true })
-      .wait('@admin-response')
       .get('button')
       .contains('Select As Winner')
       .click()
@@ -75,11 +82,9 @@ describe('Admin Flow', () => {
   });
 
   it('Should close the modal', () => {
-    cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', { fixture: 'admin-response.json' }).as('admin-response')
-      .get('.login-button')
+    cy.get('.login-button')
       .wait(1000)
       .click({ force: true })
-      .wait('@admin-response')
       .get('button')
       .contains('Select As Winner')
       .click()
@@ -92,11 +97,9 @@ describe('Admin Flow', () => {
   });
 
   it('Should close the modal by clicking the cancel button', () => {
-    cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', { fixture: 'admin-response.json' }).as('admin-response')
-      .get('.login-button')
+    cy.get('.login-button')
       .wait(1000)
       .click({ force: true })
-      .wait('@admin-response')
       .get('button')
       .contains('Select As Winner')
       .click()
@@ -109,24 +112,65 @@ describe('Admin Flow', () => {
   });
 
   it('Should select a winner', () => {
-    cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', { fixture: 'admin-response.json' }).as('admin-response')
-      .get('.login-button')
+    cy.get('.login-button')
       .wait(1000)
       .click({ force: true })
-      .wait('@admin-response')
       .get('button')
       .contains('Select As Winner')
       .click()
-      .intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', { fixture: 'update-winner-response.json' }).as('update-winner-response')
       .get('.modal-container')
       .should('exist')
       .contains('Select Winner')
       .click()
-      .wait('@update-winner-response')
-      .intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', { fixture: 'get-winner-response.json' }).as('get-winner-response')
       .visit('http://localhost:3000/')
-      .wait('@get-winner-response')
-      .get('.winner')
-      .should('have.text', 'sub1 is the winner!!!!!!!')
+      .get('.winner-title')
+      .should('have.text', 'Our Troubadour 2022 winner is:')
+      .get('.winner-name')
+      .should('have.text', 'Submission 1')
+  });
+});
+
+describe('Admin Flow - Favoriting', () => {
+  beforeEach(() => {
+    cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', (req) => {
+      if (req.body.query.includes('getSubmissions')) {
+        return req.reply({statusCode: 200, fixture:'all-submissions-false-response.json'})
+      } else if (req.body.query.includes('getAdmin')) {
+        return req.reply({statusCode: 200, fixture: 'admin-response.json'})
+      } else if (req.body.query.includes('favoriteSubmissionAdmin')) {
+        return req.reply({statusCode: 200, fixture: 'favorite-submission-response.json'})
+      }
+    }).as('response')
+      .visit('http://localhost:3000/submissions')
+      .wait('@response')
+  });
+
+  it('Should log in as an admin', () => {
+    cy.get('.login-button')
+      .click()
+  });
+
+  it('Should have star icons', () => {
+    cy.get('.login-button')
+      .wait(2000)
+      .click()
+      .get('.star-icon')
+      .should('have.length', 2)
+  });
+
+  it('Should favorite a submission', () => {
+    cy.get('.login-button')
+      .click()
+      .intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', (req) => {
+        if (req.body.query.includes('getSubmissions')) {
+          return req.reply({statusCode: 200, fixture: 'all-submissions-true-response.json'})
+        } else if (req.body.query.includes('favoriteSubmissionAdmin')) {
+          return req.reply({statusCode: 200, fixture: 'favorite-submission-response.json'})
+        }
+      }).as('modified-response');
+    cy.get('.star-icon')
+      .first()
+      .click()
+      .wait('@modified-response')
   });
 });
