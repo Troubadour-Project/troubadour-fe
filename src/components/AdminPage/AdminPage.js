@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './AdminPage.scss';
 import MusicianCard from '../MusicianCard/MusicianCard';
 import Error from '../Error/Error';
+import UploadingSpinner from '../UploadingSpinner/UploadingSpinner';
 import { useQuery } from '@apollo/client';
 import { GET_SUBMISSIONS } from '../../queries';
 
@@ -12,7 +13,13 @@ const AdminPage = ({ user }) => {
     refetch()
   }, [])
 
-  if (loading) return 'Loading...';
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <UploadingSpinner />
+      </div>
+    );
+  }
   if (error) {
     return <Error error={error} />;
   }
