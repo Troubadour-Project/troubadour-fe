@@ -1,30 +1,25 @@
 @import '../../styles/mixins';
+@import '../../styles/variables';
 
 .landing-page-container {
+  @include flex (column, center, center);
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/hero-image.jpeg");
   height: 100%;
-  // width: 100vw;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: fixed;
   overflow: hidden; 
-  @include flex (column, center, center);
-  // min-height: 100%;
-  // min-width: 1024px;
   width: 100%;
 }
 
-// .winner-title,
-// .winner-name,
-// .hero-button 
 .greeting-message,
 .welcome-message-header
 {
   font-size: 1.3rem;
   width: 80%;
   text-align: center;
-  color: white;
+  color: $white;
   margin-bottom: 10px;
   margin-top: 10px;
   font-weight: bolder;
@@ -32,12 +27,12 @@
 
 .winner-container {
   @include flex(column, space-around, center);
-    width: 45%;
-    height: 45%;
+    width: 35%;
+    height: 40%;
     margin: 50px;
-    border: solid 2px black;
-    background: #02020273;
-    color: white;
+    border: solid 2px $black;
+    background: $black-transparent;
+    color: $white;
     margin-bottom: 15px;
     margin-top: 15px;
 }
@@ -47,7 +42,6 @@
 }
 
 .winner-name-container {
-  // border: solid 2px green;
   font-size: 2rem;
 }
 
@@ -60,42 +54,24 @@
   display: block;
 }
 
-// .greeting-message {
-//   font-size: 1.3rem;
-//   width: 80%;
-//   text-align: center;
-//   color: white;
-// }
-
 .welcome-message-header {
   top: 20%;
   font-size: 3rem;
   font-weight: bolder;
 }
 
-// .submission-dates-header {
-//   top: 40%;
-// }
-
-// .submission-dates-april {
-//   top: 45%;
-// }
-
-// .submission-dates-may {
-//   top: 50%;
-// }
-
 .hero-button {
     cursor: pointer;
     position: relative;
     padding: 5px 30px;
-    background: white;
+    background: $white;
     font-size: 1.6rem;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     transition: all 1s;
-    border: solid 3px black;
+    border: solid 3px $black;
     height: 35px;
+    color: $black;
       &:after, &:before{
         content:" ";
         width:10px;
@@ -107,14 +83,14 @@
       &:after {
         top:-1px;
         left:-1px;
-        border-top:7px solid #b94625;
-        border-left:7px solid #b94625;
+        border-top:7px solid $dark-orange;
+        border-left:7px solid $dark-orange;
       }
      &:before {
         bottom:-1px;
         right:-1px;
-        border-bottom:7px solid #b94625;
-        border-right:7px solid #b94625;
+        border-bottom:7px solid $dark-orange;
+        border-right:7px solid $dark-orange;
       }
       &:hover {
         border-top-right-radius:0px;
@@ -123,21 +99,18 @@
         &:before,&:after {
          width:100%;
           height:100%;
-        }
-      }
     }
-
+  }
+}
 
 .loading-container {
+  @include flex(row, center, center);
   height: 100vh;
   width: 100%;
-  @include flex(row, center, center);
 }
 
 .scroll {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 45%;
+  @include flex(column, none, center);
+  height: 50%;
   width: 75%;
 }
