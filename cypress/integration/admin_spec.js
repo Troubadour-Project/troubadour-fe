@@ -178,6 +178,16 @@ describe('Admin Flow - Favoriting', () => {
     cy.get('.login-button')
       .wait(2000)
       .click()
-      .get('.all-filter')
-  } )
+      .get('.radio-button')
+  })
+  it.only('Should be able to view favorites when favorites radio button is selected', () => {
+    cy.get('.login-button')
+    .wait(2000)
+    .click()
+    //fav a card
+
+    cy.get('.fav-radio')
+    .click()
+    // check there is only one card 
+  })
 });
