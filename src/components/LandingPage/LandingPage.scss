@@ -11,8 +11,8 @@
   @include flex (column, center, center);
 }
 
-.winner-title,
-.winner-name,
+// .winner-title,
+// .winner-name,
 .welcome-message,
 .welcome-message-header,
 .submission-dates-header,
@@ -30,9 +30,37 @@
 }
 
 .winner-container {
-  @include flex(column, center, center);
-  width: 75%;
-  margin: 50px;
+  // @include flex(column, center, center);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 45%;
+    height: 45%;
+    margin: 50px;
+    border: solid 2px black;
+    background: #02020273;
+    color: white;
+}
+
+.winner-title-container {
+  // border: solid 2px red;
+  font-size: 2rem;
+}
+
+.winner-name-container {
+  // border: solid 2px green;
+  font-size: 2rem;
+}
+
+.winner-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 20px auto;
+  display: block;
 }
 
 .welcome-message-header {
