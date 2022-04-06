@@ -184,8 +184,17 @@ describe('Admin Flow - Favoriting', () => {
     cy.get('.login-button')
     .wait(2000)
     .click()
-    //fav a card
-
+    .intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', (req) => {
+      if (req.body.query.includes('getSubmissions')) {
+        return req.reply({statusCode: 200, fixture: 'all-submissions-true-response.json'})
+      } else if (req.body.query.includes('favoriteSubmissionAdmin')) {
+        return req.reply({statusCode: 200, fixture: 'favorite-submission-response.json'})
+      }
+    }).as('modified-response');
+    cy.get('.star-icon')
+    .first()
+    .click()
+    .wait('@modified-response')
     cy.get('.fav-radio')
     .click()
     // check there is only one card 
