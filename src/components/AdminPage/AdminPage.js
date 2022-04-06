@@ -58,6 +58,7 @@ const AdminPage = ({ user }) => {
     </div>
 
     const cardsForDisplay = isFilteredSelected ? filteredSubmissions : allSubmissions
+    const messageOrCards = cardsForDisplay.length ? cardsForDisplay : <p>No favorites selected yet! Please add some!</p>
     return(
       <div className='admin-page'>
         {showFilter}
@@ -65,7 +66,8 @@ const AdminPage = ({ user }) => {
           <h2 className='admin-title'>Submissions</h2>
         </div>
         <div className='card-container'>
-          { cardsForDisplay }
+          {/* { cardsForDisplay } */}
+          { messageOrCards }
         </div>
       </div>
     );
