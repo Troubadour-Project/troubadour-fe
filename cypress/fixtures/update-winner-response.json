@@ -3,10 +3,10 @@
     "updateWinner": {
       "submission": {
         "id": "1",
-        "name": "sub1",
+        "name": "Submission 1",
         "email": "silas.raynor@wisoky.name",
-        "genre": "accusantium",
-        "songTitle": "reprehenderit",
+        "genre": "Rock",
+        "songTitle": "Testing",
         "winner": true
       }
     }

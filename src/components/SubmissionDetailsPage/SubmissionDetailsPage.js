@@ -5,6 +5,7 @@ import { GET_SUBMISSION } from '../../queries';
 import MusicianProfile from "../MusicianProfile/MusicianProfile";
 import Modal from '../Modal/Modal';
 import Error from '../Error/Error';
+import UploadingSpinner from '../UploadingSpinner/UploadingSpinner';
 import './SubmissionDetailsPage.scss';
 
 const SubmissionDetailsPage = ({ user }) => {
@@ -27,7 +28,13 @@ const SubmissionDetailsPage = ({ user }) => {
   const modal = showModal &&
     <Modal name={data.getSubmission.name} setShowModal={setShowModal} id={id}/>
   
-  if (loading) return <p>loading...</p>
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <UploadingSpinner />
+      </div>
+    );  
+  }
   if (error) return <Error error={error} />
   if (data) {
     return (
