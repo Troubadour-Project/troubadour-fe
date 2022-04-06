@@ -147,6 +147,7 @@ describe('Admin Flow - Favoriting', () => {
 
   it('Should log in as an admin', () => {
     cy.get('.login-button')
+      .wait(2000)
       .click()
   });
 
@@ -160,6 +161,7 @@ describe('Admin Flow - Favoriting', () => {
 
   it('Should favorite a submission', () => {
     cy.get('.login-button')
+      .wait(2000)
       .click()
       .intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', (req) => {
         if (req.body.query.includes('getSubmissions')) {
