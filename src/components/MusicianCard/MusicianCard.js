@@ -14,7 +14,6 @@ const MusicianCard = ({ submission, user, refetch }) => {
     refetch()
   }
 
-
   const showFavoriteButton = user && <img onClick={selectFavorite} src={submission.adminFavorite ? goldStar : starIcon } className='star-icon' />
 
   return (
