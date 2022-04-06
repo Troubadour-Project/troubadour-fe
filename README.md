@@ -14,14 +14,31 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </div>
 
-View the backend end repo [HERE](https://github.com/Troubadour-Project/troubadour_be)
-View the deploted site [HERE](https://troubadour-fe.herokuapp.com/)
+## Table of Contents
+- [Abstract](#abstract)  
+- [Learning Goals](#learning-goals)
+- [Screenshots](#screenshots)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Links](#links)
+- [Challenges and Wins](#challenges-and-wins)
+- [Acknowledgments](#acknowledgments)
+- [Contributors](#contributors)
 
-## Overview
+## Abstract
 
-Welcome to Troubadour! This application was created to help music festivals manage their competition submissions. As an administrator, you can log-in to view all submissions, save and view your favorites, and vote on a winner! Other users of the application have access to a submission form where they can fill out basic information and upload their profile picture and video. They can view their submission along with any other submissions for the contest made by other musicians. After a winner is selected by the administrators, it will be displayed on the main page where everyone can come and see who won!
+Welcome to Troubadour! This application was created to help music festivals manage their competition submissions. As an administrator, you can log-in to view all submissions, save and view your favorites, and vote on a winner! Other users of the application have access to a submission form where they can fill out basic information and upload their profile picture and video. They can view their submission along with any other submissions for the contest made by other musicians. After a winner is selected by the administrators, it will be displayed on the main page where everyone can come and see who won!  
 
-## See how it works!
+View the backend end repository [HERE](https://github.com/Troubadour-Project/troubadour_be)  
+View the deploted site [HERE](https://troubadour-fe.herokuapp.com/)  
+  
+## Learning Goals
+- Strengthen teamwork skills by working cross-platform for the first time between frontend and backend programs
+- Gain experience communicating effectively with multiple developers and collaborate on feature building
+- Gain experience with continuous integration to make sure our contributions are thoroughly vetted before adoption into the rest of the application
+- Implement new technologies for both frontend and backend. In this case, GraphQL and Apollo Client were used for data transmission.
+
+## Screenshots
 
 Gifs here
 
