@@ -1,14 +1,14 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
 .submission-details {
-  display: flex;
+  @include flex(column, none, center);
   width: 22vw;
   height: 55vh;
-  /* margin-top: 38px; */
-  border: 5px solid #fec84e;
-  flex-direction: column;
-  align-items: center;
+  border: 5px solid $gold;
   position: relative;
-  background: #0d0d0d;
-  color: white;
+  background: $black;
+  color: $white;
   max-width: 73rem;
   margin: 6rem 0 0;
   border-radius: 0.4rem;
@@ -16,7 +16,6 @@
 }
 
 .submission-video {
-  /* border: solid 2px black; */
   width: 56vw;
   height: 60vh;
   margin-top: 96px;
@@ -32,13 +31,12 @@
   text-align: center;
   margin: 0px auto;
   border-radius: 50%;
-  background:#fec84e;
+  background: $gold;
   padding: 5px;
 }
 
 .details-card-container {
-  display: flex;
-  flex-direction: column;
+  @include flex(column, none, none);
 }
 
 .submission-detail {
