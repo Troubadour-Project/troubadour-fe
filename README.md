@@ -19,7 +19,7 @@
 - [Learning Goals](#learning-goals)
 - [Screenshots](#screenshots)
 - [Technologies](#technologies)
-- [Setup](#setup)
+- [Setup](#installation-and-setup)
 - [Links](#links)
 - [Challenges and Wins](#challenges-and-wins)
 - [Acknowledgments](#acknowledgments)
@@ -42,10 +42,11 @@ View the deploted site [HERE](https://troubadour-fe.herokuapp.com/)
 
 Gifs here
 
-## Tech Used
+## Technologies
 
 - React
 - React Router
+- SASS
 - Cypress
 - GraphQL
 - Apollo Client
@@ -53,10 +54,14 @@ Gifs here
 
 ## Installation and Setup
 
-1. Clone down this Repository using `git clone`
-2. `cd` into the cloned repository
-3. `npm install` to install dependancies
-4. Run `npm start` to open the webpage
+1. In your terminal, clone this repository down to your local machine by running:  
+`git clone git@github.com:Troubadour-Project/troubadour-fe.git`
+2. `cd` into the `troubadour-fe` directory
+3. Run `npm install` to install the necessary dependencies
+4. Run `npm start` to start your local server
+5. Visit `http://localhost:3000/` in your web browser to view the application
+
+You can close your local server at any time by pressing `CTRL + c` in the terminal window running your server.
 
 ## Future Goals
 
