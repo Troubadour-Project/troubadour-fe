@@ -11,7 +11,8 @@
   @include flex (column, center, center);
 }
 
-.winner,
+.winner-title,
+.winner-name,
 .welcome-message,
 .welcome-message-header,
 .submission-dates-header,
@@ -26,6 +27,12 @@
   // left: 50%;
   // transform: translate(-50%, -50%);
   color: white;
+}
+
+.winner-container {
+  @include flex(column, center, center);
+  width: 75%;
+  margin: 50px;
 }
 
 .welcome-message-header {
@@ -52,4 +59,10 @@
   text-decoration: none;
   border-radius: 20px;
   top: 60%;
+}
+
+.loading-container {
+  height: 100vh;
+  width: 100%;
+  @include flex(row, center, center);
 }
