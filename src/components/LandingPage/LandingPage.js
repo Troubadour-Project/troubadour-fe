@@ -1,26 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import "./LandingPage.scss"
 import { useQuery } from '@apollo/client'
 import { GET_WINNER } from '../../queries'
+import UploadingSpinner from '../UploadingSpinner/UploadingSpinner';
+import Error from '../Error/Error';
+import "./LandingPage.scss"
 
 const LandingPage = () => {
   const [winner, setWinner] = useState(null);
 
   useEffect(() => {
     refetch()
-      .then(response => {
-        console.log(response.data.getWinner)
-        setWinner(response.data.getWinner)
-      })
+      .then(response => setWinner(response.data.getWinner))
   }, [])
 
   const { loading, error, data, refetch } = useQuery(GET_WINNER)
   
   const displayWinner = winner &&
-    <p className="winner">{data.getWinner.name} is the winner!!!!!!!</p>
-
-  return(
+    <div className="winner-container">
+      <p className="winner-title">Our Troubadour 2022 winner is:</p>
+      <p className="winner-name">{data.getWinner.name}</p>
+    </div>
+  
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <UploadingSpinner />
+      </div>
+    );
+  }
+  if (error) return <Error error={error}/>
+  if (data) return(
     <div className="landing-page-container">
       { displayWinner }
       <h2 className="welcome-message-header">Welcome to the Troubadour Music Contest!</h2>

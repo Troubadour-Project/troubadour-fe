@@ -35,6 +35,21 @@ const GET_SUBMISSIONS = gql`
   }
 `
 
+const GET_SUBMISSION = gql`
+  query ($id: ID!){
+    getSubmission(id: $id) {
+      id
+      name
+      email
+      genre
+      songTitle
+      winner
+      profileUrl
+      videoUrl
+    }
+  }
+`
+
 const GET_WINNER = gql`
   {
     getWinner {
@@ -51,4 +66,4 @@ const GET_WINNER = gql`
   }
 `
 
-export { GET_ADMIN, GET_SUBMISSIONS, GET_WINNER };
+export { GET_ADMIN, GET_SUBMISSIONS, GET_SUBMISSION, GET_WINNER };
