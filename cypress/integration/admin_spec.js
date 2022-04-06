@@ -128,7 +128,7 @@ describe('Admin Flow - Winner Selection', () => {
   });
 });
 
-describe.only('Admin Flow - Favoriting', () => {
+describe('Admin Flow - Favoriting', () => {
   beforeEach(() => {
     cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', (req) => {
       if (req.body.query.includes('getSubmissions')) {
@@ -150,6 +150,7 @@ describe.only('Admin Flow - Favoriting', () => {
 
   it('Should have star icons', () => {
     cy.get('.login-button')
+      .wait(2000)
       .click()
       .get('.star-icon')
       .should('have.length', 2)
