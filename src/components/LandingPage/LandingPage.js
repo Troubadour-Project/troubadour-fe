@@ -41,7 +41,7 @@ const LandingPage = () => {
       { displayWinner }
         <div className="scroll">
           <p className="greeting-message">
-          We will accept entries for the 2023 Troubadour Music Contest beginning April 1st, 2022. Contestants may submit an original song. We will post submission details later on.
+          We will accept entries for the 2023 Troubadour Music Contest beginning April 1st, 2022. Contestants may submit an original song. Please only submit once per musician and keep videos 5 minutes or less in length.
           <br />
           Important submission dates: 
           <br />
