@@ -181,7 +181,7 @@ describe('Admin Flow - Favoriting', () => {
       .get('.radio-button')
   })
 
-  it('Should be able to view favorites when favorites radio button is selected and all submissions when view all is selected', () => {
+  it.only('Should be able to view favorites when favorites radio button is selected and all submissions when view all is selected', () => {
     cy.get('.login-button')
     .wait(2000)
     .click()
@@ -193,14 +193,19 @@ describe('Admin Flow - Favoriting', () => {
       }
     }).as('modified-response');
     cy.get('.star-icon')
+    .wait(2000)
     .first()
     .click()
     .wait('@modified-response')
     cy.get('.fav-radio')
+    .wait(2000)
     .click()
+    .get('.card')
     .should('have.length', 1)
     cy.get('.all-radio')
+    .wait(2000)
     .click()
+    .get('.card')
     .should('have.length', 2)
   })
 });
