@@ -1,0 +1,12 @@
+{
+  "data": {
+    "favoriteSubmissionAdmin": {
+      "submissionAdmin": {
+        "id": "1",
+        "submissionId": 1,
+        "adminId": 1,
+        "favorite": true
+      }
+    }
+  }
+}

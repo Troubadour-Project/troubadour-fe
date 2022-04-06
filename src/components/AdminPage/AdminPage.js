@@ -5,11 +5,16 @@ import Error from '../Error/Error';
 import { useQuery } from '@apollo/client';
 import { GET_SUBMISSIONS } from '../../queries';
 
-const AdminPage = ({ user }) => {
+const AdminPage = ({ user, client }) => {
+  console.log(client)
   const { loading, error, data, refetch } = useQuery(GET_SUBMISSIONS);
 
   useEffect(() => {
     refetch()
+  }, [])
+
+  useEffect(() => {
+    return () => {client.resetStore()}
   }, [])
 
   if (loading) return 'Loading...';

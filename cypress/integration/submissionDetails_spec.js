@@ -1,7 +1,7 @@
 describe('Submission Details User Flow', () => {
   beforeEach(() => {
     cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', { fixture: 'submission-details-response.json' }).as('submission-details-response')
-    cy.visit('http://localhost:3000/submissions/1')
+      .visit('http://localhost:3000/submissions/1')
       .wait('@submission-details-response')
   });
   
