@@ -183,29 +183,29 @@ describe('Admin Flow - Favoriting', () => {
 
   it('Should be able to view favorites when favorites radio button is selected and all submissions when view all is selected', () => {
     cy.get('.login-button')
-    .wait(2000)
-    .click()
-    .intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', (req) => {
-      if (req.body.query.includes('getSubmissions')) {
-        return req.reply({statusCode: 200, fixture: 'all-submissions-true-response.json'})
-      } else if (req.body.query.includes('favoriteSubmissionAdmin')) {
-        return req.reply({statusCode: 200, fixture: 'favorite-submission-response.json'})
-      }
-    }).as('modified-response');
+      .wait(2000)
+      .click()
+      .intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', (req) => {
+        if (req.body.query.includes('getSubmissions')) {
+          return req.reply({statusCode: 200, fixture: 'all-submissions-true-response.json'})
+        } else if (req.body.query.includes('favoriteSubmissionAdmin')) {
+          return req.reply({statusCode: 200, fixture: 'favorite-submission-response.json'})
+        }
+      }).as('modified-response');
     cy.get('.star-icon')
-    .wait(2000)
-    .first()
-    .click()
-    .wait('@modified-response')
+      .wait(2000)
+      .first()
+      .click()
+      .wait('@modified-response')
     cy.get('.fav-radio')
-    .wait(2000)
-    .click()
-    .get('.card')
-    .should('have.length', 1)
+      .wait(2000)
+      .click()
+      .get('.card')
+      .should('have.length', 1)
     cy.get('.all-radio')
-    .wait(2000)
-    .click()
-    .get('.card')
-    .should('have.length', 2)
+      .wait(2000)
+      .click()
+      .get('.card')
+      .should('have.length', 2)
   })
 });
