@@ -123,8 +123,10 @@ describe('Admin Flow - Winner Selection', () => {
       .contains('Select Winner')
       .click()
       .visit('http://localhost:3000/')
-      .get('.winner')
-      .should('have.text', 'Submission 1 is the winner!!!!!!!')
+      .get('.winner-title')
+      .should('have.text', 'Our Troubadour 2022 winner is:')
+      .get('.winner-name')
+      .should('have.text', 'Submission 1')
   });
 });
 
