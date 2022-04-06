@@ -45,9 +45,9 @@ const AdminPage = ({ user, client }) => {
 
     const showFilter = user && <div>
       <label>View All</label>
-      <input type="radio" name="filter" defaultChecked onChange={() => handleAllSubmissions()} />
+      <input className="all-filter" type="radio" name="filter" defaultChecked onChange={() => handleAllSubmissions()} />
       <label>View Favorites</label>
-      <input type="radio" name="filter" onChange={() => handleFavorites()}  />
+      <input className="fav-filter" type="radio" name="filter" onChange={() => handleFavorites()}  />
     </div>
 
     const cardsForDisplay = isFilteredSelected ? filteredSubmissions : allSubmissions

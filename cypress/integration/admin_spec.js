@@ -173,4 +173,11 @@ describe('Admin Flow - Favoriting', () => {
       .click()
       .wait('@modified-response')
   });
+
+  it('Should have view all and view favorites radio buttons', () => {
+    cy.get('.login-button')
+      .wait(2000)
+      .click()
+      .get('.all-filter')
+  } )
 });
