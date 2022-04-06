@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './AdminPage.scss';
 import MusicianCard from '../MusicianCard/MusicianCard';
+import Error from '../Error/Error';
 import { useQuery } from '@apollo/client';
 import { GET_SUBMISSIONS } from '../../queries';
 
@@ -17,7 +18,9 @@ const AdminPage = ({ user, client }) => {
   }, [])
 
   if (loading) return 'Loading...';
-  if (error) return <p>error: {error.message}</p>;
+  if (error) {
+    return <Error error={error} />;
+  }
   if (data) {
     const renderCards = (data) => {
       if (data.getSubmissions.length > 0) {
