@@ -5,35 +5,16 @@ import { useQuery } from '@apollo/client';
 import { GET_SUBMISSIONS } from '../../queries';
 
 const AdminPage = ({ user }) => {
-  // const [data, setData] = useState([])
   const [isFilteredSelected, setIsFilteredSelected] = useState(false)
   const { loading, error, data, refetch } = useQuery(GET_SUBMISSIONS);
-  console.log(data)
+
   useEffect(() => {
     refetch()
   }, [])
 
-  // const filterFavorites = () => {
-  //   setData({getSubmissions: data.getSubmissions.filter(sub => sub.adminFavorite)})
-  // }
-
   if (loading || !data) return 'Loading...';
   if (error) return <p>error: {error.message}</p>;
   if (data) {
-    // const renderCards = (data) => {
-    //   if (data.getSubmissions.length > 0) {
-    //     return data.getSubmissions.map(submission => {
-    //       return <MusicianCard refetch={refetch}  user={user} key={submission.id} submission={submission} />
-    //     });
-    //   }
-    // }
-    // const handleFavorites = data => {
-    //   setIsFilteredSelected(true)
-    //   const filteredFavorites = data.getSubmissions.filter(submission => submission.adminFavorite)
-    //   return filteredFavorites.map(submission => {
-    //     return <MusicianCard refetch={refetch} user={user} key={submission.id} submission={submission}/>
-    //   })
-    // }
 
     const handleAllSubmissions = () => {
       setIsFilteredSelected(false)
@@ -53,7 +34,6 @@ const AdminPage = ({ user }) => {
       <label>View All</label>
       <input type="radio" name="filter" defaultChecked onChange={() => handleAllSubmissions()} />
       <label>View Favorites</label>
-      {/* <input type="radio" name="filter" onChange={() => filterFavorites()}  /> */}
       <input type="radio" name="filter" onChange={() => handleFavorites()}  />
     </div>
 
@@ -66,7 +46,6 @@ const AdminPage = ({ user }) => {
           <h2 className='admin-title'>Submissions</h2>
         </div>
         <div className='card-container'>
-          {/* { cardsForDisplay } */}
           { messageOrCards }
         </div>
       </div>
