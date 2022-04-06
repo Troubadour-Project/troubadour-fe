@@ -19,8 +19,7 @@ View the deploted site [HERE](https://troubadour-fe.herokuapp.com/)
 
 ## Overview
 
-Troubadour was created to help music festivals manage their competition submissions. As an admin, you can log-in to view all submission, save your favorites, and vote on a winner! The winner will be displayed on the main page where everyone can come and see who won.
-TBC...
+Welcome to Troubadour! This application was created to help music festivals manage their competition submissions. As an administrator, you can log-in to view all submissions, save and view your favorites, and vote on a winner! Other users of the application have access to a submission form where they can fill out basic information and upload their profile picture and video. They can view their submission along with any other submissions for the contest made by other musicians. After a winner is selected by the administrators, it will be displayed on the main page where everyone can come and see who won!
 
 ## See how it works!
 
@@ -30,8 +29,9 @@ Gifs here
 
 - React
 - React Router
-- Cyress
+- Cypress
 - GraphQL
+- Apollo Client
 - Figma [Wireframe](https://www.figma.com/file/vtwB7tDxUy7saAH08nMcDM/Capstone?node-id=0%3A1)
 
 ## Installation and Setup
