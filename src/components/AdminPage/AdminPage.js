@@ -5,13 +5,18 @@ import { useQuery } from '@apollo/client';
 import { GET_SUBMISSIONS } from '../../queries';
 
 const AdminPage = ({ user }) => {
-  const { loading, error, data, refetch } = useQuery(GET_SUBMISSIONS);
-
+  const [data, setData] = useState()
+  const { loading, error, refetch } = useQuery(GET_SUBMISSIONS, {onCompleted: setData});
+  
   useEffect(() => {
     refetch()
   }, [])
 
-  if (loading) return 'Loading...';
+  const filterFavorites = () => {
+    setData({getSubmissions: data.getSubmissions.filter(sub => sub.adminFavorite)})
+  }
+
+  if (loading || !data) return 'Loading...';
   if (error) return <p>error: {error.message}</p>;
   if (data) {
     const renderCards = (data) => {
@@ -22,16 +27,11 @@ const AdminPage = ({ user }) => {
       }
     }
 
-    const filterFavorites = (data) => {
-      data.getSubmissions = data.getSubmissions.filter(sub => sub.adminFavorite)
-      debugger
-    }
-
     const showFilter = user && <div>
       <label>View All</label>
-      <input type="radio" name="filter" checked />
+      <input type="radio" name="filter" defaultChecked onChange={renderCards} />
       <label>View Favorites</label>
-      <input type="radio" name="filter" onChange={filterFavorites} />
+      <input type="radio" name="filter" onChange={filterFavorites}  />
     </div>
 
 
