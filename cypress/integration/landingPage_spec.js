@@ -24,14 +24,6 @@ describe('Landing Page User Flow', () => {
       .should('have.text', 'Login')
   });
 
-  it('Should click the Login button and see the text change', () => {
-    cy.get('.login-button')
-      .wait(1000)
-      .click()
-      .get('.login-button')
-      .should('have.text', 'Logout')
-  });
-
   it('Should have a hamburger menu', () => {
     cy.get('.mobile-nav-wrapper')
       .should('exist')
