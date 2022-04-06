@@ -1,21 +1,33 @@
 import { useEffect, useState } from 'react';
 import './AdminPage.scss';
 import MusicianCard from '../MusicianCard/MusicianCard';
+import Error from '../Error/Error';
+import UploadingSpinner from '../UploadingSpinner/UploadingSpinner';
 import { useQuery } from '@apollo/client';
 import { GET_SUBMISSIONS } from '../../queries';
 
-const AdminPage = ({ user }) => {
-  const [isFilteredSelected, setIsFilteredSelected] = useState(false)
+const AdminPage = ({ user, client }) => {
+  const [isFilteredSelected, setIsFilteredSelected] = useState(false);
+
   const { loading, error, data, refetch } = useQuery(GET_SUBMISSIONS);
 
   useEffect(() => {
     refetch()
   }, [])
+  
+  useEffect(() => {
+    return () => {client.resetStore()}
+  }, [])
 
-  if (loading || !data) return 'Loading...';
-  if (error) return <p>error: {error.message}</p>;
+  if (loading || !data) {
+    return (
+      <div className="loading-container">
+        <UploadingSpinner />
+      </div>
+    );
+  }
+  if (error) return <Error error={error} />;
   if (data) {
-
     const handleAllSubmissions = () => {
       setIsFilteredSelected(false)
     }

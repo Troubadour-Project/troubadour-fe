@@ -5,10 +5,11 @@ import NavBar from './components/NavBar/NavBar'
 import SubmissionForm from './components/SubmissionForm/SubmissionForm';
 import AdminPage from './components/AdminPage/AdminPage';
 import LandingPage from './components/LandingPage/LandingPage';
+import Error from './components/Error/Error';
 import './App.scss';
 import SubmissionDetailsPage from './components/SubmissionDetailsPage/SubmissionDetailsPage';
 
-function App() {
+function App({ client }) {
   const [user, setUser] = useState(null);
 
   return (
@@ -17,11 +18,10 @@ function App() {
       <main>
         <Routes>
           <Route exact path='/' element={<LandingPage />} />
-          <Route exact path='/submissions' element={<AdminPage user={user}/>} />
+          <Route exact path='/submissions' element={<AdminPage user={user} client={client} />} />
           <Route exact path='/form' element={<SubmissionForm />} />
-          <Route path='/submissions/:id' element={<SubmissionDetailsPage user={user}/>}
-          />
-          {/* <Route path='/*' element={<Error />} /> */}
+          <Route path='/submissions/:id' element={<SubmissionDetailsPage user={user}/>} />
+          <Route path='/*' element={<Error error='incorrect url'/>} />
         </Routes>
       </main>
     </div>
