@@ -26,6 +26,7 @@ const AdminPage = ({ user }) => {
     const allSubmissions = data.getSubmissions.map(submission => {
       return <MusicianCard refetch={refetch} user={user} key={submission.id} submission={submission}/>
     })
+
     const filteredSubmissions = data.getSubmissions.filter(submission => submission.adminFavorite).map(submission => {
       return <MusicianCard refetch={refetch} user={user} key={submission.id} submission={submission}/>
     })
@@ -38,7 +39,9 @@ const AdminPage = ({ user }) => {
     </div>
 
     const cardsForDisplay = isFilteredSelected ? filteredSubmissions : allSubmissions
+    
     const messageOrCards = cardsForDisplay.length ? cardsForDisplay : <p>No favorites selected yet! Please add some!</p>
+
     return(
       <div className='admin-page'>
         {showFilter}
