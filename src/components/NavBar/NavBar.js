@@ -9,7 +9,7 @@ import './NavBar.scss'
 
 const NavBar = ({ setUser, user }) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
-  const { loading, error, data, refetch } = useQuery(GET_ADMIN); // right now query is grabbing admin 1, will need to make this dynamic
+  const { loading, error, data, refetch } = useQuery(GET_ADMIN);
   
   const handleLogin = () => {
     refetch();
@@ -18,7 +18,6 @@ const NavBar = ({ setUser, user }) => {
     } else if (user) {
       setUser(null);
     }
-  // need to error handling for error/loading
   }
   
   const active = classNames('mobile-menu', {
