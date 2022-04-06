@@ -29,8 +29,8 @@
 
 Welcome to Troubadour! This application was created to help music festivals manage their competition submissions. As an administrator, you can log-in to view all submissions, save and view your favorites, and vote on a winner! Other users of the application have access to a submission form where they can fill out basic information and upload their profile picture and video. They can view their submission along with any other submissions for the contest made by other musicians. After a winner is selected by the administrators, it will be displayed on the main page where everyone can come and see who won!  
 
-View the backend end repository [HERE](https://github.com/Troubadour-Project/troubadour_be)  
-View the deploted site [HERE](https://troubadour-fe.herokuapp.com/)  
+View the backend repository [HERE](https://github.com/Troubadour-Project/troubadour_be)  
+View the deployed site [HERE](https://troubadour-fe.herokuapp.com/)  
   
 ## Learning Goals
 - Strengthen teamwork skills by working cross-platform for the first time between frontend and backend programs
@@ -62,6 +62,13 @@ Gifs here
 5. Visit `http://localhost:3000/` in your web browser to view the application
 
 You can close your local server at any time by pressing `CTRL + c` in the terminal window running your server.
+  
+## Links
+View the backend repository [HERE](https://github.com/Troubadour-Project/troubadour_be)  
+View the deployed application [HERE](https://troubadour-fe.herokuapp.com/)  
+
+## Challenges and Wins
+Our instructors alerted us that the hardest part about building an application with a large group is getting everyone on the same page and determining the direction we should take. This placed a heavy emphasis on the planning phase. Thankfully we have a group of excellent communicators who are supportive, kind and hard working. This eased the pressures of an already stressful situation and alot more fun! 
 
 ## Future Goals
 
