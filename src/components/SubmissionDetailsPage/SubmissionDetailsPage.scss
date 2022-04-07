@@ -9,3 +9,10 @@ video {
   width: 100%;
   height: 95%;
 }
+
+.winner-btn-container {
+  @include flex(none, center, none);
+  padding-top: 2.2rem;
+  height: 12%;
+  width: 100%;
+}
