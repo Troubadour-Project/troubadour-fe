@@ -1,6 +1,8 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
 .details-container {
-  display: flex;
-  justify-content: space-around;
+  @include flex(none, space-around, none);
 }
 
 .video-container {
