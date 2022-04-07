@@ -1,34 +1,55 @@
 @import '../../styles/mixins';
+@import '../../styles/variables';
 
 .card {
+  @include flex(column, space-around, center);
   justify-self: center;
-  @include flex(column, center, center);
   border-radius: 5px;
-  height: 250px;
-  width: 250px;
+  height: 410px;
+  width: 310px;
   margin: 20px;
-  background-color: lightgray;
+  font-family: sans-serif;
+  box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+  transition: all 0.2s ease-in-out 0s;
 
   &:hover {
     cursor: pointer;
-    background-color: rgb(189, 189, 189);
+    box-shadow: 0 6px 40px rgba($orange, .3);
+		top: -4px;
   }
 }
 
 .profile-img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
   border-radius: 50%;
-  margin: 20px;
+  margin: 0 auto 20px auto;
+  display: block;
 }
 
 .card-name,
 .card-song-title {
   padding: 10px;
+  text-align: center;
+  color: $black;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 .star-icon {
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
   margin-left: 80%;
+  font-weight: 700;
+  font-size: 1.125em;
+  transition: all 0.15s ease-in-out 0s;
+
+  &:hover {
+    transform: scale(1.5, 1.5);
+  }
+}
+
+a {
+  text-decoration: none;
 }

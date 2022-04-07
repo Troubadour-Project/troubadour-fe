@@ -23,7 +23,7 @@ const SubmissionDetailsPage = ({ user }) => {
   } 
 
   const winnerButton = user && 
-    <button onClick={(event) => handleClick(event)}>Select As Winner</button>
+    <button className="winner-btn" onClick={(event) => handleClick(event)}>Select As Winner</button>
 
   const modal = showModal &&
     <Modal name={data.getSubmission.name} setShowModal={setShowModal} id={id}/>
@@ -43,8 +43,10 @@ const SubmissionDetailsPage = ({ user }) => {
         <MusicianProfile submission={data.getSubmission} />
         <div className="submission-video">
           <video src={data.getSubmission.videoUrl} controls className="video-container" />
+          <div className="winner-btn-container">
+            { winnerButton }
+          </div>
         </div>
-        { winnerButton }
       </div>
     );
   }

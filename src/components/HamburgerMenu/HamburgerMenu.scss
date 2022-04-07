@@ -1,12 +1,12 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
 .mobile-nav-wrapper {
+  @include flex(column, center, center);
   z-index: 1;
   width: 20%;
-  display: flex;
-  flex-direction: column;
-  background-color: #617D8A;
-  align-items: center;
-  justify-content: center;
   position: absolute;
+  background-color: $gray;
   opacity: 0;
   visibility: hidden;
   height: 0%;
@@ -21,7 +21,7 @@
   opacity: 1;
   visibility: visible;
   height: 25%;
-  background: #617D8A;
+  background: $gray;
   overflow-x:hidden;
   width: 20%;
   right: 50px;
@@ -34,7 +34,7 @@
   text-align: center;
   text-decoration: none;
   font-size: 2rem;
-  color: #1c2541;
+  color: $white;
   font-weight: 600;
   padding: 0.5rem;
   border-radius: 3px;
@@ -42,8 +42,6 @@
 }
 
 .mobile-link.active {
-  color: #42579a;
-  background-color: #617D8A;
   border-radius: 5px;
   width: 100%;
 }
