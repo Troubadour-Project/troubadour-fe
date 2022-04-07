@@ -25,9 +25,15 @@
 }
 
 .winner-container {
-  @include flex(column, center, center);
-  width: 75%;
-  margin: 50px;
+  @include flex(column, space-around, center);
+    width: 35%;
+    height: 40%;
+    margin: 50px;
+    border: solid 2px $black;
+    background: $black-transparent;
+    color: $white;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .welcome-message-header {
