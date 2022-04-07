@@ -33,17 +33,15 @@ form {
   }
 }
 
-
-
 .submit-button {
-  color: #FFF;
+  color: $white;
   font-size: 2vh;
   margin-top: 1vh;
   width: 50%;
   align-self: center;
   border-radius: 10px;
   border: none;
-  background-color: rgb(4, 97, 97);
+  background-color: $teal;
   padding: 8px;
   &:hover{
     cursor: pointer;
