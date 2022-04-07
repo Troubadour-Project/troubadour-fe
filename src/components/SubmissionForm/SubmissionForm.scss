@@ -1,4 +1,5 @@
 @import '../../styles/mixins';
+@import '../../styles/variables';
 
 .form-container,
 form {
@@ -8,40 +9,39 @@ form {
 
 .form-container {
   margin-top: 3vh;
+  margin-bottom: 2vh;
 }
 
 form {
-  width: 30%;
+  width: 40%;
   align-self: center;
-  background-color: teal;
+  background-color: $gray;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 10px 5px 5px rgb(46, 70, 70);
+  box-shadow: 10px 5px 5px $light-gray;
 
   label {
-  color: #FFF;
+  color: $white;
   margin-top: 1vh;
   margin-bottom: .5vh;
 }
 
   h2 {
     font-size: 3vh;
-    color: #FFF;
+    color: $white;
     text-align: center;
   }
 }
 
-
-
 .submit-button {
-  color: #FFF;
+  color: $white;
   font-size: 2vh;
   margin-top: 1vh;
   width: 50%;
   align-self: center;
   border-radius: 10px;
   border: none;
-  background-color: rgb(4, 97, 97);
+  background-color: $teal;
   padding: 8px;
   &:hover{
     cursor: pointer;
@@ -57,7 +57,7 @@ input[type=email] {
 
 input[type=file] {
   width: 44%;
-  color: #FFF;
+  color: $white;
   border: none;
   &:hover{
     cursor: pointer;
@@ -66,8 +66,8 @@ input[type=file] {
 
 input[type=file]::file-selector-button {
   width: 8vw;
-  color: #FFF;
-  background-color: rgb(4, 97, 97);
+  color: $white;
+  background-color: $teal;
   padding: 8px;
   border: none;
   border-radius: 10px;
@@ -77,15 +77,17 @@ input[type=file]::file-selector-button {
 }
 
 .profile-picture-preview {
-  width: 30%;
-  box-shadow: 10px 5px 5px rgb(46, 70, 70);
+  width: 150px;
+  height: 150px;
+  box-shadow: 10px 5px 5px $shadow-black;
   margin-bottom: .5vh;
+  object-fit: cover;
 }
 
 .wrong-video-message,
 .wrong-image-message,
 .file-size-message {
-  color: #FFF;
+  color: $white;
   align-self: center;
   margin-bottom: 3.1vh;
 }
