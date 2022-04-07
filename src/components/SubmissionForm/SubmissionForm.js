@@ -77,7 +77,7 @@ const SubmissionForm = () => {
     formData.append("submission[song_title]", songTitle)
     formData.append("submission[profile]", profileImage)
     formData.append("submission[video]", video)
-    formData.append("submission[winner]", null)
+    formData.append("submission[winner]", false)
 
     fetch('https://troubadour-be.herokuapp.com/api/v1/submissions', {
       method: 'POST',
