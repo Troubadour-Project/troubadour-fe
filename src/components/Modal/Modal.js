@@ -21,7 +21,7 @@ const Modal = ({ name, setShowModal, id }) => {
     variables: { id: id, winner: true }
   })
 
-  const updateWinner = (event) => {
+  const updateWinner = () => {
     selectWinner()
       .then(response => console.log(response.data.updateWinner.submission))
       .then(() => closeModal())

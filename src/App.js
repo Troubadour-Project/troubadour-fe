@@ -21,7 +21,7 @@ function App({ client }) {
           <Route exact path='/submissions' element={<AdminPage user={user} client={client} />} />
           <Route exact path='/form' element={<SubmissionForm />} />
           <Route path='/submissions/:id' element={<SubmissionDetailsPage user={user}/>} />
-          <Route path='/*' element={<Error error='incorrect url'/>} />
+          <Route path='/*' element={<Error error='404'/>} />
         </Routes>
       </main>
     </div>
