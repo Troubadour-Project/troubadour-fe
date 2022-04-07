@@ -76,7 +76,10 @@ Our instructors alerted us that the hardest part about building an application w
 
 - Would like to implement login functionality so multiple users can view their individual submissions
 - Would like to implement a payment system (similar contests charge a small fee for entry)
-- Would like to implement a rating rubric for administrators to rate musicians
+- Would like to implement a rating rubric for administrators to rate musicians  
+
+## Acknowledgments
+Thank you to [loading.io](https://loading.io/) for making animations easy!  
 
 ## Contributors ✨
 
