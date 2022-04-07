@@ -22,6 +22,7 @@
 - [Setup](#installation-and-setup)
 - [Links](#links)
 - [Challenges and Wins](#challenges-and-wins)
+- [Future Iterations](#challenges-and-wins)
 - [Acknowledgments](#acknowledgments)
 - [Contributors](#contributors)
 
@@ -66,13 +67,16 @@ You can close your local server at any time by pressing `CTRL + c` in the termin
 ## Links
 View the backend repository [HERE](https://github.com/Troubadour-Project/troubadour_be)  
 View the deployed application [HERE](https://troubadour-fe.herokuapp.com/)  
+View our wireframes on Figma [HERE](https://www.figma.com/file/vtwB7tDxUy7saAH08nMcDM/Capstone?node-id=0%3A1)
 
 ## Challenges and Wins
-Our instructors alerted us that the hardest part about building an application with a large group is getting everyone on the same page and determining the direction we should take. This placed a heavy emphasis on the planning phase. Thankfully we have a group of excellent communicators who are supportive, kind and hard working. This eased the pressures of an already stressful situation and alot more fun! 
+Our instructors alerted us that the hardest part about building an application with a large group is getting everyone on the same page and determining the direction we should take. This placed a heavy emphasis on the planning phase. Thankfully we have a group of excellent communicators who are supportive, kind and hard working. This eased the pressures of an already stressful situation and made it alot more fun! 
 
-## Future Goals
+## Future Iterations
 
-Future goals here
+- Would like to implement login functionality so multiple users can view their individual submissions
+- Would like to implement a payment system (similar contests charge a small fee for entry)
+- Would like to implement a rating rubric for administrators to rate musicians
 
 ## Contributors ✨
 
