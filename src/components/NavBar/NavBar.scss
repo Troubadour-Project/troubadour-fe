@@ -1,26 +1,19 @@
 @import '../../styles/mixins';
+@import '../../styles/variables';
 
   .navigation-wrapper {
-    background-color: #617D8A;
+    background-color: $gray;
     z-index: 3;
     padding: 0 1.5rem;
 
     .navigation-header {
+      @include flex(none, space-between, center);
       height: 73px;
       margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      .navigation-names > a > div {
-        display: none;
-      }
 
       .navigation-links {
         .mobile-menu {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
+          @include flex(column, space-around, none);
           width: 2rem;
           height: 2rem;
           background: transparent;
@@ -28,6 +21,7 @@
           padding: 0;
           right: 1.5rem;
           top: 20px;
+          cursor: pointer;
         }
 
         &:focus {
@@ -39,7 +33,7 @@
         .bar-three {
           width: 2rem;
           height: 0.25rem;
-          background: white;
+          background: $white;
           border-radius: 10px;
           transition: all 0.3s linear;
           position: relative;
