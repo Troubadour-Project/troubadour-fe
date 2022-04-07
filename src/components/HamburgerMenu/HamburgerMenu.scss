@@ -1,12 +1,12 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
 .mobile-nav-wrapper {
+  @include flex(column, center, center);
   z-index: 1;
   width: 20%;
-  display: flex;
-  flex-direction: column;
-  background-color: #617D8A;
-  align-items: center;
-  justify-content: center;
   position: absolute;
+  background-color: $gray;
   opacity: 0;
   visibility: hidden;
   height: 0%;
