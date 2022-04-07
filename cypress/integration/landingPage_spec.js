@@ -91,19 +91,13 @@ describe('Landing Page User Flow', () => {
   it('Should display a welcome message', () => {
     cy.get('.welcome-message-header')
       .should('have.text', 'Welcome to the Troubadour Music Contest!')
-      .get('.welcome-message')
-      .should('have.text', 'We will accept entries for the 2023 Troubadour Music Contest beginning April 1st, 2022. Contestants may submit an original song. We will post submission details later on.')
-      .get('.submission-dates-header')
-      .should('have.text', 'Important submission dates:')
-      .get('.submission-dates-april')
-      .should('have.text', 'April 22nd, 2023: All submissions must be postmarked on or before.')
-      .get('.submission-dates-may')
-      .should('have.text', 'May 4th, 2023: We will notify all finalists and alternates by this date. Watch for the public posting of Troubadour finalists around this time.')
+      .get('.greeting-message')
+        .contains('We will accept entries for the 2023 Troubadour Music Contest beginning April 1st, 2022. Contestants may submit an original song. We will post submission details later on.')
   });
 
   it('Should have a link to the submission form', () => {
     cy.get('.hero-button')
-      .should('have.text', 'Become a Rockstar')
+      .should('have.text', 'Sign Up Form')
       .click()
       .wait(1000)
       .url().should('eq', 'http://localhost:3000/form')
