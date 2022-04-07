@@ -24,7 +24,7 @@
 - [Challenges and Wins](#challenges-and-wins)
 - [Future Iterations](#challenges-and-wins)
 - [Acknowledgments](#acknowledgments)
-- [Contributors](#contributors)
+- [Contributors](#contributors-✨)
 
 ## Abstract
 
