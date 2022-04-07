@@ -1,10 +1,18 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
 .submission-details {
-  display: flex;
-  justify-content: center;
-  width: 40vw;
-  height: 60vh;
-  margin-top: 80px;
-  border: 1px solid black;
+  @include flex(column, none, center);
+  width: 22vw;
+  height: 55vh;
+  border: 5px solid $gold;
+  position: relative;
+  background: $black;
+  color: $white;
+  max-width: 73rem;
+  margin: 6rem 0 0;
+  border-radius: 0.4rem;
+  padding: 7.5rem 2.5rem 1rem;
 }
 
 .submission-video {
