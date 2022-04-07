@@ -18,7 +18,6 @@ const NavBar = ({ setUser, user }) => {
     } else if (user) {
       setUser(null);
     }
-  // need to error handling for error/loading
   }
   
   const active = classNames('mobile-menu', {
