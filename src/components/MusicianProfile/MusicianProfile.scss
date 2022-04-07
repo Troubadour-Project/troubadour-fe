@@ -22,9 +22,17 @@
 }
 
 .details-picture {
-  width:160px;
-  height:160px;
-  margin-top: 15px;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin: 0px auto;
+  border-radius: 50%;
+  background: $gold;
+  padding: 5px;
 }
 
 .details-card-container {
