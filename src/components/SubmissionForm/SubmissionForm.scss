@@ -13,22 +13,22 @@ form {
 }
 
 form {
-  width: 30%;
+  width: 40%;
   align-self: center;
-  background-color: teal;
+  background-color: $gray;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 10px 5px 5px rgb(46, 70, 70);
+  box-shadow: 10px 5px 5px $light-gray;
 
   label {
-  color: #FFF;
+  color: $white;
   margin-top: 1vh;
   margin-bottom: .5vh;
 }
 
   h2 {
     font-size: 3vh;
-    color: #FFF;
+    color: $white;
     text-align: center;
   }
 }
