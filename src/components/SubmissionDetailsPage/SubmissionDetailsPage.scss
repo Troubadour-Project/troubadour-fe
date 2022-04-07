@@ -5,7 +5,7 @@
   @include flex(none, space-around, none);
 }
 
-.video-container {
-  width: 400px;
-  height: auto;
+video {
+  width: 100%;
+  height: 95%;
 }
