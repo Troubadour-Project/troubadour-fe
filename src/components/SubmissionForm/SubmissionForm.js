@@ -77,7 +77,7 @@ const SubmissionForm = () => {
     formData.append("submission[song_title]", songTitle)
     formData.append("submission[profile]", profileImage)
     formData.append("submission[video]", video)
-    formData.append("submission[winner]", null)
+    formData.append("submission[winner]", false)
 
     for (var value of formData.entries()) {
       console.log(`${value[0]} ${value[1]}`)
