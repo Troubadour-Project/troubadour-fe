@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useQuery } from '@apollo/client'
-import { GET_WINNER } from '../../queries'
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { GET_WINNER } from '../../queries';
 import UploadingSpinner from '../UploadingSpinner/UploadingSpinner';
 import Error from '../Error/Error';
-import "./LandingPage.scss"
+import "./LandingPage.scss";
 
 const LandingPage = () => {
   const [winner, setWinner] = useState(null);
@@ -43,4 +43,4 @@ const LandingPage = () => {
   )
 }
 
-export default LandingPage
+export default LandingPage;
