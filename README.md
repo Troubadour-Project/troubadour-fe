@@ -14,36 +14,85 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </div>
 
-View the backend end repo [HERE](https://github.com/Troubadour-Project/troubadour_be)
-View the deploted site [HERE](https://troubadour-fe.herokuapp.com/)
+## Table of Contents
+- [Abstract](#abstract)  
+- [Learning Goals](#learning-goals)
+- [Screenshots](#screenshots)
+- [Technologies](#technologies)
+- [Setup](#installation-and-setup)
+- [Links](#links)
+- [Challenges and Wins](#challenges-and-wins)
+- [Future Iterations](#challenges-and-wins)
+- [Acknowledgments](#acknowledgments)
+- [Contributors](#contributors-✨)
 
-## Overview
+## Abstract
 
-Troubadour was created to help music festivals manage their competition submissions. As an admin, you can log-in to view all submission, save your favorites, and vote on a winner! The winner will be displayed on the main page where everyone can come and see who won.
-TBC...
+Welcome to Troubadour! This application was created to help music festivals manage their competition submissions. As an administrator, you can log-in to view all submissions, save and view your favorites, and vote on a winner! Other users of the application have access to a submission form where they can fill out basic information and upload their profile picture and video. They can view their submission along with any other submissions for the contest made by other musicians. After a winner is selected by the administrators, it will be displayed on the main page where everyone can come and see who won!  
 
-## See how it works!
+View the backend repository [HERE](https://github.com/Troubadour-Project/troubadour_be)  
+View the deployed site [HERE](https://troubadour-fe.herokuapp.com/)  
+  
+## Learning Goals
+- Strengthen teamwork skills by working cross-platform for the first time between frontend and backend programs
+- Gain experience communicating effectively with multiple developers and collaborate on feature building
+- Gain experience with continuous integration to make sure our contributions are thoroughly vetted before adoption into the rest of the application
+- Implement new technologies for both frontend and backend. In this case, GraphQL and Apollo Client were used for data transmission.
 
-Gifs here
+## Screenshots
 
-## Tech Used
+View of the landing page  
+![landing-page-gif](https://user-images.githubusercontent.com/62816754/162115816-306e924a-f195-4927-992a-929e7b6b2bf4.gif)  
+  
+View of a new submission  
+![submission-form-gif](https://user-images.githubusercontent.com/62816754/162116309-f38fcf65-3b38-499b-9303-3d6da9529723.gif)  
+  
+User view of submission details  
+![submission-details-user](https://user-images.githubusercontent.com/62816754/162116530-70deb1a6-f699-4551-9818-ccd0f8930c98.gif)  
+  
+Admin view of submission details  
+![submission-details-admin-gif](https://user-images.githubusercontent.com/62816754/162116739-9856bf17-2d05-4780-9cd7-65caa786b6e3.gif)  
+  
+Admins can favorite a submission  
+![favoriting-gif](https://user-images.githubusercontent.com/62816754/162116850-963b8e44-cd4e-46ae-b494-22862465f890.gif)  
+
+## Technologies
 
 - React
 - React Router
-- Cyress
+- SASS
+- Cypress
 - GraphQL
+- Apollo Client
 - Figma [Wireframe](https://www.figma.com/file/vtwB7tDxUy7saAH08nMcDM/Capstone?node-id=0%3A1)
 
 ## Installation and Setup
 
-1. Clone down this Repository using `git clone`
-2. `cd` into the cloned repository
-3. `npm install` to install dependancies
-4. Run `npm start` to open the webpage
+1. In your terminal, clone this repository down to your local machine by running:  
+`git clone git@github.com:Troubadour-Project/troubadour-fe.git`
+2. `cd` into the `troubadour-fe` directory
+3. Run `npm install` to install the necessary dependencies
+4. Run `npm start` to start your local server
+5. Visit `http://localhost:3000/` in your web browser to view the application
 
-## Future Goals
+You can close your local server at any time by pressing `CTRL + c` in the terminal window running your server.
+  
+## Links
+View the backend repository [HERE](https://github.com/Troubadour-Project/troubadour_be)  
+View the deployed application [HERE](https://troubadour-fe.herokuapp.com/)  
+View our wireframes on Figma [HERE](https://www.figma.com/file/vtwB7tDxUy7saAH08nMcDM/Capstone?node-id=0%3A1)
 
-Future goals here
+## Challenges and Wins
+Our instructors alerted us that the hardest part about building an application with a large group is getting everyone on the same page and determining the direction we should take. This placed a heavy emphasis on the planning phase. Thankfully we have a group of excellent communicators who are supportive, kind and hard working. This eased the pressures of an already stressful situation and made it alot more fun! 
+
+## Future Iterations
+
+- Would like to implement login functionality so multiple users can view their individual submissions
+- Would like to implement a payment system (similar contests charge a small fee for entry)
+- Would like to implement a rating rubric for administrators to rate musicians  
+
+## Acknowledgments
+Thank you to [loading.io](https://loading.io/) for making animations easy!  
 
 ## Contributors ✨
 
