@@ -41,7 +41,20 @@ View the deployed site [HERE](https://troubadour-fe.herokuapp.com/)
 
 ## Screenshots
 
-Gifs here
+View of the landing page  
+![landing-page-gif](https://user-images.githubusercontent.com/62816754/162115816-306e924a-f195-4927-992a-929e7b6b2bf4.gif)  
+  
+View of a new submission  
+![submission-form-gif](https://user-images.githubusercontent.com/62816754/162116309-f38fcf65-3b38-499b-9303-3d6da9529723.gif)  
+  
+User view of submission details  
+![submission-details-user](https://user-images.githubusercontent.com/62816754/162116530-70deb1a6-f699-4551-9818-ccd0f8930c98.gif)  
+  
+Admin view of submission details  
+![submission-details-admin-gif](https://user-images.githubusercontent.com/62816754/162116739-9856bf17-2d05-4780-9cd7-65caa786b6e3.gif)  
+  
+Admins can favorite a submission  
+![favoriting-gif](https://user-images.githubusercontent.com/62816754/162116850-963b8e44-cd4e-46ae-b494-22862465f890.gif)  
 
 ## Technologies
 
