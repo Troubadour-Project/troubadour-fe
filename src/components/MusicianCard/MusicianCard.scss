@@ -1,17 +1,21 @@
 @import '../../styles/mixins';
+@import '../../styles/variables';
 
 .card {
+  @include flex(column, space-around, center);
   justify-self: center;
-  @include flex(column, center, center);
   border-radius: 5px;
-  height: 250px;
-  width: 250px;
+  height: 410px;
+  width: 310px;
   margin: 20px;
-  background-color: lightgray;
+  font-family: sans-serif;
+  box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+  transition: all 0.2s ease-in-out 0s;
 
   &:hover {
     cursor: pointer;
-    background-color: rgb(189, 189, 189);
+    box-shadow: 0 6px 40px rgba($orange, .3);
+		top: -4px;
   }
 }
 
