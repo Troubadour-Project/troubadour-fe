@@ -18,8 +18,13 @@ const LandingPage = () => {
   
   const displayWinner = winner &&
     <div className="winner-container">
-      <p className="winner-title">Our Troubadour 2022 winner is:</p>
-      <p className="winner-name">{data.getWinner.name}</p>
+      <div className="winner-title-container">
+        <p className="winner-title">Our Troubadour 2022 winner is:</p>
+      </div>
+      <img src={data.getWinner.profileUrl} className="winner-image" alt="Profile image of the contest winner"></img>
+      <div className="winner-name-container">
+        <p className="winner-name">{data.getWinner.name}</p>
+      </div>
     </div>
   
   if (loading) {
