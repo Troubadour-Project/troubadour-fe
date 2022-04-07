@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useQuery } from '@apollo/client'
-import { GET_WINNER } from '../../queries'
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { GET_WINNER } from '../../queries';
 import UploadingSpinner from '../UploadingSpinner/UploadingSpinner';
 import Error from '../Error/Error';
-import "./LandingPage.scss"
+import "./LandingPage.scss";
 
 const LandingPage = () => {
   const [winner, setWinner] = useState(null);
@@ -41,7 +41,7 @@ const LandingPage = () => {
       { displayWinner }
         <div className="scroll">
           <p className="greeting-message">
-          We will accept entries for the 2023 Troubadour Music Contest beginning April 1st, 2022. Contestants may submit an original song. We will post submission details later on.
+          We will accept entries for the 2023 Troubadour Music Contest beginning April 1st, 2022. Contestants may submit an original song. Please keep your videos less than 5 minutes and do not duplicate your submissions.
           <br />
           Important submission dates: 
           <br />
@@ -58,4 +58,4 @@ const LandingPage = () => {
   )
 }
 
-export default LandingPage
+export default LandingPage;

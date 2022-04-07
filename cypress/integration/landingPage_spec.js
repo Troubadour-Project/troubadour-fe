@@ -84,7 +84,7 @@ describe('Landing Page User Flow', () => {
     cy.get('.welcome-message-header')
       .should('have.text', 'Welcome to the Troubadour Music Contest!')
       .get('.greeting-message')
-        .contains('We will accept entries for the 2023 Troubadour Music Contest beginning April 1st, 2022. Contestants may submit an original song. We will post submission details later on.')
+      .contains('We will accept entries for the 2023 Troubadour Music Contest beginning April 1st, 2022. Contestants may submit an original song. Please keep your videos less than 5 minutes and do not duplicate your submissions.')
   });
 
   it('Should have a link to the submission form', () => {

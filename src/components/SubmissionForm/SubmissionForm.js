@@ -79,17 +79,12 @@ const SubmissionForm = () => {
     formData.append("submission[video]", video)
     formData.append("submission[winner]", false)
 
-    for (var value of formData.entries()) {
-      console.log(`${value[0]} ${value[1]}`)
-    }
-
     fetch('https://troubadour-be.herokuapp.com/api/v1/submissions', {
       method: 'POST',
       body: formData
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       setSubmissionId(data.data.id)
       setIsResolved(true)
       clearInputs();
