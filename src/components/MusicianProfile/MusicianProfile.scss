@@ -36,8 +36,7 @@
 }
 
 .details-card-container {
-  display: flex;
-  flex-direction: column;
+  @include flex(column, none, none);
 }
 
 .submission-detail {
