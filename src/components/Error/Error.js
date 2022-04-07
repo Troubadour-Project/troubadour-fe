@@ -4,8 +4,8 @@ import './Error.scss';
 const Error = ({ error }) => {
   let message = '';
   let showHomeButton = true;
-  console.log(error)
-  if (error='incorrect route') {
+  
+  if (error === 'incorrect route') {
     message = 'Looks like that page does not exist.';
   }
   
