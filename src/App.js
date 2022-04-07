@@ -9,7 +9,7 @@ import Error from './components/Error/Error';
 import './App.scss';
 import SubmissionDetailsPage from './components/SubmissionDetailsPage/SubmissionDetailsPage';
 
-function App({ client }) {
+const App = ({ client }) => {
   const [user, setUser] = useState(null);
 
   return (
