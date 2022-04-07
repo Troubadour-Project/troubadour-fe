@@ -1,5 +1,5 @@
-describe('Route Error Handling', () => {
-  it('Should handle incorrect urls on landing page', () => {
+describe('Error Handling', () => {
+  it('Should handle 404 error on landing page', () => {
     cy.visit('http://localhost:3000/test')
       .get('p')
       .should('have.text', 'Looks like that page does not exist.')
@@ -7,12 +7,12 @@ describe('Route Error Handling', () => {
       .should('have.attr', 'href', '/')
       .get('.home-button')
       .should('have.text', 'Back To Home Page')
-  })
+  });
   
-  it('Should handle incorrect urls on submission details page', () => {
+  it('Should handle 404 error on submission details page', () => {
     cy.visit('http://localhost:3000/submissions/test')
       .get('p')
-      .should('have.text', 'Looks like that page does not exist.')
+      .should('have.text', 'Sorry, we couldn\'t find that. Please try again.')
       .get('a')
       .should('have.attr', 'href', '/')
       .get('.home-button')
@@ -25,19 +25,5 @@ describe('Route Error Handling', () => {
       .should('have.attr', 'href', '/')
       .get('.home-button')
       .should('have.text', 'Back To Home Page')
-  })
-
-  it.only('Should handle 400 errors', () => {
-    cy.intercept('POST', 'https://troubadour-be.herokuapp.com/graphql', (req) => {
-      if (req.body.query.includes('getAdmin')) {
-        return req.reply({ graphQLErrors: {statusCode: 400 }})
-      } else if (req.body.query.includes('getWinner')) {
-        return req.reply({ graphQLErrors: { statusCode: 400 } })
-      }
-    }).as('Error')
-      
-    cy.visit('http://localhost:3000/')
-      .wait('@Error')
-      .get('p')
-  })
-})
+  });
+});
