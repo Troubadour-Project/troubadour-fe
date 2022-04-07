@@ -1,10 +1,11 @@
 @import '../../styles/mixins';
+@import '../../styles/variables';
 
 .uploading-modal-background {
   @include flex(row, center, center);
   width: 100vw;
   height: 100vh;
-  background-color: rgba(200, 200, 200, 0.5);
+  background-color: $upload-modal-background;
   position: fixed;
   top: 0;
   right: 0;
