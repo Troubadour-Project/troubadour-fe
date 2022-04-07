@@ -77,9 +77,10 @@
   }
 
 
-img {
-  width: 80px;
-}
+  img {
+    width: 100px;
+    height: 100px;
+  }
 
 .button-menu-container {
   @include flex(row, flex-end, center);
